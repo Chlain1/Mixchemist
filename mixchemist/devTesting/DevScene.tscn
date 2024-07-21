@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx7upmvpx8x06"]
+
+[ext_resource type="PackedScene" uid="uid://gdxbg7dufxbg" path="res://devTesting/sceneAssets/Wall.tscn" id="1_vbika"]
+
+[node name="DevScene" type="Node2D"]
+
+[node name="Room" type="Node2D" parent="."]
+position = Vector2(4, 0)
+metadata/_edit_lock_ = true
+
+[node name="Wall" parent="Room" instance=ExtResource("1_vbika")]
+position = Vector2(674, 267)
+scale = Vector2(0.438225, 2.68965)
+
+[node name="Wall2" parent="Room" instance=ExtResource("1_vbika")]
+position = Vector2(248, 268)
+scale = Vector2(0.438225, 2.68965)
+
+[node name="Wall3" parent="Room" instance=ExtResource("1_vbika")]
+position = Vector2(461, 93)
+scale = Vector2(3.75823, 0.369652)
+
+[node name="Wall4" parent="Room" instance=ExtResource("1_vbika")]
+position = Vector2(461, 441)
+scale = Vector2(3.75823, 0.369652)
