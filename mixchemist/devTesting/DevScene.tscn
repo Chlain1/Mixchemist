@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx7upmvpx8x06"]
+[gd_scene load_steps=3 format=3 uid="uid://cx7upmvpx8x06"]
 
+[ext_resource type="Script" path="res://devTesting/DevScene.cs" id="1_8lw66"]
 [ext_resource type="PackedScene" uid="uid://gdxbg7dufxbg" path="res://devTesting/sceneAssets/Wall.tscn" id="1_vbika"]
 
 [node name="DevScene" type="Node2D"]
+script = ExtResource("1_8lw66")
 
 [node name="Room" type="Node2D" parent="."]
 position = Vector2(4, 0)
