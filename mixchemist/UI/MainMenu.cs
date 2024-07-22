@@ -1,35 +1,43 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using Range = Godot.Range;
 
 public partial class MainMenu : Control
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
+	
+	private int music_bus_index = AudioServer.GetBusIndex("Music"); // Index of the Music Audio Bus
+	
+	/**
+	 * Exits the game
+	 */
 	private void OnExitButtonPressed()
 	{
-		Debug.WriteLine("Quitting game");
 		GetTree().Quit();
 	}
 
+	/**
+	 * TODO: Changes scene to the first level (or level select)
+	 */
 	private void OnStartButtonPressed()
 	{
-		Debug.WriteLine("Start Game");
 		GetTree().ChangeSceneToFile("res://devTesting/DevScene.tscn");
 	}
 
+	/**
+	 * TODO: Changes scene to the last unlocked level
+	 */
 	private void OnContinueButtonPressed()
 	{
-		// TODO: not working :c
 		MusicManager.Instance.ChangeStream("res://music/mixchemist_title_octup.mp3");
+	}
+
+	/**
+	 * Updates Music Volume by changing the music slider
+	 */
+	private void _OnMusicVolumeSliderValueChanged(float value)
+	{
+		MusicManager.Instance.SetVolume(Mathf.LinearToDb(value) - 50);
 	}
     
 }

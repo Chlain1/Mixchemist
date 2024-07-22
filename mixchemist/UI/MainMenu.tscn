@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://wuvdlcij4gjg"]
+[gd_scene load_steps=5 format=3 uid="uid://wuvdlcij4gjg"]
 
 [ext_resource type="Script" path="res://UI/MainMenu.cs" id="1_suxf8"]
 
@@ -9,6 +9,11 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_441q0"]
 outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_68une"]
+font_size = 25
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
@@ -62,6 +67,23 @@ offset_bottom = 98.0
 text = "A Game by Tesemer, Chlain, SaltDispenser and ErictheVikin"
 label_settings = SubResource("LabelSettings_441q0")
 
+[node name="MusicVolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 902.0
+offset_top = 582.0
+offset_right = 1142.0
+offset_bottom = 598.0
+value = 100.0
+
+[node name="Label" type="Label" parent="MusicVolumeSlider"]
+layout_mode = 0
+offset_top = -31.0
+offset_right = 21.0
+offset_bottom = 4.0
+text = "♫"
+label_settings = SubResource("LabelSettings_68une")
+
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="OnContinueButtonPressed"]
 [connection signal="pressed" from="ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="value_changed" from="MusicVolumeSlider" to="." method="_OnMusicVolumeSliderValueChanged"]
