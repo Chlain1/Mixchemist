@@ -29,7 +29,7 @@ public partial class MainMenu : Control
 	private void OnContinueButtonPressed()
 	{
 		// TODO: not working :c
-		//MusicManager.ChangeStream("res://music/mixchemist_title_octup.mp3");
+		MusicManager.Instance.ChangeStream("res://music/mixchemist_title_octup.mp3");
 	}
     
 }

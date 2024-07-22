@@ -3,10 +3,14 @@ using System;
 
 public partial class MusicManager : AudioStreamPlayer
 {
+	
+	public static MusicManager Instance { get; private set; }
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.Stream = GD.Load<AudioStream>("res://music/mixchemist_title_octup.mp3");
+		Instance = this;
+		this.Stream = GD.Load<AudioStream>("res://music/mixchemist_title_mp3.mp3");
 		this.VolumeDb = -10;
 		this.Play();
 	}
@@ -19,6 +23,7 @@ public partial class MusicManager : AudioStreamPlayer
 	public void ChangeStream(string path)
 	{
 		this.Stream = GD.Load<AudioStream>(path);
+		this.Play();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
