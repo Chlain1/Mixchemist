@@ -20,7 +20,7 @@ jobs:
         with:
           name: example
           preset: ${{ matrix.platform }}
-          projectDir: "Mixchemist"
+          projectDir: "mixchemist"
           debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
