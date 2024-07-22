@@ -16,6 +16,5 @@ public partial class WaterEnemy : AbstractEnemy
     
     public override void Attack()
     {
-        
     }
 }

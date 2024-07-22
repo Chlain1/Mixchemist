@@ -1,9 +1,4 @@
 using Godot;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using static ClassesAndEnums;
 
 public partial class GameManager : Node
 {

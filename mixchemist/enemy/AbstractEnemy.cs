@@ -7,10 +7,10 @@ public abstract partial class AbstractEnemy : Node
 	protected const int DEFAULT_DAMAGE = 10;
 	protected const int DEFAULT_HEALTH = 10;
 	
-	public DifficultyModifier Difficulty;
-	public double Health;
-	public double Damage;
-	public double MovementSpeed;
+	protected DifficultyModifier Difficulty;
+	protected double Health;
+	protected double Damage;
+	protected double MovementSpeed;
 
 	public abstract void Attack();
 

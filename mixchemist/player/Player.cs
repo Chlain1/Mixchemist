@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class Player : CharacterBody2D
 {
@@ -47,5 +48,13 @@ public partial class Player : CharacterBody2D
 
 		Rotation += CursorPos.Angle() + StartRot;
 		
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+	    if (@event.IsActionPressed("w_cast")) Debug.WriteLine("Hello w");
+	    else if (@event.IsActionPressed("a_cast")) Debug.WriteLine("Hello a");
+	    else if (@event.IsActionPressed("d_cast")) Debug.WriteLine("Hello d");
+	    else if (@event.IsActionPressed("s_cast")) Debug.WriteLine("Hello s");
     }
 }
