@@ -63,4 +63,5 @@ text = "A Game by Tesemer, Chlain, SaltDispenser and ErictheVikin"
 label_settings = SubResource("LabelSettings_441q0")
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="OnContinueButtonPressed"]
 [connection signal="pressed" from="ExitButton" to="." method="OnExitButtonPressed"]

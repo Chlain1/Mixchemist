@@ -25,5 +25,11 @@ public partial class MainMenu : Control
 		Debug.WriteLine("Start Game");
 		GetTree().ChangeSceneToFile("res://devTesting/DevScene.tscn");
 	}
+
+	private void OnContinueButtonPressed()
+	{
+		// TODO: not working :c
+		//MusicManager.ChangeStream("res://music/mixchemist_title_octup.mp3");
+	}
     
 }
