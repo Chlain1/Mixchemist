@@ -4,50 +4,51 @@ using System.Diagnostics;
 
 public partial class Player : KinematicBody2D
 {
+	public const float SPEED = 2.5f;
+	public const float SPRINT_SPEED = SPEED * 2;
+	public const float ACCELERATION = 50.0f;
+
 	private float StartRot = 0f;
 	
-	public const float Speed = 300.0f;
-	public const float SprintSpeed = Speed * 2;
-	public const float Acceleration = 50.0f;
-
 	public override void _Ready()
 	{
 		StartRot = Rotation;
 	}
 
-	public override void _PhysicsProcess(float delta)
+	public override void _Process(float delta)
 	{
-		//TODO: Georg guck mal wegen Velocity uwu
-		/*Vector2 velocity = Velocity;
+		MovePlayer();
+		RotateWithCursor();
+	}
 
+	private void MovePlayer()
+	{
+		Vector2 velocity = Vector2.Zero;
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		if (direction != Vector2.Zero && !Input.IsActionPressed("ui_cast"))
 		{
-			if(Input.IsActionPressed("ui_sprint"))
+			if (Input.IsActionPressed("ui_sprint"))
 			{
-				velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SprintSpeed, Acceleration);
-				velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SprintSpeed, Acceleration);
+				velocity.x = Mathf.MoveToward(0, direction.x * SPRINT_SPEED, ACCELERATION);
+				velocity.y = Mathf.MoveToward(0, direction.y * SPRINT_SPEED, ACCELERATION);
 			}
 			else
 			{
-				velocity.X = Mathf.MoveToward(Velocity.X, direction.X * Speed, Acceleration);
-				velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * Speed, Acceleration);
+				velocity.x = Mathf.MoveToward(0, direction.x * SPEED, ACCELERATION);
+				velocity.y = Mathf.MoveToward(0, direction.y * SPEED, ACCELERATION);
 			}
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Acceleration);
-			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Acceleration);
+			velocity = Vector2.Zero;
 		}
 
-		Velocity = velocity;
-		MoveAndSlide();*/
+		MoveAndCollide(velocity);
 	}
-	public override void _Process(float delta)
+
+	private void RotateWithCursor()
 	{
 		Vector2 CursorPos = GetLocalMousePosition();
-
 		Rotation += CursorPos.Angle() + StartRot;
-		
 	}
 }
