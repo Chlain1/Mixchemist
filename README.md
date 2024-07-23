@@ -5,7 +5,7 @@ Mixchemist is a 2D, level based Dungeon Crawler-esque Game where you as an jaile
 SaltDispenser, EricTheVikin, Tesemer and Chlain
 
 ## Technologies used
-- Game Engine: Godot Engine using Godot v4.2.2
+- Game Engine: Godot Engine using Godot v3.5.3
 - Graphics: tba.
 - Audio: Reaper and Ableton live 10 lite
 
