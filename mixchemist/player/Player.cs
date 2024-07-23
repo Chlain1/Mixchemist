@@ -4,49 +4,63 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody2D
 {
-	private float StartRot = 0f;
-	
-	public const float Speed = 300.0f;
-	public const float SprintSpeed = Speed * 2;
-	public const float Acceleration = 50.0f;
+    private const float SPEED = 2.5f;
+    private const float SPRINT_SPEED = SPEED * 2;
+    private const float ACCELLERATION = 50.0f;
+    private float StartRot = 0f;
 
     public override void _Ready()
     {
 		StartRot = Rotation;
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
 	{
-		Vector2 velocity = Velocity;
+        MovePlayer();
+    }
 
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
-		{
-			if(Input.IsActionPressed("ui_sprint"))
-			{
-                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SprintSpeed, Acceleration);
-                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SprintSpeed, Acceleration);
+    public override void _Input(InputEvent @event)
+    {
+	    if (@event.IsActionPressed("w_cast")) Debug.WriteLine("Hello w");
+	    else if (@event.IsActionPressed("a_cast")) Debug.WriteLine("Hello a");
+	    else if (@event.IsActionPressed("d_cast")) Debug.WriteLine("Hello d");
+	    else if (@event.IsActionPressed("s_cast")) Debug.WriteLine("Hello s");
+    }
+
+	private void MovePlayer()
+	{
+        Vector2 velocity = Velocity;
+        Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+        Vector2 cursorPos = GetLocalMousePosition();
+
+        if (direction != Vector2.Zero)
+        {
+            if (Input.IsActionPressed("ui_sprint"))
+            {
+                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SPRINT_SPEED, ACCELLERATION);
+                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SPRINT_SPEED, ACCELLERATION);
             }
-			else
-			{
-                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * Speed, Acceleration);
-                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * Speed, Acceleration);
+            else
+            {
+                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SPEED, ACCELLERATION);
+                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SPEED, ACCELLERATION);
             }
         }
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Acceleration);
-			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Acceleration);
-		}
+        else
+        {
+            velocity.X = Mathf.MoveToward(Velocity.X, 0, ACCELLERATION);
+            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, ACCELLERATION);
+        }
 
-		Velocity = velocity;
-		MoveAndSlide();
-	}
-    public override void _Process(double delta)
+        Velocity = velocity;
+
+        MoveAndCollide(Velocity);
+
+        Rotation += cursorPos.Angle() + StartRot;
+    }
+
+    private void TakeDamage(float damageAmount)
     {
-		Vector2 CursorPos = GetLocalMousePosition();
 
-		Rotation += CursorPos.Angle() + StartRot;
-		
     }
 }

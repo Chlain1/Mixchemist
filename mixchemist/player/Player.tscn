@@ -9,6 +9,7 @@
 radius = 64.0078
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(576, 324)
 rotation = 1.5708
 collision_layer = 3
 motion_mode = 1
@@ -25,7 +26,7 @@ drag_bottom_margin = 0.1
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1gbnk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ow5ut")
 
 [node name="Staff" type="Node2D" parent="."]
