@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=2 uid="uid://wuvdlcij4gjg"]
+
+[ext_resource type="Script" path="res://UI/MainMenu.cs" id="1_suxf8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fk3sn"]
+font_size = 60
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_441q0"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_68une"]
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_suxf8")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 88.0
+text = "Mixchemist"
+label_settings = SubResource("LabelSettings_fk3sn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 256.0
+offset_right = 155.0
+offset_bottom = 287.0
+text = "Start"
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 303.0
+offset_right = 157.0
+offset_bottom = 334.0
+text = "Continue"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 350.0
+offset_right = 157.0
+offset_bottom = 381.0
+text = "Exit"
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 75.0
+offset_right = 806.0
+offset_bottom = 98.0
+text = "A Game by Tesemer, Chlain, SaltDispenser and ErictheVikin"
+label_settings = SubResource("LabelSettings_441q0")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 902.0
+offset_top = 582.0
+offset_right = 1142.0
+offset_bottom = 598.0
+value = 100.0
+
+[node name="Label" type="Label" parent="MusicVolumeSlider"]
+layout_mode = 0
+offset_top = -31.0
+offset_right = 21.0
+offset_bottom = 4.0
+text = "♫"
+label_settings = SubResource("LabelSettings_68une")
+
+[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="OnContinueButtonPressed"]
+[connection signal="pressed" from="ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="value_changed" from="MusicVolumeSlider" to="." method="_OnMusicVolumeSliderValueChanged"]

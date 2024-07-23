@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://player/Player.cs" type="Script" id=12]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 12 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Staff" type="Node2D" parent="."]
+position = Vector2( -1.00043, -118 )
+rotation = -1.5708
+
+[node name="Sprite" type="Sprite" parent="."]

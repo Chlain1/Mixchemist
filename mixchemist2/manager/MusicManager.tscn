@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2 uid="uid://nnrmwtaap6o0"]
+
+[ext_resource type="Script" path="res://manager/MusicManager.cs" id="2_lomds"]
+
+[node name="MusicManager" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource("2_lomds")

@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="FireEnemy" type="KinematicBody2D"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="DetectionHitbox" type="CollisionShape2D" parent="PlayerDetectionArea"]
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_OnPlayerDetected"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_OnPlayerDetectionLost"]
