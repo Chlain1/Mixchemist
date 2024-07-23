@@ -36,13 +36,16 @@ public partial class FireEnemy : AbstractEnemy
 
 	private void _OnPlayerDetected(Node2D player)
 	{
-		this.player = player;
-		isPlayerDetected = true;
+		if (player.Name == "Player")
+		{
+			this.player = player;
+			isPlayerDetected = true;
+		}
 	}
 
 	private void _OnPlayerDetectionLost(Node2D player)
 	{
-		isPlayerDetected = false;
+		if(player.Name == "Player") isPlayerDetected = false;
 	}
 	
 }

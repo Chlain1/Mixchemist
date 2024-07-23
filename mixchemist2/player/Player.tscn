@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.svg" type="Texture" id=1]
+[ext_resource path="res://player/Staff.cs" type="Script" id=2]
+[ext_resource path="res://spell/spell.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/Player.cs" type="Script" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 64.2806
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 3
 script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -20,3 +23,5 @@ shape = SubResource( 1 )
 [node name="Staff" type="Node2D" parent="."]
 position = Vector2( -1.00043, -118 )
 rotation = -1.5708
+script = ExtResource( 2 )
+bulletScene = ExtResource( 3 )

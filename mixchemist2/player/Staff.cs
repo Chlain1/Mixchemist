@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class Staff : Node2D
@@ -9,7 +10,7 @@ public partial class Staff : Node2D
 
 	private float fireRate;
 	private float timeUntilFire = 0f;
-	private Color spellColor = Colors.Black;
+	//private Color spellColor = Colors.Black;
 	private bool spellReadyToCast = false; // Flag to indicate a spell is ready to cast
 
 	// Called when the node enters the scene tree for the first time.
@@ -20,24 +21,25 @@ public partial class Staff : Node2D
 
 	public override void _Input(InputEvent @event)
 	{
+		
 		if (@event.IsActionPressed("w_cast"))
 		{
-			spellColor = Colors.Red;
+			//spellColor = Colors.Red;
 			spellReadyToCast = true;
 		}
 		else if (@event.IsActionPressed("a_cast"))
 		{
-			spellColor = Colors.Brown;
+			//spellColor = Colors.Brown;
 			spellReadyToCast = true;
 		}
 		else if (@event.IsActionPressed("d_cast"))
 		{
-			spellColor = Colors.Blue;
+			//spellColor = Colors.Blue;
 			spellReadyToCast = true;
 		}
 		else if (@event.IsActionPressed("s_cast"))
 		{
-			spellColor = Colors.White;
+			//spellColor = Colors.White;
 			spellReadyToCast = true;
 		}
 	}
@@ -52,16 +54,16 @@ public partial class Staff : Node2D
 
 		if (spellReadyToCast && timeUntilFire > fireRate)
 		{
-			CastSpell(spellColor);
+			CastSpell();
 			timeUntilFire = 0;
 			spellReadyToCast = false; // Reset the flag
 		}
 	}
 
-	private void CastSpell(Color bulletColor)
+	private void CastSpell()
 	{
 		RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
-		spell.Modulate = bulletColor;
+		//spell.Modulate = bulletColor;
 		spell.Rotation = GlobalRotation; //current staff's rotation
 		spell.GlobalPosition = GlobalPosition; //current staff's position
 		spell.LinearVelocity = spell.Transform.x * bulletSpeed;
