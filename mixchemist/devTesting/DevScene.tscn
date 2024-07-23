@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx7upmvpx8x06"]
+[gd_scene load_steps=4 format=3 uid="uid://cx7upmvpx8x06"]
 
 [ext_resource type="PackedScene" uid="uid://gdxbg7dufxbg" path="res://devTesting/sceneAssets/Wall.tscn" id="1_vbika"]
 [ext_resource type="PackedScene" uid="uid://dr06vxqi6j6fn" path="res://player/Player.tscn" id="2_ikkqu"]
+[ext_resource type="PackedScene" uid="uid://mpdinrif0m43" path="res://enemy/FireEnemy.tscn" id="3_givdd"]
 
 [node name="DevScene" type="Node2D"]
 
@@ -26,3 +27,6 @@ position = Vector2(461, 441)
 scale = Vector2(3.75823, 0.369652)
 
 [node name="Player" parent="." instance=ExtResource("2_ikkqu")]
+
+[node name="FireEnemy" parent="." instance=ExtResource("3_givdd")]
+position = Vector2(689, -266)
