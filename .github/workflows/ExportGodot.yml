@@ -1,0 +1,18 @@
+name: Godot Exporter
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  Exporter:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/greenfox/godot-build-automation:latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Export Godot Project
+      run: |
+        exporter            
