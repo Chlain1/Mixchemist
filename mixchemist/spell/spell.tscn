@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://vly2x4xegbfr"]
+
+[ext_resource type="Script" path="res://spell/spell.cs" id="1_6mi3s"]
+[ext_resource type="Texture2D" uid="uid://b3ko0vntos7vw" path="res://icon.svg" id="1_7owxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blj2w"]
+size = Vector2(66.5, 72)
+
+[node name="Spell" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_6mi3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(46, -4.37114e-08)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_blj2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(46, -6.75016e-14)
+rotation = 1.5708
+scale = Vector2(0.492188, 0.492188)
+texture = ExtResource("1_7owxv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true

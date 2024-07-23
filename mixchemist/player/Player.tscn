@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr06vxqi6j6fn"]
+[gd_scene load_steps=6 format=3 uid="uid://dr06vxqi6j6fn"]
 
 [ext_resource type="Texture2D" uid="uid://b3ko0vntos7vw" path="res://icon.svg" id="1_1gbnk"]
 [ext_resource type="Script" path="res://player/Player.cs" id="1_oym2i"]
+[ext_resource type="Script" path="res://player/Staff.cs" id="3_o50hh"]
+[ext_resource type="PackedScene" uid="uid://vly2x4xegbfr" path="res://spell/spell.tscn" id="4_y6snt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow5ut"]
 radius = 64.0078
@@ -25,3 +27,9 @@ texture = ExtResource("1_1gbnk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ow5ut")
+
+[node name="Staff" type="Node2D" parent="."]
+position = Vector2(-1.00043, -118)
+rotation = -1.5708
+script = ExtResource("3_o50hh")
+bulletScene = ExtResource("4_y6snt")
