@@ -2,7 +2,7 @@ using Godot;
 using System;
 using static ClassesAndEnums;
 
-public abstract partial class AbstractEnemy : CharacterBody2D
+public abstract partial class AbstractEnemy : KinematicBody2D
 {
 	protected const int DEFAULT_DAMAGE = 10;
 	protected const int DEFAULT_HEALTH = 10;

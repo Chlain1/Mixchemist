@@ -1,7 +1,5 @@
 ﻿using Godot;
 
-namespace mixchemist.enemy;
-
 public partial class AirEnemy : AbstractEnemy
 {
     // Called when the node enters the scene tree for the first time.

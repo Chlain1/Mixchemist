@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 
-public partial class Player : CharacterBody2D
+public partial class Player : KinematicBody2D
 {
 	private float StartRot = 0f;
 	
@@ -15,9 +15,10 @@ public partial class Player : CharacterBody2D
 		StartRot = Rotation;
 	}
 
-	public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(float delta)
 	{
-		Vector2 velocity = Velocity;
+		//TODO: Georg guck mal wegen Velocity uwu
+		/*Vector2 velocity = Velocity;
 
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction != Vector2.Zero)
@@ -40,9 +41,9 @@ public partial class Player : CharacterBody2D
 		}
 
 		Velocity = velocity;
-		MoveAndSlide();
+		MoveAndSlide();*/
 	}
-	public override void _Process(double delta)
+	public override void _Process(float delta)
 	{
 		Vector2 CursorPos = GetLocalMousePosition();
 

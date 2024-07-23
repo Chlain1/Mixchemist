@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixchemist_title_octup.mp3-ed96a2546034bba77907a0aff68b9ae7.mp3str"
+
+[deps]
+
+source_file="res://music/mixchemist_title_octup.mp3"
+dest_files=[ "res://.import/mixchemist_title_octup.mp3-ed96a2546034bba77907a0aff68b9ae7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

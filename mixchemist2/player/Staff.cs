@@ -43,11 +43,11 @@ public partial class Staff : Node2D
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _Process(float delta)
 	{
 		if (timeUntilFire <= fireRate)
 		{
-			timeUntilFire += (float)delta;
+			timeUntilFire += delta;
 		}
 
 		if (spellReadyToCast && timeUntilFire > fireRate)
@@ -60,11 +60,11 @@ public partial class Staff : Node2D
 
 	private void CastSpell(Color bulletColor)
 	{
-		RigidBody2D spell = bulletScene.Instantiate<RigidBody2D>();
+		RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
 		spell.Modulate = bulletColor;
 		spell.Rotation = GlobalRotation; //current staff's rotation
 		spell.GlobalPosition = GlobalPosition; //current staff's position
-		spell.LinearVelocity = spell.Transform.X * bulletSpeed;
+		spell.LinearVelocity = spell.Transform.x * bulletSpeed;
 		GetTree().Root.AddChild(spell);
 	}
 }

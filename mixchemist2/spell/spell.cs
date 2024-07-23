@@ -8,11 +8,18 @@ public partial class spell : RigidBody2D
 	{
 		Timer timer = GetNode<Timer>("Timer");
 		
-		timer.Timeout += () => QueueFree();
+		// TODO: nochmal gucken
+		//timer.Timeout += () => QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _Process(float delta)
 	{
 	}
+
+	private void _OnTimeout()
+	{
+		QueueFree();
+	}
+	
 }

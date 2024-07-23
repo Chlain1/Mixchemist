@@ -21,7 +21,7 @@ public partial class MainMenu : Control
 	 */
 	private void OnStartButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://devTesting/DevScene.tscn");
+		GetTree().ChangeScene("res://devTesting/DevScene.tscn");
 	}
 
 	/**
@@ -37,7 +37,8 @@ public partial class MainMenu : Control
 	 */
 	private void _OnMusicVolumeSliderValueChanged(float value)
 	{
-		MusicManager.Instance.SetVolume(Mathf.LinearToDb(value) - 50);
+		// TODO: fix lol Eric
+		// MusicManager.Instance.SetVolume(Mathf.LinearToDb(value) - 50);
 	}
     
 }

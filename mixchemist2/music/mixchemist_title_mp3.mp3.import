@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixchemist_title_mp3.mp3-28aa00a62ff5214e366594eec63b9588.mp3str"
+
+[deps]
+
+source_file="res://music/mixchemist_title_mp3.mp3"
+dest_files=[ "res://.import/mixchemist_title_mp3.mp3-28aa00a62ff5214e366594eec63b9588.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -2,8 +2,6 @@ using System;
 using System.Diagnostics;
 using Godot;
 
-namespace mixchemist.enemy;
-
 public partial class FireEnemy : AbstractEnemy
 {
 
@@ -18,7 +16,7 @@ public partial class FireEnemy : AbstractEnemy
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _Process(float delta)
 	{
 		TargetPlayer();
 	}
