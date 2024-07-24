@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/ElementStorage.cs" type="Script" id=1]
+
+[node name="ElementStorage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+script = ExtResource( 1 )
+
+[node name="Element1" type="Panel" parent="."]
+margin_left = 761.0
+margin_top = 485.0
+margin_right = 833.0
+margin_bottom = 555.0
+rect_pivot_offset = Vector2( -1351, -402 )
+
+[node name="Element2" type="Panel" parent="."]
+margin_left = 837.0
+margin_top = 369.0
+margin_right = 909.0
+margin_bottom = 439.0
+rect_pivot_offset = Vector2( -1351, -402 )
+
+[node name="Element3" type="Panel" parent="."]
+margin_left = 909.0
+margin_top = 485.0
+margin_right = 981.0
+margin_bottom = 555.0
+rect_pivot_offset = Vector2( -1351, -402 )

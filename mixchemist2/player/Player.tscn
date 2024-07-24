@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.svg" type="Texture" id=1]
 [ext_resource path="res://player/Staff.cs" type="Script" id=2]
 [ext_resource path="res://spell/spell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/ElementStorage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/Player.cs" type="Script" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -33,4 +34,5 @@ shape = SubResource( 1 )
 position = Vector2( 0, -60 )
 rotation = -1.5708
 script = ExtResource( 2 )
+elementStorageScene = ExtResource( 4 )
 bulletScene = ExtResource( 3 )
