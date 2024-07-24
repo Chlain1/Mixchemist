@@ -1,4 +1,4 @@
-name: "godot-ci export"
+name: "godot-ci export 4.2.2"
 on: push
 
 env:
