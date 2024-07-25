@@ -55,6 +55,7 @@ public partial class Staff : Node2D
             if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
             {
                 RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
+                spell.Modulate = colorRect.Color;
                 spell.Rotation = GlobalRotation;
                 spell.GlobalPosition = GlobalPosition;
                 spell.LinearVelocity = spell.Transform.x * bulletSpeed;

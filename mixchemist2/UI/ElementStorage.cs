@@ -35,7 +35,7 @@ public class ElementStorage : Control
                 spellColorRect.Color = Colors.Red;
                 break;
             case Element.EARTH:
-                spellColorRect.Color = Colors.Brown;
+                spellColorRect.Color = Colors.SandyBrown;
                 break;
             case Element.WATER:
                 spellColorRect.Color = Colors.Blue;
