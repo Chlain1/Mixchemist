@@ -4,7 +4,7 @@ using static ClassesAndEnums;
 
 public partial class Staff : Node2D
 {
-    [Export] private PackedScene playerInputScene;
+    [Export] private PackedScene PlayerInputFieldScene;
     [Export] private PackedScene elementStorageScene;
     [Export] private PackedScene bulletScene;
     [Export] float bulletSpeed = 1500f;
@@ -12,7 +12,7 @@ public partial class Staff : Node2D
     [Export] float damage = 10;
 
     private ElementStorage elementStorage;
-    private Label playerInput;
+    private PlayerInputField playerInput;
     
     private Element currentElement;
     private float fireRate;
@@ -22,7 +22,7 @@ public partial class Staff : Node2D
     public override void _Ready()
     {
         elementStorage = (ElementStorage)elementStorageScene.Instance();
-        playerInput = (Label)playerInputScene.Instance();
+        playerInput = (PlayerInputField)PlayerInputFieldScene.Instance();
         fireRate = 1 / bps;
     }
 
@@ -30,25 +30,25 @@ public partial class Staff : Node2D
     {
         if (@event.IsActionPressed("w_cast"))
         {
-            playerInput.Text += "W";
+            playerInput.AddTextToLabel("W"); 
             currentElement = ClassesAndEnums.Element.FIRE;
             spellReadyToCast = true;
         }
         else if (@event.IsActionPressed("a_cast"))
         {
-            playerInput.Text += "A";
+            playerInput.AddTextToLabel("A"); 
             currentElement = ClassesAndEnums.Element.EARTH;
             spellReadyToCast = true;
         }
         else if (@event.IsActionPressed("d_cast"))
         {
-            playerInput.Text += "D";
+            playerInput.AddTextToLabel("D"); 
             currentElement = ClassesAndEnums.Element.WATER;
             spellReadyToCast = true;
         }
         else if (@event.IsActionPressed("s_cast"))
         {
-            playerInput.Text += "S";
+            playerInput.AddTextToLabel("S"); 
             currentElement = ClassesAndEnums.Element.AIR;
             spellReadyToCast = true;
         }

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/PlayerInputField.cs" type="Script" id=1]
+
+[node name="PlayerInputField" type="Panel"]
+script = ExtResource( 1 )
+
+[node name="PlayerText" type="Label" parent="."]
+margin_left = 505.0
+margin_top = 529.0
+margin_right = 545.0
+margin_bottom = 543.0
