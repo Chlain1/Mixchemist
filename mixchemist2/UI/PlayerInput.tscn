@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="PlayerInput" type="Label"]
+margin_left = 502.0
+margin_top = 578.0
+margin_right = 542.0
+margin_bottom = 592.0
+text = "gg"
