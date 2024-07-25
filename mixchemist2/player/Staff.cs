@@ -12,8 +12,8 @@ public partial class Staff : Node2D
 
     private ElementStorage elementStorage;
 
-    [Signal]
-    public delegate void StoreSpell(Element storedElement);
+    //[Signal]
+    //public delegate void StoreSpell(Element storedElement);
     
     private Element currentElement;
     private float fireRate;
@@ -24,7 +24,7 @@ public partial class Staff : Node2D
     {
         elementStorage = (ElementStorage)elementStorageScene.Instance();
         fireRate = 1 / bps;
-        Connect(nameof(StoreSpell), elementStorage, nameof(ElementStorage.StoreSpellColor));
+        //Connect(nameof(StoreSpell), elementStorage, nameof(ElementStorage.StoreSpellColor));
     }
 
     public override void _Input(InputEvent @event)
@@ -49,6 +49,18 @@ public partial class Staff : Node2D
             currentElement = ClassesAndEnums.Element.AIR;
             spellReadyToCast = true;
         }
+        else if (@event.IsActionPressed("shootElement"))
+        {
+            ColorRect colorRect = null;
+            if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
+            {
+                RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
+                spell.Rotation = GlobalRotation;
+                spell.GlobalPosition = GlobalPosition;
+                spell.LinearVelocity = spell.Transform.x * bulletSpeed;
+                GetTree().Root.AddChild(spell);
+            };
+        }
     }
 
     public override void _Process(float delta)
@@ -62,12 +74,7 @@ public partial class Staff : Node2D
         {
             timeUntilFire = 0;
             spellReadyToCast = false;
-            CastSpell();
+            elementStorage.StoreSpellColor(currentElement);
         }
-    }
-
-    private void CastSpell()
-    {
-        EmitSignal(nameof(StoreSpell), currentElement);
     }
 }
