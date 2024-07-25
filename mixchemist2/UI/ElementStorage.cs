@@ -56,7 +56,6 @@ public class ElementStorage : Control
         }
         
         colorRects.Enqueue(spellColorRect);
-        RemoveElements();
         List<ColorRect> tempList = new List<ColorRect>(colorRects);
         RemoveElements();
         int j = panels.Length - 1;
@@ -75,7 +74,7 @@ public class ElementStorage : Control
         ColorRect lastElement = colorRects.Dequeue();
         colorRects.Enqueue(lastElement);
         
-        int j = colorRects.Count - 1;
+        int j = panels.Length - 1;
         foreach (var colorRect in colorRects)
         {
             panels[j].AddChild(colorRect);
