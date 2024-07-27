@@ -31,6 +31,7 @@ public class ElementStorage : Control
         spellColorRect.RectMinSize = new Vector2(panel1.RectSize.x, panel1.RectSize.y);
         switch (chosenElement)
         {
+            // BTW: Nicht fragen was diese Farben sollen. Ich war extrem unter Drogen xoxo Eric
             case Element.FIRE:
                 spellColorRect.Color = Colors.Red;
                 break;
@@ -42,6 +43,39 @@ public class ElementStorage : Control
                 break;
             case Element.AIR:
                 spellColorRect.Color = Colors.White;
+                break;
+            case Element.FIRE_AIR:
+                spellColorRect.Color = Colors.Aquamarine;
+                break;
+            case Element.FIRE_WATER:
+                spellColorRect.Color = Colors.Azure;
+                break;
+            case Element.FIRE_EARTH:
+                spellColorRect.Color = Colors.RosyBrown;
+                break;
+            case Element.WATER_AIR:
+                spellColorRect.Color = Colors.Cyan;
+                break;
+            case Element.WATER_EARTH:
+                spellColorRect.Color = Colors.Cornflower;
+                break;
+            case Element.EARTH_AIR:
+                spellColorRect.Color = Colors.Gainsboro;
+                break;
+            case Element.FIRE_EARTH_AIR:
+                spellColorRect.Color = Colors.Firebrick;
+                break;
+            case Element.FIRE_WATER_AIR:
+                spellColorRect.Color = Colors.Olive;
+                break;
+            case Element.FIRE_WATER_EARTH:
+                spellColorRect.Color = Colors.Lavender;
+                break;
+            case Element.WATER_EARTH_AIR:
+                spellColorRect.Color = Colors.Chocolate;
+                break;
+            case Element.SHADOW:
+                spellColorRect.Color = Colors.Black;
                 break;
         }
         NewElementInLastElementOut(spellColorRect);

@@ -10,7 +10,7 @@
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="FireEnemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 90, 105 )
+position = Vector2( 81, 105 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

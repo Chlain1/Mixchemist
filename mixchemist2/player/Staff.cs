@@ -16,19 +16,65 @@ public partial class Staff : Node2D
     
     private Element currentElement;
     private float fireRate;
+    private bool castingMode = false;
+    private bool[] castingArray = new bool[4]; // 0: fire, 1: water, 2: earth, 3: air
     private float timeUntilFire = 0f;
     private bool spellReadyToCast = false; 
 
     public override void _Ready()
     {
+        ResetCastingArray();
         elementStorage = (ElementStorage)elementStorageScene.Instance();
         playerInput = (PlayerInputField)PlayerInputFieldScene.Instance();
         fireRate = 1 / bps;
     }
 
+    private void ResetCastingArray()
+    {
+        for (int i = 0; i < castingArray.Length; i++)
+        {
+            castingArray[i] = false;
+        }
+    }
+
     public override void _Input(InputEvent @event)
     {
-        if (@event.IsActionPressed("w_cast"))
+        
+        if(@event.IsActionPressed("ui_cast"))
+        {
+            castingMode = true;
+        }
+
+        if (@event.IsActionReleased("ui_cast"))
+        {
+            castingMode = false;
+            SaveAction();
+            ResetCastingArray();
+        }
+
+        if (castingMode)
+        {
+         
+            if (@event.IsActionPressed("ui_up"))
+            {
+                castingArray[0] = !castingArray[0];
+            }
+            if (@event.IsActionPressed("ui_right"))
+            {
+                castingArray[1] = !castingArray[1];
+            }
+            if (@event.IsActionPressed("ui_left"))
+            {
+                castingArray[2] = !castingArray[2];
+            }
+            if (@event.IsActionPressed("ui_down"))
+            {
+                castingArray[3] = !castingArray[3];
+            }
+            
+        }
+        
+        /*if (@event.IsActionPressed("w_cast"))
         {
             playerInput.AddTextToLabel("W"); 
             currentElement = ClassesAndEnums.Element.FIRE;
@@ -51,8 +97,8 @@ public partial class Staff : Node2D
             playerInput.AddTextToLabel("S"); 
             currentElement = ClassesAndEnums.Element.AIR;
             spellReadyToCast = true;
-        }
-        else if (@event.IsActionPressed("shootElement"))
+        }*/
+        if (@event.IsActionPressed("shootElement"))
         {
             ColorRect colorRect = null;
             if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
@@ -65,6 +111,126 @@ public partial class Staff : Node2D
                 GetTree().Root.AddChild(spell);
             };
         }
+    }
+
+    private void SaveAction()
+    {
+
+        // Only if no spell is selected, set to false
+        bool canCast = true;
+        
+        if (castingArray[0]) // Has fire
+        {
+            if (castingArray[1]) // Has water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.SHADOW;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER;
+                    }
+                }
+            }
+            else // Has no water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE;
+                    }
+                }
+            }
+        }
+        else // Has no fire
+        {
+            if (castingArray[1]) // Has water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER;
+                    }
+                }
+            }
+            else // Has no water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.AIR;
+                    }
+                    else // Has no air
+                    {
+                        canCast = false;
+                    }
+                }
+            }
+        }
+
+        if (canCast)
+        {
+            spellReadyToCast = true;
+        }
+        
     }
 
     public override void _Process(float delta)
