@@ -7,6 +7,7 @@ public partial class FireEnemy : AbstractEnemy
 {
 	private Area2D spellCollisionArea;
 	
+	private Area2D playerDetectionArea;
 	private bool isPlayerDetected = false;
 	private const float SPEED = 2.5f;
 
@@ -14,8 +15,8 @@ public partial class FireEnemy : AbstractEnemy
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		spellCollisionArea = GetNode<Area2D>("PlayerDetectionArea");
-		spellCollisionArea.
+		playerDetectionArea = GetNode<Area2D>("PlayerDetectionArea");
+		playerDetectionArea.
 			Connect("body_entered", this, nameof(OnBodyEntered));
 	}
 
