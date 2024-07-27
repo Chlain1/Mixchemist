@@ -23,6 +23,12 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
 
 [node name="HealthBar" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 545.0
+margin_right = -644.0
+margin_bottom = -15.0
 custom_constants/separation = 125
 script = ExtResource( 3 )
 

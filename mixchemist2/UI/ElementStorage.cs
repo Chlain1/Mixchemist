@@ -25,17 +25,17 @@ public class ElementStorage : Control
         
         base._Ready();
         
-        panel1 = GetChild<Panel>(0);
-        panel2 = GetChild<Panel>(1);
-        panel3 = GetChild<Panel>(2);
+        panel1 = GetNode<Panel>("Queue/Element1");
+        panel2 = GetNode<Panel>("Queue/Element2");
+        panel3 = GetNode<Panel>("Queue/Element3");
         panels[0] = panel1;
         panels[1] = panel2;
         panels[2] = panel3;
 
-        firePanel = GetNode<ColorRect>("FireHolding");
-        waterPanel = GetNode<ColorRect>("WaterHolding");
-        earthPanel = GetNode<ColorRect>("EarthHolding");
-        airPanel = GetNode<ColorRect>("AirHolding");
+        firePanel = GetNode<ColorRect>("Input/FireHolding");
+        waterPanel = GetNode<ColorRect>("Input/WaterHolding");
+        earthPanel = GetNode<ColorRect>("Input/EarthHolding");
+        airPanel = GetNode<ColorRect>("Input/AirHolding");
 
     }
 
