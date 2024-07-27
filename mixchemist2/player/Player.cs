@@ -18,10 +18,10 @@ public partial class Player : KinematicBody2D
 	
 	public override void _Ready()
 	{
-
-		startRot = Rotation;
+        startRot = Rotation;
 		healthBar = (HealthBar)healthBarScene.Instance();
-	}
+        healthBar.UpdateHealthBar(MAX_HP);
+    }
 
 	public override void _Process(float delta)
 	{

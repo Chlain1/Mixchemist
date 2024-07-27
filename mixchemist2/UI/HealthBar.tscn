@@ -23,7 +23,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
 
 [node name="HealthBar" type="HBoxContainer"]
-custom_constants/separation = 105
+custom_constants/separation = 125
 script = ExtResource( 3 )
 
 [node name="Background" type="NinePatchRect" parent="."]
@@ -34,10 +34,9 @@ margin_left = 64.0
 margin_right = 104.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 2 )
-text = "10"
+text = "100"
 valign = 1
 uppercase = true
-percent_visible = -0.5
 
 [node name="Title" type="Label" parent="Background"]
 margin_right = 40.0
@@ -46,8 +45,8 @@ custom_fonts/font = SubResource( 4 )
 text = "HP"
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 105.0
-margin_right = 345.0
+margin_left = 125.0
+margin_right = 365.0
 margin_bottom = 40.0
 value = 50.0
 rounded = true
