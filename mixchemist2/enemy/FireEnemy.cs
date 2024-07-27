@@ -5,6 +5,7 @@ using mixchemist2.spell;
 
 public partial class FireEnemy : AbstractEnemy
 {
+	private Area2D spellCollisionArea;
 
 	private bool isPlayerDetected = false;
 	private const float SPEED = 2.5f;
@@ -13,8 +14,9 @@ public partial class FireEnemy : AbstractEnemy
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Connect("body_entered", this, nameof(OnBodyEntered));
-
+		spellCollisionArea = GetNode<Area2D>("SpellCollisionArea");
+		spellCollisionArea.
+			Connect("body_entered", this, nameof(OnBodyEntered));
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,6 +61,10 @@ public partial class FireEnemy : AbstractEnemy
 		if(player.Name == "Player") isPlayerDetected = false;
 	}
 	
+	/// <summary>
+	/// Detects if the spell has collided with the enemy
+	/// </summary>
+	/// <param name="body">The body of spell</param>
 	private void OnBodyEntered(Node body)
 	{
 		if (body is ConcreteSpell spell)
@@ -66,7 +72,7 @@ public partial class FireEnemy : AbstractEnemy
 			TakeDamage(spell.Damage, spell.GlobalPosition - GlobalPosition);
 		}
 	}
-	
+
 	/// <summary>
 	/// This method is called when the enemy takes damage.
 	/// </summary>
@@ -86,4 +92,7 @@ public partial class FireEnemy : AbstractEnemy
 			MoveAndCollide(knockback.Normalized() * 10);
 		}
 	}
+	
+	
+	
 }
