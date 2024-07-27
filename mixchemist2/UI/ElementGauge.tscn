@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://elementGauge_over.png" type="Texture" id=1]
 [ext_resource path="res://elementGauge_progress.png" type="Texture" id=2]
+[ext_resource path="res://UI/ElementGauge.cs" type="Script" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Kisah Horor Sobat.otf"
@@ -42,6 +43,7 @@ font_data = SubResource( 7 )
 [node name="ElementGauge" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 3 )
 
 [node name="Fire" type="VBoxContainer" parent="."]
 margin_right = 60.0

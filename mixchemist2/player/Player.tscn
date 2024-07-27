@@ -33,4 +33,3 @@ shape = SubResource( 1 )
 
 [node name="Staff" parent="." instance=ExtResource( 2 )]
 PlayerInputFieldScene = ExtResource( 3 )
-allowedBasicElements = PoolIntArray( 0, 1 )
