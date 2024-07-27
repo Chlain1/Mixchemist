@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 public partial class Player : KinematicBody2D
 {
     [Export] private PackedScene healthBarScene;
-    private const float SPEED = 2.5f;
+    private const float SPEED = 7.5f;
 	private const float SPRINT_SPEED = SPEED * 2;
 	private const float ACCELERATION = 50.0f;
 	private const int MAX_HP = 100;
@@ -72,8 +72,8 @@ public partial class Player : KinematicBody2D
         currentHp -= dmgAmount;
 		if (currentHp > MIN_HP)
 		{
-			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 1.5f, ACCELERATION);
-			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 1.5f, ACCELERATION);
+			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 50.0f, ACCELERATION);
+			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 50.0f, ACCELERATION);
 			healthBar.UpdateHealthBar(currentHp);
 			MoveAndCollide(velocity);
 		}

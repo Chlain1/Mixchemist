@@ -6,12 +6,15 @@ using mixchemist2.spell;
 public partial class FireEnemy : AbstractEnemy
 {
 	private Area2D spellCollisionArea;
-	
-	private Area2D playerDetectionArea;
+	private KinematicCollision2D colObj;
+
+
+    private Area2D playerDetectionArea;
 	private bool isPlayerDetected = false;
 	private const float SPEED = 2.5f;
 
 	private Node2D player = null;
+	private int i = 0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -24,27 +27,30 @@ public partial class FireEnemy : AbstractEnemy
 	public override void _Process(float delta)
 	{
 		TargetPlayer();
-	}
-
-	public override void Attack()
-	{
+		if (i % 10 == 0)
+		{
+			Attack();
+		}
+		i++;
 		
 	}
+
+    public override void Attack()
+	{
+        if (colObj != null && colObj.Collider.HasMethod("TakeDamage"))
+        {
+            // TODO: change to whatever I just did to test lol xoxo Eric
+            colObj.Collider.Call("TakeDamage", 2, player.Position - Position);
+            //Debug.WriteLine("Enemy collided with: " + colObj.Collider.HasMethod("GetDamage"));
+        }
+    }
 
 	public override void TargetPlayer()
 	{
 		if (isPlayerDetected && player != null)
 		{
 			//Position += (player.Position - Position).Normalized() * SPEED;
-			KinematicCollision2D colObj = MoveAndCollide((player.Position - Position).Normalized() * SPEED);
-
-			if (colObj != null && colObj.Collider.HasMethod("TakeDamage"))
-			{
-				// TODO: change to whatever I just did to test lol xoxo Eric
-				colObj.Collider.Call("TakeDamage", 5, player.Position - Position);
-				//Debug.WriteLine("Enemy collided with: " + colObj.Collider.HasMethod("GetDamage"));
-			}
-			
+			colObj = MoveAndCollide((player.Position - Position).Normalized() * SPEED);
 		}
 	}
 
