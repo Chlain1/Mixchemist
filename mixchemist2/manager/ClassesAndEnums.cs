@@ -22,11 +22,4 @@ public partial class ClassesAndEnums
 
         SHADOW
     }
-    
-    public enum DifficultyModifier
-    {
-        EASY = 1,
-        MEDIUM = 3,
-        HARD = 5
-    }
 }
