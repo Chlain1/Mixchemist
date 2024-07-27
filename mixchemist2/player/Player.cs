@@ -1,7 +1,5 @@
 using Godot;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+using static ClassesAndEnums;
 
 public partial class Player : KinematicBody2D
 {

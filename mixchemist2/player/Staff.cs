@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using Godot;
 using static ClassesAndEnums;
@@ -10,6 +11,7 @@ public partial class Staff : Node2D
     [Export] float bulletSpeed = 1500f;
     [Export] private float bps = 5;
     [Export] float damage = 10;
+    [Export] private List<Element> allowedBasicElements = new List<Element>();
 
     private ElementStorage elementStorage;
     private PlayerInputField playerInput;
@@ -64,22 +66,22 @@ public partial class Staff : Node2D
         if (castingMode)
         {
          
-            if (@event.IsActionPressed("ui_up"))
+            if (@event.IsActionPressed("ui_up") && allowedBasicElements.Contains(Element.FIRE))
             {
                 castingArray[0] = !castingArray[0];
                 elementStorage.ToggleElementPanelColor(Element.FIRE, castingArray[0]);
             }
-            if (@event.IsActionPressed("ui_right"))
+            if (@event.IsActionPressed("ui_right") && allowedBasicElements.Contains(Element.WATER))
             {
                 castingArray[1] = !castingArray[1];
                 elementStorage.ToggleElementPanelColor(Element.WATER, castingArray[1]);
             }
-            if (@event.IsActionPressed("ui_left"))
+            if (@event.IsActionPressed("ui_left") && allowedBasicElements.Contains(Element.EARTH))
             {
                 castingArray[2] = !castingArray[2];
                 elementStorage.ToggleElementPanelColor(Element.EARTH, castingArray[2]);
             }
-            if (@event.IsActionPressed("ui_down"))
+            if (@event.IsActionPressed("ui_down") && allowedBasicElements.Contains(Element.AIR))
             {
                 castingArray[3] = !castingArray[3];
                 elementStorage.ToggleElementPanelColor(Element.AIR, castingArray[3]);
