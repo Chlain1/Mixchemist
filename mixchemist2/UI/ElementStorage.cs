@@ -10,6 +10,11 @@ public class ElementStorage : Control
     private static Panel panel2;
     private static Panel panel3;
 
+    private static ColorRect firePanel;
+    private static ColorRect waterPanel;
+    private static ColorRect earthPanel;
+    private static ColorRect airPanel;
+
     private static Queue<ColorRect> colorRects = new Queue<ColorRect>();
     private static Panel[] panels = new Panel[3];
     
@@ -17,12 +22,74 @@ public class ElementStorage : Control
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        
+        base._Ready();
+        
         panel1 = GetChild<Panel>(0);
         panel2 = GetChild<Panel>(1);
         panel3 = GetChild<Panel>(2);
         panels[0] = panel1;
         panels[1] = panel2;
         panels[2] = panel3;
+
+        firePanel = GetNode<ColorRect>("FireHolding");
+        waterPanel = GetNode<ColorRect>("WaterHolding");
+        earthPanel = GetNode<ColorRect>("EarthHolding");
+        airPanel = GetNode<ColorRect>("AirHolding");
+
+    }
+
+    public void ToggleElementPanelColor(ClassesAndEnums.Element element, bool setColor) 
+    {
+
+        switch (element)
+        {
+            case Element.FIRE:
+                if (setColor)
+                {
+                    firePanel.Color = Colors.Red;
+                }
+                else
+                {
+                    firePanel.Color = Colors.Black;
+                }
+                break;
+            case Element.WATER:
+                if (setColor)
+                {
+                    waterPanel.Color = Colors.Blue;
+                }
+                else
+                {
+                    waterPanel.Color = Colors.Black;
+                }
+                break;
+            case Element.EARTH:
+                if (setColor)
+                {
+                    earthPanel.Color = Colors.SandyBrown;
+                }
+                else
+                {
+                    earthPanel.Color = Colors.Black;
+                }
+                break;
+            case Element.AIR:
+                if (setColor)
+                {
+                    airPanel.Color = Colors.White;
+                }
+                else
+                {
+                    airPanel.Color = Colors.Black;
+                }
+                break;
+            default:
+                Debug.WriteLine("Nee mann falsches element");
+                break;
+
+        }
+
     }
 
     public void StoreSpellColor(Element chosenElement)

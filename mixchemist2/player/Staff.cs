@@ -23,14 +23,23 @@ public partial class Staff : Node2D
 
     public override void _Ready()
     {
-        ResetCastingArray();
         elementStorage = (ElementStorage)elementStorageScene.Instance();
         playerInput = (PlayerInputField)PlayerInputFieldScene.Instance();
         fireRate = 1 / bps;
+        ResetCastingArray(false);
     }
 
-    private void ResetCastingArray()
+    private void ResetCastingArray(bool toggleColors)
     {
+
+        if (toggleColors)
+        {
+            elementStorage.ToggleElementPanelColor(Element.FIRE, false);
+            elementStorage.ToggleElementPanelColor(Element.WATER, false);
+            elementStorage.ToggleElementPanelColor(Element.EARTH, false);
+            elementStorage.ToggleElementPanelColor(Element.AIR, false);
+        }
+        
         for (int i = 0; i < castingArray.Length; i++)
         {
             castingArray[i] = false;
@@ -49,7 +58,7 @@ public partial class Staff : Node2D
         {
             castingMode = false;
             SaveAction();
-            ResetCastingArray();
+            ResetCastingArray(true);
         }
 
         if (castingMode)
@@ -58,18 +67,22 @@ public partial class Staff : Node2D
             if (@event.IsActionPressed("ui_up"))
             {
                 castingArray[0] = !castingArray[0];
+                elementStorage.ToggleElementPanelColor(Element.FIRE, castingArray[0]);
             }
             if (@event.IsActionPressed("ui_right"))
             {
                 castingArray[1] = !castingArray[1];
+                elementStorage.ToggleElementPanelColor(Element.WATER, castingArray[1]);
             }
             if (@event.IsActionPressed("ui_left"))
             {
                 castingArray[2] = !castingArray[2];
+                elementStorage.ToggleElementPanelColor(Element.EARTH, castingArray[2]);
             }
             if (@event.IsActionPressed("ui_down"))
             {
                 castingArray[3] = !castingArray[3];
+                elementStorage.ToggleElementPanelColor(Element.AIR, castingArray[3]);
             }
             
         }
