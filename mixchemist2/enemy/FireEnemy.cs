@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using Godot;
+using mixchemist2.spell;
 
 public partial class FireEnemy : AbstractEnemy
 {
@@ -12,7 +13,8 @@ public partial class FireEnemy : AbstractEnemy
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		Connect("body_entered", this, nameof(OnBodyEntered));
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,4 +59,31 @@ public partial class FireEnemy : AbstractEnemy
 		if(player.Name == "Player") isPlayerDetected = false;
 	}
 	
+	private void OnBodyEntered(Node body)
+	{
+		if (body is ConcreteSpell spell)
+		{
+			TakeDamage(spell.Damage, spell.GlobalPosition - GlobalPosition);
+		}
+	}
+	
+	/// <summary>
+	/// This method is called when the enemy takes damage.
+	/// </summary>
+	/// <param name="damage">The amount of Damage the Enemy should take</param>
+	/// <param name="knockback">The desired direction the enemy should take knockback to</param>
+	public void TakeDamage(int damage, Vector2 knockback)
+	{
+		Health -= damage;
+		if (Health <= 0)
+		{
+			QueueFree();
+		}
+		else
+		{
+			// Apply knockback
+			// You may want to adjust the multiplier to get the desired knockback effect
+			MoveAndCollide(knockback.Normalized() * 10);
+		}
+	}
 }
