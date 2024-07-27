@@ -14,13 +14,13 @@ public partial class Player : KinematicBody2D
 	
 	private int currentHp = MAX_HP;
 	private float startRot = 0f;
-	private HealthBar _healthBar;
+	private HealthBar healthBar;
 	
 	public override void _Ready()
 	{
 
 		startRot = Rotation;
-		_healthBar = (HealthBar)healthBarScene.Instance();
+		healthBar = (HealthBar)healthBarScene.Instance();
 	}
 
 	public override void _Process(float delta)
@@ -74,13 +74,13 @@ public partial class Player : KinematicBody2D
 		{
 			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 1.5f, ACCELERATION);
 			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 1.5f, ACCELERATION);
-			_healthBar.UpdateHealthBar(currentHp);
+			healthBar.UpdateHealthBar(currentHp);
 			MoveAndCollide(velocity);
 		}
 		else if (currentHp <= MIN_HP)
 		{
 			currentHp = 0;
-			_healthBar.UpdateHealthBar(currentHp);
+			healthBar.UpdateHealthBar(currentHp);
 			//Gamemanager.ActivateDeathScene
 		}
 	}

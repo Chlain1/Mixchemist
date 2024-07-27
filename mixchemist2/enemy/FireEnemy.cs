@@ -33,7 +33,7 @@ public partial class FireEnemy : AbstractEnemy
 			//Position += (player.Position - Position).Normalized() * SPEED;
 			KinematicCollision2D colObj = MoveAndCollide((player.Position - Position).Normalized() * SPEED);
 
-			if (colObj != null && colObj.Collider.HasMethod("GetDamage"))
+			if (colObj != null && colObj.Collider.HasMethod("TakeDamage"))
 			{
 				// TODO: change to whatever I just did to test lol xoxo Eric
 				colObj.Collider.Call("TakeDamage", 5, player.Position - Position);
