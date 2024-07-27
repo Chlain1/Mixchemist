@@ -6,7 +6,7 @@ using mixchemist2.spell;
 public partial class FireEnemy : AbstractEnemy
 {
 	private Area2D spellCollisionArea;
-
+	
 	private bool isPlayerDetected = false;
 	private const float SPEED = 2.5f;
 
@@ -14,7 +14,7 @@ public partial class FireEnemy : AbstractEnemy
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		spellCollisionArea = GetNode<Area2D>("SpellCollisionArea");
+		spellCollisionArea = GetNode<Area2D>("PlayerDetectionArea");
 		spellCollisionArea.
 			Connect("body_entered", this, nameof(OnBodyEntered));
 	}
