@@ -39,7 +39,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 7 )
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="ElementGauge" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
 
