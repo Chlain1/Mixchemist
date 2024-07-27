@@ -1,18 +1,22 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
-public partial class Player : KinematicBody2D
+public partial class Player : KinematicBody2D/*, IDamageable*/
 {
-	public const float SPEED = 2.5f;
-	public const float SPRINT_SPEED = SPEED * 2;
-	public const float ACCELERATION = 50.0f;
-
-	private float StartRot = 0f;
+	private const float SPEED = 2.5f;
+	private const float SPRINT_SPEED = SPEED * 2;
+	private const float ACCELERATION = 50.0f;
+	private const int MAX_HP = 100;
+	private const int MIN_HP = 0;
+	
+	private int currentHp = MAX_HP;
+	private float startRot = 0f;
 	
 	public override void _Ready()
 	{
-		StartRot = Rotation;
+		startRot = Rotation;
 	}
 
 	public override void _Process(float delta)
@@ -21,7 +25,12 @@ public partial class Player : KinematicBody2D
 		RotateWithCursor();
 	}
 
-	private void MovePlayer()
+    public override void _PhysicsProcess(float delta)
+    {
+        base._PhysicsProcess(delta);
+    }
+
+    private void MovePlayer()
 	{
 		Vector2 velocity = Vector2.Zero;
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
@@ -49,6 +58,26 @@ public partial class Player : KinematicBody2D
 	private void RotateWithCursor()
 	{
 		Vector2 CursorPos = GetLocalMousePosition();
-		Rotation += CursorPos.Angle() + StartRot;
+		Rotation += CursorPos.Angle() + startRot;
+	}
+
+	public void TakeDamage(int dmgAmount, Vector2 damageVector)
+	{
+		Vector2 velocity = Vector2.Zero;
+
+        currentHp -= dmgAmount;
+		if (currentHp > MIN_HP)
+		{
+			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 1.5f, ACCELERATION);
+			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 1.5f, ACCELERATION);
+			//UI.HealthBar.UpdateHealthBar(currentHp);
+			MoveAndCollide(velocity);
+		}
+		else if (currentHp <= MIN_HP)
+		{
+			currentHp = 0;
+			//UI.HealthBar.UpdateHealthBar(currentHp);
+			//Gamemanager.ActivateDeathScene
+		}
 	}
 }
