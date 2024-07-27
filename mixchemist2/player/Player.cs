@@ -3,9 +3,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-public partial class Player : KinematicBody2D/*, IDamageable*/
+public partial class Player : KinematicBody2D
 {
-	private const float SPEED = 2.5f;
+    [Export] private PackedScene healthBarScene;
+    private const float SPEED = 2.5f;
 	private const float SPRINT_SPEED = SPEED * 2;
 	private const float ACCELERATION = 50.0f;
 	private const int MAX_HP = 100;
@@ -13,10 +14,13 @@ public partial class Player : KinematicBody2D/*, IDamageable*/
 	
 	private int currentHp = MAX_HP;
 	private float startRot = 0f;
+	private HealthBar _healthBar;
 	
 	public override void _Ready()
 	{
+
 		startRot = Rotation;
+		_healthBar = (HealthBar)healthBarScene.Instance();
 	}
 
 	public override void _Process(float delta)
@@ -70,13 +74,13 @@ public partial class Player : KinematicBody2D/*, IDamageable*/
 		{
 			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 1.5f, ACCELERATION);
 			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 1.5f, ACCELERATION);
-			//UI.HealthBar.UpdateHealthBar(currentHp);
+			_healthBar.UpdateHealthBar(currentHp);
 			MoveAndCollide(velocity);
 		}
 		else if (currentHp <= MIN_HP)
 		{
 			currentHp = 0;
-			//UI.HealthBar.UpdateHealthBar(currentHp);
+			_healthBar.UpdateHealthBar(currentHp);
 			//Gamemanager.ActivateDeathScene
 		}
 	}
