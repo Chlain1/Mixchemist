@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 using static ClassesAndEnums;
 using mixchemist2.spell;
@@ -100,10 +101,24 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	/// <param name="body">The body of spell</param>
 	private void OnBodyEntered(Node body)
 	{
+		
 		if (body is ConcreteSpell spell)
 		{
 			TakeDamage(spell.Damage, spell.GlobalPosition - GlobalPosition);
 		}
+		
+	}
+
+	public void _OnBulletHit(Node body)
+	{
+
+		if (body.Name == "Spell")
+		{
+			int damage = (int) body.Call("GetDamage");
+			TakeDamage(damage, Position - (Vector2) body.Call("GetPosition"));
+			body.QueueFree();
+		}
+		
 	}
 
 	/// <summary>
