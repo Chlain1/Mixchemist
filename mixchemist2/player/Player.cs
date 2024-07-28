@@ -79,6 +79,7 @@ public partial class Player : KinematicBody2D
 		{
 			currentHp = 0;
 			healthBar.UpdateHealthBar(currentHp);
+			//QueueFree();
 			//Gamemanager.ActivateDeathScene
 		}
 	}

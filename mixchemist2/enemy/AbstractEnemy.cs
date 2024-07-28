@@ -23,8 +23,7 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	public override void _Ready()
 	{
 		playerDetectionArea = GetNode<Area2D>("PlayerDetectionArea");
-		playerDetectionArea.
-			Connect("body_entered", this, nameof(OnBodyEntered));
+		//playerDetectionArea.Connect("body_entered", this, nameof(OnBodyEntered));
 		switch (enemyElement)
 		{
 			case Element.FIRE:
@@ -99,7 +98,7 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	/// Detects if the spell has collided with the enemy
 	/// </summary>
 	/// <param name="body">The body of spell</param>
-	private void OnBodyEntered(Node body)
+	/*private void OnBodyEntered(Node body)
 	{
 		
 		if (body is ConcreteSpell spell)
@@ -107,11 +106,12 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 			TakeDamage(spell.Damage, spell.GlobalPosition - GlobalPosition);
 		}
 		
-	}
+	}*/
 
 	public void _OnBulletHit(Node body)
 	{
 
+		// Dont look at this shitshow
 		if (body.Name == "Spell")
 		{
 			int damage = (int) body.Call("GetDamage");
