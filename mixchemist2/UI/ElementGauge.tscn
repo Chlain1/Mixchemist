@@ -44,15 +44,13 @@ font_data = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
-margin_right = -984.0
-margin_bottom = -560.0
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="Fire" type="VBoxContainer" parent="."]
 margin_right = 60.0
-margin_bottom = 214.0
+margin_bottom = 640.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Fire"]
 margin_right = 60.0
@@ -75,7 +73,7 @@ align = 1
 [node name="Water" type="VBoxContainer" parent="."]
 margin_left = 64.0
 margin_right = 124.0
-margin_bottom = 214.0
+margin_bottom = 640.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Water"]
 margin_right = 60.0
@@ -84,6 +82,7 @@ value = 100.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 texture_progress_offset = Vector2( 1, 21 )
+fill_mode = 3
 tint_progress = Color( 0.0313726, 0, 1, 1 )
 
 [node name="Number" type="Label" parent="Water"]
@@ -97,7 +96,7 @@ align = 1
 [node name="Earth" type="VBoxContainer" parent="."]
 margin_left = 128.0
 margin_right = 188.0
-margin_bottom = 214.0
+margin_bottom = 640.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Earth"]
 margin_right = 60.0
@@ -106,6 +105,7 @@ value = 100.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 texture_progress_offset = Vector2( 1, 21 )
+fill_mode = 3
 tint_progress = Color( 0, 1, 0, 1 )
 
 [node name="Number" type="Label" parent="Earth"]
@@ -119,7 +119,7 @@ align = 1
 [node name="Air" type="VBoxContainer" parent="."]
 margin_left = 192.0
 margin_right = 252.0
-margin_bottom = 214.0
+margin_bottom = 640.0
 
 [node name="TextureProgress" type="TextureProgress" parent="Air"]
 margin_right = 60.0
@@ -128,6 +128,7 @@ value = 100.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 texture_progress_offset = Vector2( 1, 21 )
+fill_mode = 3
 
 [node name="Number" type="Label" parent="Air"]
 margin_top = 184.0
