@@ -53,7 +53,6 @@ public partial class Staff : Node2D
         if(@event.IsActionPressed("ui_cast"))
         {
             castingMode = true;
-            Debug.WriteLine(castingMode);
         }
 
         if (@event.IsActionReleased("ui_cast"))
@@ -89,30 +88,6 @@ public partial class Staff : Node2D
             
         }
         
-        /*if (@event.IsActionPressed("w_cast"))
-        {
-            playerInput.AddTextToLabel("W"); 
-            currentElement = ClassesAndEnums.Element.FIRE;
-            spellReadyToCast = true;
-        }
-        else if (@event.IsActionPressed("a_cast"))
-        {
-            playerInput.AddTextToLabel("A"); 
-            currentElement = ClassesAndEnums.Element.EARTH;
-            spellReadyToCast = true;
-        }
-        else if (@event.IsActionPressed("d_cast"))
-        {
-            playerInput.AddTextToLabel("D"); 
-            currentElement = ClassesAndEnums.Element.WATER;
-            spellReadyToCast = true;
-        }
-        else if (@event.IsActionPressed("s_cast"))
-        {
-            playerInput.AddTextToLabel("S"); 
-            currentElement = ClassesAndEnums.Element.AIR;
-            spellReadyToCast = true;
-        }*/
         if (@event.IsActionPressed("shootElement"))
         {
             ColorRect colorRect = null;

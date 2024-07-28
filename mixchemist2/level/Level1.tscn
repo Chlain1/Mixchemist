@@ -6,7 +6,6 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
-allowedBasicElements = PoolIntArray( 0, 1, 2, 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_scale = 0.349
