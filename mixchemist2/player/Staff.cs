@@ -53,6 +53,7 @@ public partial class Staff : Node2D
         if(@event.IsActionPressed("ui_cast"))
         {
             castingMode = true;
+            Debug.WriteLine(castingMode);
         }
 
         if (@event.IsActionReleased("ui_cast"))
