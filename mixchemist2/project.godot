@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="mixchemist"
-run/main_scene="res://UI/MainMenu.tscn"
+config/name="mixchemist2"
+run/main_scene="res://devTesting/DevScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]

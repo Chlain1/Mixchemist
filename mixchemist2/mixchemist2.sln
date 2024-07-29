@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mixchemist", "mixchemist.csproj", "{90B600E2-7D97-4381-857E-F21C4DD52B1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mixchemist2", "mixchemist2.csproj", "{90B600E2-7D97-4381-857E-F21C4DD52B1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
