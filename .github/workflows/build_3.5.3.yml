@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -v -p build/windows
           cd ./$POJECT_PATH
-          godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          godot -v --export "Windows Desktop" ../build/windows/${EXPORT_NAME}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
