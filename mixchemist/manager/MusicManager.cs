@@ -11,10 +11,21 @@ public partial class MusicManager : AudioStreamPlayer
 	 */
 	public override void _Ready()
 	{
+		string path = "res://music/default_music.mp3";
+		if (GetTree().CurrentScene.Name == "DevScene")
+		{
+			path = "res://music/mixchemist_title_mp3.mp3";
+		}
+		else if (GetTree().CurrentScene.Name == "MainMenu")
+		{
+			path = "res://music/main_menu_theme.mp3";
+		}
+		
 		Instance = this;
-		this.Stream = GD.Load<AudioStream>("res://music/mixchemist_title_mp3.mp3");
-		this.VolumeDb = -10;
-		this.Play();
+        this.Stream =
+        	GD.Load<AudioStream>(path);
+        this.VolumeDb = -10;
+        this.Play();
 	}
 	
 	/**

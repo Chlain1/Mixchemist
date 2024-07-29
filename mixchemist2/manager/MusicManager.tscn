@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://music/mixchemist_title_mp3.mp3" type="AudioStream" id=1]
-[ext_resource path="res://manager/MusicManager.cs" type="Script" id=2]
-
-[node name="MusicManager" type="AudioStreamPlayer"]
-stream = ExtResource( 1 )
-autoplay = true
-script = ExtResource( 2 )

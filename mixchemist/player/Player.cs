@@ -1,66 +1,86 @@
 using Godot;
-using System;
-using System.Diagnostics;
+using static ClassesAndEnums;
 
-public partial class Player : CharacterBody2D
+public partial class Player : KinematicBody2D
 {
-    private const float SPEED = 2.5f;
-    private const float SPRINT_SPEED = SPEED * 2;
-    private const float ACCELLERATION = 50.0f;
-    private float StartRot = 0f;
-
-    public override void _Ready()
-    {
-		StartRot = Rotation;
-    }
-
-    public override void _Process(double delta)
+    [Export] private PackedScene healthBarScene;
+    private const float SPEED = 7.5f;
+	private const float SPRINT_SPEED = SPEED * 2;
+	private const float ACCELERATION = 50.0f;
+	private const int MAX_HP = 100;
+	private const int MIN_HP = 0;
+	
+	private int currentHp = MAX_HP;
+	private float startRot = 0f;
+	private HealthBar healthBar;
+	
+	public override void _Ready()
 	{
-        MovePlayer();
+        startRot = Rotation;
+		healthBar = (HealthBar)healthBarScene.Instance();
+        healthBar.UpdateHealthBar(MAX_HP);
     }
 
-    public override void _Input(InputEvent @event)
-    {
-	    if (@event.IsActionPressed("w_cast")) Debug.WriteLine("Hello w");
-	    else if (@event.IsActionPressed("a_cast")) Debug.WriteLine("Hello a");
-	    else if (@event.IsActionPressed("d_cast")) Debug.WriteLine("Hello d");
-	    else if (@event.IsActionPressed("s_cast")) Debug.WriteLine("Hello s");
-    }
-
-	private void MovePlayer()
+	public override void _Process(float delta)
 	{
-        Vector2 velocity = Velocity;
-        Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-        Vector2 cursorPos = GetLocalMousePosition();
+		MovePlayer();
+		RotateWithCursor();
+	}
 
-        if (direction != Vector2.Zero)
-        {
-            if (Input.IsActionPressed("ui_sprint"))
-            {
-                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SPRINT_SPEED, ACCELLERATION);
-                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SPRINT_SPEED, ACCELLERATION);
-            }
-            else
-            {
-                velocity.X = Mathf.MoveToward(Velocity.X, direction.X * SPEED, ACCELLERATION);
-                velocity.Y = Mathf.MoveToward(Velocity.Y, direction.Y * SPEED, ACCELLERATION);
-            }
-        }
-        else
-        {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, ACCELLERATION);
-            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, ACCELLERATION);
-        }
-
-        Velocity = velocity;
-
-        MoveAndCollide(Velocity);
-
-        Rotation += cursorPos.Angle() + StartRot;
-    }
-
-    private void TakeDamage(float damageAmount)
+    public override void _PhysicsProcess(float delta)
     {
-
+        base._PhysicsProcess(delta);
     }
+
+    private void MovePlayer()
+	{
+		Vector2 velocity = Vector2.Zero;
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		if (direction != Vector2.Zero && !Input.IsActionPressed("ui_cast"))
+		{
+			if (Input.IsActionPressed("ui_sprint"))
+			{
+				velocity.x = Mathf.MoveToward(0, direction.x * SPRINT_SPEED, ACCELERATION);
+				velocity.y = Mathf.MoveToward(0, direction.y * SPRINT_SPEED, ACCELERATION);
+			}
+			else
+			{
+				velocity.x = Mathf.MoveToward(0, direction.x * SPEED, ACCELERATION);
+				velocity.y = Mathf.MoveToward(0, direction.y * SPEED, ACCELERATION);
+			}
+		}
+		else
+		{
+			velocity = Vector2.Zero;
+		}
+
+		MoveAndCollide(velocity);
+	}
+
+	private void RotateWithCursor()
+	{
+		Vector2 CursorPos = GetLocalMousePosition();
+		Rotation += CursorPos.Angle() + startRot;
+	}
+
+	public void TakeDamage(int dmgAmount, Vector2 damageVector)
+	{
+		Vector2 velocity = Vector2.Zero;
+
+        currentHp -= dmgAmount;
+		if (currentHp > MIN_HP)
+		{
+			velocity.x = Mathf.MoveToward(0, damageVector.Normalized().x * 50.0f, ACCELERATION);
+			velocity.y = Mathf.MoveToward(0, damageVector.Normalized().y * 50.0f, ACCELERATION);
+			healthBar.UpdateHealthBar(currentHp);
+			MoveAndCollide(velocity);
+		}
+		else if (currentHp <= MIN_HP)
+		{
+			currentHp = 0;
+			healthBar.UpdateHealthBar(currentHp);
+			//QueueFree();
+			//Gamemanager.ActivateDeathScene
+		}
+	}
 }

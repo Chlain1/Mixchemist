@@ -11,7 +11,7 @@ public partial class MainMenu : Control
 	/**
 	 * Exits the game
 	 */
-	private void OnExitButtonPressed()
+	private void _OnExitButtonPressed()
 	{
 		GetTree().Quit();
 	}
@@ -19,25 +19,26 @@ public partial class MainMenu : Control
 	/**
 	 * TODO: Changes scene to the first level (or level select)
 	 */
-	private void OnStartButtonPressed()
+	private void _OnStartButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://devTesting/DevScene.tscn");
+		GetTree().ChangeScene("res://level/Level1.tscn");
 	}
 
 	/**
 	 * TODO: Changes scene to the last unlocked level
 	 */
-	private void OnContinueButtonPressed()
+	private void _OnContinueButtonPressed()
 	{
 		MusicManager.Instance.ChangeStream("res://music/mixchemist_title_octup.mp3");
 	}
 
-	/**
-	 * Updates Music Volume by changing the music slider
-	 */
+	/// <summary>
+	/// Updates Music Volume by changing the music slider
+	/// </summary>
+	/// <param name="value">percentage of volume</param>
 	private void _OnMusicVolumeSliderValueChanged(float value)
 	{
-		MusicManager.Instance.SetVolume(Mathf.LinearToDb(value) - 50);
+		MusicManager.Instance.SetVolume(10*Mathf.Log(value) - 56);
 	}
     
 }

@@ -1,70 +1,294 @@
+using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
+using static ClassesAndEnums;
 
 public partial class Staff : Node2D
 {
+    [Export] private PackedScene PlayerInputFieldScene;
+    [Export] private PackedScene elementStorageScene;
     [Export] private PackedScene bulletScene;
+    [Export] private PackedScene elementGaugeScene;
     [Export] float bulletSpeed = 1500f;
     [Export] private float bps = 5;
     [Export] float damage = 10;
+    [Export] int CASTING_COST = 5;
 
+    private ElementStorage elementStorage;
+    private PlayerInputField playerInput;
+    
+    private Element currentElement;
     private float fireRate;
+    private bool castingMode = false;
+    private bool[] castingArray = new bool[4]; // 0: fire, 1: water, 2: earth, 3: air
     private float timeUntilFire = 0f;
-    private Color spellColor = Colors.Black;
-    private bool spellReadyToCast = false; // Flag to indicate a spell is ready to cast
+    private bool spellReadyToCast = false;
+    private int fireStored = 100;
+    private int waterStored = 100;
+    private int earthStored = 100;
+    private int airStored = 100;
 
-    // Called when the node enters the scene tree for the first time.
+    private ElementGauge elementGauge;
+
     public override void _Ready()
     {
+        elementStorage = (ElementStorage)elementStorageScene.Instance();
+        playerInput = (PlayerInputField)PlayerInputFieldScene.Instance();
+        elementGauge = (ElementGauge)elementGaugeScene.Instance();
+        elementGauge.UpdateGauge(Element.FIRE, fireStored);
+        elementGauge.UpdateGauge(Element.WATER, waterStored);
+        elementGauge.UpdateGauge(Element.EARTH, earthStored);
+        elementGauge.UpdateGauge(Element.AIR, airStored);
+
         fireRate = 1 / bps;
+        ResetCastingArray(false);
+    }
+
+    private void ResetCastingArray(bool toggleColors)
+    {
+
+        if (toggleColors)
+        {
+            elementStorage.ToggleElementPanelColor(Element.FIRE, false);
+            elementStorage.ToggleElementPanelColor(Element.WATER, false);
+            elementStorage.ToggleElementPanelColor(Element.EARTH, false);
+            elementStorage.ToggleElementPanelColor(Element.AIR, false);
+        }
+        
+        for (int i = 0; i < castingArray.Length; i++)
+        {
+            castingArray[i] = false;
+        }
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (@event.IsActionPressed("w_cast"))
+        
+        if(@event.IsActionPressed("ui_cast"))
         {
-            spellColor = Colors.Red;
-            spellReadyToCast = true;
+            castingMode = true;
         }
-        else if (@event.IsActionPressed("a_cast"))
+
+        if (@event.IsActionReleased("ui_cast"))
         {
-            spellColor = Colors.Brown;
-            spellReadyToCast = true;
+            castingMode = false;
+            SaveAction();
+            ResetCastingArray(true);
         }
-        else if (@event.IsActionPressed("d_cast"))
+
+        if (castingMode)
         {
-            spellColor = Colors.Blue;
-            spellReadyToCast = true;
+         
+            if (@event.IsActionPressed("ui_up") && GameManager.Instance.AllowedBasicElements.Contains(Element.FIRE) && fireStored >= CASTING_COST)
+            {
+                castingArray[0] = !castingArray[0];
+                elementStorage.ToggleElementPanelColor(Element.FIRE, castingArray[0]);
+                if (castingArray[0])
+                {
+                    fireStored -= CASTING_COST;
+                    elementGauge.UpdateGauge(Element.FIRE, fireStored);
+                }
+                else
+                {
+                    fireStored += CASTING_COST;
+                    elementGauge.UpdateGauge(Element.FIRE, fireStored);
+                }
+            }
+            if (@event.IsActionPressed("ui_right") && GameManager.Instance.AllowedBasicElements.Contains(Element.WATER) && waterStored >= CASTING_COST)
+            {
+                castingArray[1] = !castingArray[1];
+                elementStorage.ToggleElementPanelColor(Element.WATER, castingArray[1]);
+                if (castingArray[1])
+                {
+                    waterStored -= CASTING_COST;
+                    elementGauge.UpdateGauge(Element.WATER, waterStored);
+                }
+                else
+                {
+                    waterStored += CASTING_COST;
+                    elementGauge.UpdateGauge(Element.WATER, waterStored);
+                }
+            }
+            if (@event.IsActionPressed("ui_left") && GameManager.Instance.AllowedBasicElements.Contains(Element.EARTH) && earthStored >= CASTING_COST)
+            {
+                castingArray[2] = !castingArray[2];
+                elementStorage.ToggleElementPanelColor(Element.EARTH, castingArray[2]);
+                if (castingArray[2])
+                {
+                    earthStored -= CASTING_COST;
+                    elementGauge.UpdateGauge(Element.EARTH, earthStored);
+                } 
+                else
+                {
+                    earthStored += CASTING_COST;
+                    elementGauge.UpdateGauge(Element.EARTH, earthStored);
+                }
+            }
+            if (@event.IsActionPressed("ui_down") && GameManager.Instance.AllowedBasicElements.Contains(Element.AIR) && airStored >= CASTING_COST)
+            {
+                castingArray[3] = !castingArray[3];
+                elementStorage.ToggleElementPanelColor(Element.AIR, castingArray[3]);
+                if (castingArray[3])
+                {
+                    airStored -= CASTING_COST;
+                    elementGauge.UpdateGauge(Element.AIR, airStored);
+                }
+                else 
+                { 
+                    airStored += CASTING_COST;
+                    elementGauge.UpdateGauge(Element.AIR, airStored);
+                }
+            }
+            
         }
-        else if (@event.IsActionPressed("s_cast"))
+        
+        if (@event.IsActionPressed("shootElement"))
         {
-            spellColor = Colors.White;
-            spellReadyToCast = true;
+            ColorRect colorRect = null;
+            if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
+            {
+                RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
+                spell.Modulate = colorRect.Color;
+                spell.Rotation = GlobalRotation;
+                spell.GlobalPosition = GlobalPosition;
+                spell.LinearVelocity = spell.Transform.x * bulletSpeed;
+                GetTree().Root.AddChild(spell);
+            };
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+    private void SaveAction()
+    {
+
+        // Only if no spell is selected, set to false
+        bool canCast = true;
+        
+        if (castingArray[0]) // Has fire
+        {
+            if (castingArray[1]) // Has water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.SHADOW;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_WATER;
+                    }
+                }
+            }
+            else // Has no water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.FIRE;
+                    }
+                }
+            }
+        }
+        else // Has no fire
+        {
+            if (castingArray[1]) // Has water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.WATER;
+                    }
+                }
+            }
+            else // Has no water
+            {
+                if (castingArray[2]) // Has earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.EARTH_AIR;
+                    }
+                    else // Has no air
+                    {
+                        currentElement = ClassesAndEnums.Element.EARTH;
+                    }
+                }
+                else // Has no earth
+                {
+                    if (castingArray[3]) // Has air
+                    {
+                        currentElement = ClassesAndEnums.Element.AIR;
+                    }
+                    else // Has no air
+                    {
+                        canCast = false;
+                    }
+                }
+            }
+        }
+
+        if (canCast)
+        {
+            spellReadyToCast = true;
+        }
+        
+    }
+
+    public override void _Process(float delta)
     {
         if (timeUntilFire <= fireRate)
         {
-            timeUntilFire += (float)delta;
+            timeUntilFire += delta;
         }
 
         if (spellReadyToCast && timeUntilFire > fireRate)
         {
-            CastSpell(spellColor);
             timeUntilFire = 0;
-            spellReadyToCast = false; // Reset the flag
+            spellReadyToCast = false;
+            elementStorage.StoreSpellColor(currentElement);
         }
-    }
-
-    private void CastSpell(Color bulletColor)
-    {
-        RigidBody2D spell = bulletScene.Instantiate<RigidBody2D>();
-        spell.Modulate = bulletColor;
-        spell.Rotation = GlobalRotation; //current staff's rotation
-        spell.GlobalPosition = GlobalPosition; //current staff's position
-        spell.LinearVelocity = spell.Transform.X * bulletSpeed;
-        GetTree().Root.AddChild(spell);
     }
 }
