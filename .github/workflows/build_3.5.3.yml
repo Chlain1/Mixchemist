@@ -2,7 +2,7 @@ name: "godot-ci export 3.5.3"
 on: push
 
 env:
-  GODOT_VERSION: 3.5.3
+  GODOT_VERSION: 3.5.2
   EXPORT_NAME: Mixchemist
   PROJECT_PATH: mixchemist2
 
