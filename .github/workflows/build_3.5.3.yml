@@ -4,7 +4,7 @@ on: push
 env:
   GODOT_VERSION: 3.5.2
   EXPORT_NAME: Mixchemist
-  PROJECT_PATH: mixchemist2
+  PROJECT_PATH: mixchemist
 
 jobs:
   export-windows:
