@@ -21,7 +21,7 @@ public partial class MainMenu : Control
 	 */
 	private void _OnStartButtonPressed()
 	{
-		GetTree().ChangeScene("res://devTesting/DevScene.tscn");
+		GetTree().ChangeScene("res://level/Level1.tscn");
 	}
 
 	/**
