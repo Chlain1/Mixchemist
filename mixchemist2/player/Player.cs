@@ -34,8 +34,11 @@ public partial class Player : KinematicBody2D
     private void MovePlayer()
 	{
 		Vector2 velocity = Vector2.Zero;
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero && !Input.IsActionPressed("ui_cast"))
+        //Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+        Vector2 direction = new Vector2(
+			Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), 
+			Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
+        if (direction != Vector2.Zero && !Input.IsActionPressed("ui_cast"))
 		{
 			if (Input.IsActionPressed("ui_sprint"))
 			{
