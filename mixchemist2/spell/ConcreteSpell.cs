@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 namespace mixchemist2.spell
 {
@@ -8,7 +9,7 @@ namespace mixchemist2.spell
 
 		[Export] public int Damage;
     	public Vector2 Direction {get; set;}
-    	public ClassesAndEnums.Element ElementType {get; set;}
+	    public ClassesAndEnums.Element ElementType;
     	
     	// Called when the node enters the scene tree for the first time.
     	public override void _Ready()
@@ -24,6 +25,16 @@ namespace mixchemist2.spell
     	public override void _Process(float delta)
     	{
     	}
+
+	    public ClassesAndEnums.Element GetElement()
+	    {
+		    return ElementType;
+	    }
+
+	    public void SetElement(ClassesAndEnums.Element element)
+	    {
+		    ElementType = element;
+	    }
 
 	    public int GetDamage()
 	    {

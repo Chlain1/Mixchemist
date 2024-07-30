@@ -145,6 +145,8 @@ public partial class Staff : Node2D
         if (@event.IsActionPressed("shootElement"))
         {
             ColorRect colorRect = null;
+            Element spellElem = elementStorage.GetFirstRealmElement();
+            
             if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
             {
                 RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
@@ -153,6 +155,7 @@ public partial class Staff : Node2D
                 spell.GlobalPosition = GlobalPosition;
                 spell.LinearVelocity = spell.Transform.x * bulletSpeed;
                 GetTree().Root.AddChild(spell);
+                spell.Call("SetElement", spellElem);
             };
         }
     }

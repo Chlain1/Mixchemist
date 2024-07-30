@@ -11,8 +11,26 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	[Export] private double damage = 3.0f;
 	[Export] private float movementSpeed = 2.5f;
 	
+	// Damage Modifiers
+	[Export] private double fireModifier = 1f;
+	[Export] private double waterModifier = 1f;
+	[Export] private double earthModifier = 1f;
+	[Export] private double airModifier = 1f;
+	[Export] private double fireWaterModifier = 1f;
+	[Export] private double fireEarthModifier = 1f;
+	[Export] private double fireAirModifier = 1f;
+	[Export] private double waterEarthModifier = 1f;
+	[Export] private double waterAirModifier = 1f;
+	[Export] private double earthAirModifier = 1f;
+	[Export] private double fireWaterEarthModifier = 1f;
+	[Export] private double fireWaterAirModifier = 1f;
+	[Export] private double fireEarthAirModifier = 1f;
+	[Export] private double waterEarthAirModifier = 1f;
+	[Export] private double shadowModifier = 1f;
+	
 	private Area2D spellCollisionArea;
 	private KinematicCollision2D colObj;
+	private TextureProgress healthBar;
 	
     private Area2D playerDetectionArea;
 	private bool isPlayerDetected = false;
@@ -23,6 +41,11 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	public override void _Ready()
 	{
 		playerDetectionArea = GetNode<Area2D>("PlayerDetectionArea");
+		healthBar = GetNode<TextureProgress>("HealthBar");
+
+		healthBar.MaxValue = health;
+		healthBar.Value = health;
+		
 		//playerDetectionArea.Connect("body_entered", this, nameof(OnBodyEntered));
 		switch (enemyElement)
 		{
@@ -115,7 +138,8 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		if (body.Name == "Spell")
 		{
 			int damage = (int) body.Call("GetDamage");
-			TakeDamage(damage, Position - (Vector2) body.Call("GetPosition"));
+			Element projectileElement = (Element) body.Call("GetElement");
+			TakeDamage(damage, projectileElement, Position - (Vector2) body.Call("GetPosition"));
 			body.QueueFree();
 		}
 		
@@ -126,15 +150,74 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	/// </summary>
 	/// <param name="damage">The amount of Damage the Enemy should take</param>
 	/// <param name="knockback">The desired direction the enemy should take knockback to</param>
-	public void TakeDamage(int damage, Vector2 knockback)
+	public void TakeDamage(int damage, Element projectileElement, Vector2 knockback)
 	{
-		health -= damage;
+
+		double realDamage = damage;
+		switch (projectileElement) 
+		{
+			case Element.FIRE:
+				realDamage = realDamage * fireModifier;
+				break;
+			case Element.WATER:
+				realDamage = realDamage * waterModifier;
+				break;
+			case Element.EARTH:
+				realDamage = realDamage * earthModifier;
+				break;
+			case Element.AIR:
+				realDamage = realDamage * airModifier;
+				break;
+			case Element.FIRE_WATER:
+				realDamage = realDamage * fireWaterModifier;
+				break;
+			case Element.FIRE_EARTH:
+				realDamage = realDamage * fireEarthModifier;
+				break;
+			case Element.FIRE_AIR:
+				realDamage = realDamage * fireAirModifier;
+				break;
+			case Element.WATER_EARTH:
+				realDamage = realDamage * waterEarthModifier;
+				break;
+			case Element.WATER_AIR:
+				realDamage = realDamage * waterAirModifier;
+				break;
+			case Element.EARTH_AIR:
+				realDamage = realDamage * earthAirModifier;
+				break;
+			case Element.FIRE_WATER_AIR:
+				realDamage = realDamage * fireWaterAirModifier;
+				break;
+			case Element.FIRE_WATER_EARTH:
+				realDamage = realDamage * fireWaterEarthModifier;
+				break;
+			case Element.WATER_EARTH_AIR:
+				realDamage = realDamage * waterEarthAirModifier;
+				break;
+			case Element.FIRE_EARTH_AIR:
+				realDamage = realDamage * fireEarthAirModifier;
+				break;
+			case Element.SHADOW:
+				realDamage = realDamage * shadowModifier;
+				break;
+			default:
+				Debug.WriteLine("Element does not exist");
+				break;
+		}
+		
+		health -= realDamage;
+		
 		if (health <= 0)
 		{
+			healthBar.Value = 0;
 			QueueFree();
 		}
 		else
 		{
+			
+			healthBar.Value = healthBar.Value - realDamage;
+			
 			// Apply knockback
 			// You may want to adjust the multiplier to get the desired knockback effect
 			MoveAndCollide(knockback.Normalized() * 10);

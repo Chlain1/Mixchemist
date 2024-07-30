@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using static ClassesAndEnums;
 
 public class ElementStorage : Control
@@ -17,6 +18,7 @@ public class ElementStorage : Control
 
     private static Queue<ColorRect> colorRects = new Queue<ColorRect>();
     private static Panel[] panels = new Panel[3];
+    private static Queue<Element> elemQueue = new Queue<Element>();
     
 
     // Called when the node enters the scene tree for the first time.
@@ -145,18 +147,20 @@ public class ElementStorage : Control
                 spellColorRect.Color = Colors.Black;
                 break;
         }
-        NewElementInLastElementOut(spellColorRect);
+        NewElementInLastElementOut(spellColorRect, chosenElement);
     }
     
-    private void NewElementInLastElementOut(ColorRect spellColorRect)
+    private void NewElementInLastElementOut(ColorRect spellColorRect, Element element)
     {
         if (colorRects.Count == 3)
         {
             ColorRect oldRect = colorRects.Dequeue();
             oldRect.QueueFree(); // Ensure the old ColorRect is removed from the scene tree
+            Element oldElem = elemQueue.Dequeue();
         }
         
         colorRects.Enqueue(spellColorRect);
+        elemQueue.Enqueue(element);
         List<ColorRect> tempList = new List<ColorRect>(colorRects);
         RemoveElements();
         int j = panels.Length - 1;
@@ -174,6 +178,8 @@ public class ElementStorage : Control
         RemoveElements();
         ColorRect lastElement = colorRects.Dequeue();
         colorRects.Enqueue(lastElement);
+        Element lastElem = elemQueue.Dequeue();
+        elemQueue.Enqueue(lastElem);
         
         int j = panels.Length - 1;
         foreach (var colorRect in colorRects)
@@ -197,6 +203,15 @@ public class ElementStorage : Control
         }
     }
 
+    public Element GetFirstRealmElement()
+    {
+        if (elemQueue.Count() > 0)
+        {
+            return elemQueue.Peek();
+        }
+
+        return Element.FIRE;
+    }
     public ColorRect CastFirstElementInStorage()
     {
         ColorRect colorRect = null;
@@ -205,6 +220,7 @@ public class ElementStorage : Control
             if (panels[i].GetChildCount() > 0)
             {
                 colorRect = colorRects.Dequeue();
+                elemQueue.Dequeue();
                 panels[i].RemoveChild(colorRect);
                 colorRect.QueueFree();
                 List<ColorRect> tempList = new List<ColorRect>(colorRects);
