@@ -665,7 +665,6 @@ fabric.properties
 .godot/
 
 # Godot-specific ignores
-.import/
 export.cfg
 
 # Imported translations (automatically generated from CSV files)
