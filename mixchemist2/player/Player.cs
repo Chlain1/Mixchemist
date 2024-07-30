@@ -13,12 +13,16 @@ public partial class Player : KinematicBody2D
 	private int currentHp = MAX_HP;
 	private float startRot = 0f;
 	private HealthBar healthBar;
+	private PlayerTexture sprite;
+
 	
 	public override void _Ready()
 	{
         startRot = Rotation;
 		healthBar = (HealthBar)healthBarScene.Instance();
+		sprite = GetNode<PlayerTexture>("PlayerTexture");
         healthBar.UpdateHealthBar(MAX_HP);
+		sprite.SetPlayerTexture(currentHp, MAX_HP);
     }
 
 	public override void _Process(float delta)
@@ -82,5 +86,6 @@ public partial class Player : KinematicBody2D
 			//QueueFree();
 			//Gamemanager.ActivateDeathScene
 		}
+		sprite.SetPlayerTexture(currentHp, MAX_HP);
 	}
 }
