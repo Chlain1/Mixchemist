@@ -33,7 +33,6 @@ namespace mixchemist2.spell
 
 	    public void SetElement(ClassesAndEnums.Element element)
 	    {
-		    Debug.WriteLine("ELEMENT ALTER: " + element);
 		    ElementType = element;
 	    }
 

@@ -207,7 +207,6 @@ public class ElementStorage : Control
     {
         if (elemQueue.Count() > 0)
         {
-            Debug.WriteLine("peeked Elem: " + elemQueue.Peek());
             return elemQueue.Peek();
         }
 

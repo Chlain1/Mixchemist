@@ -13,9 +13,20 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	
 	// Damage Modifiers
 	[Export] private double fireModifier = 1f;
-	[Export] private double waterModifier = 2f;
+	[Export] private double waterModifier = 1f;
 	[Export] private double earthModifier = 1f;
 	[Export] private double airModifier = 1f;
+	[Export] private double fireWaterModifier = 1f;
+	[Export] private double fireEarthModifier = 1f;
+	[Export] private double fireAirModifier = 1f;
+	[Export] private double waterEarthModifier = 1f;
+	[Export] private double waterAirModifier = 1f;
+	[Export] private double earthAirModifier = 1f;
+	[Export] private double fireWaterEarthModifier = 1f;
+	[Export] private double fireWaterAirModifier = 1f;
+	[Export] private double fireEarthAirModifier = 1f;
+	[Export] private double waterEarthAirModifier = 1f;
+	[Export] private double shadowModifier = 1f;
 	
 	private Area2D spellCollisionArea;
 	private KinematicCollision2D colObj;
@@ -156,6 +167,39 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 				break;
 			case Element.AIR:
 				realDamage = realDamage * airModifier;
+				break;
+			case Element.FIRE_WATER:
+				realDamage = realDamage * fireWaterModifier;
+				break;
+			case Element.FIRE_EARTH:
+				realDamage = realDamage * fireEarthModifier;
+				break;
+			case Element.FIRE_AIR:
+				realDamage = realDamage * fireAirModifier;
+				break;
+			case Element.WATER_EARTH:
+				realDamage = realDamage * waterEarthModifier;
+				break;
+			case Element.WATER_AIR:
+				realDamage = realDamage * waterAirModifier;
+				break;
+			case Element.EARTH_AIR:
+				realDamage = realDamage * earthAirModifier;
+				break;
+			case Element.FIRE_WATER_AIR:
+				realDamage = realDamage * fireWaterAirModifier;
+				break;
+			case Element.FIRE_WATER_EARTH:
+				realDamage = realDamage * fireWaterEarthModifier;
+				break;
+			case Element.WATER_EARTH_AIR:
+				realDamage = realDamage * waterEarthAirModifier;
+				break;
+			case Element.FIRE_EARTH_AIR:
+				realDamage = realDamage * fireEarthAirModifier;
+				break;
+			case Element.SHADOW:
+				realDamage = realDamage * shadowModifier;
 				break;
 			default:
 				Debug.WriteLine("Element does not exist");
