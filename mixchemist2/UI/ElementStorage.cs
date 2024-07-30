@@ -15,17 +15,24 @@ public class ElementStorage : Control
     private static ColorRect waterPanel;
     private static ColorRect earthPanel;
     private static ColorRect airPanel;
-
+    private static GridContainer gridCont;
+    
     private static Queue<ColorRect> colorRects = new Queue<ColorRect>();
     private static Panel[] panels = new Panel[3];
     private static Queue<Element> elemQueue = new Queue<Element>();
+
+    private Vector2 gridPos = new Vector2(20, -10);
     
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+
         base._Ready();
+
+        gridCont = GetNode<GridContainer>("Input");
+        gridCont.RectRotation = 45f;
+        gridCont.SetPosition(gridCont.RectPosition + gridPos);
         
         panel1 = GetNode<Panel>("Queue/Element1");
         panel2 = GetNode<Panel>("Queue/Element2");
@@ -235,5 +242,10 @@ public class ElementStorage : Control
             }
         }
         return colorRect;
+    }
+
+    public override void _Process(float delta)
+    {
+        gridCont.RectRotation = 45f;
     }
 }
