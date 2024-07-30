@@ -31,11 +31,6 @@ public partial class Player : KinematicBody2D
 		RotateWithCursor();
 	}
 
-    public override void _PhysicsProcess(float delta)
-    {
-        base._PhysicsProcess(delta);
-    }
-
     private void MovePlayer()
 	{
 		Vector2 velocity = Vector2.Zero;
