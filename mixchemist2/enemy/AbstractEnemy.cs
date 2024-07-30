@@ -5,8 +5,7 @@ using mixchemist2.spell;
 
 public abstract partial class AbstractEnemy : KinematicBody2D
 {
-
-	[Export] private Element enemyElement;
+    [Export] private Element enemyElement;
 	[Export] private double health = 30.0f;
 	[Export] private double damage = 3.0f;
 	[Export] private float movementSpeed = 2.5f;
@@ -31,42 +30,47 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	private Area2D spellCollisionArea;
 	private KinematicCollision2D colObj;
 	private TextureProgress healthBar;
+	private EnemyTexture sprite;
+	private HealthBarControl healthBarControl;
 	
     private Area2D playerDetectionArea;
 	private bool isPlayerDetected = false;
 
 	private Node2D player = null;
 	private int frameCounter = 0;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    private float startRot = 0f;
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		playerDetectionArea = GetNode<Area2D>("PlayerDetectionArea");
-		healthBar = GetNode<TextureProgress>("HealthBar");
-
+		healthBar = GetNode<TextureProgress>("HealthBarControl/EnemyHealthBar");
+		healthBarControl = GetNode<HealthBarControl>("HealthBarControl");
+        sprite = GetNode<EnemyTexture>("EnemyTexture");
 		healthBar.MaxValue = health;
 		healthBar.Value = health;
+		Rotation = startRot;
 		
 		//playerDetectionArea.Connect("body_entered", this, nameof(OnBodyEntered));
 		switch (enemyElement)
 		{
 			case Element.FIRE:
 			{
-				Modulate = Colors.Red;
+				sprite.SetEnemyTexture(Element.FIRE);
 				break;
 			}
 			case Element.WATER:
 			{
-				Modulate = Colors.Blue;
+				sprite.SetEnemyTexture(Element.WATER);
 				break;
 			}
 			case Element.EARTH:
 			{
-				Modulate = Colors.Brown;
+				sprite.SetEnemyTexture(Element.EARTH);
 				break;
 			}
 			case Element.AIR:
 			{
-				Modulate = Colors.White;
+				sprite.SetEnemyTexture(Element.AIR);
 				break;
 			}
 		}
@@ -100,6 +104,9 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		{
 			//Position += (player.Position - Position).Normalized() * SPEED;
 			colObj = MoveAndCollide((player.Position - Position).Normalized() * movementSpeed);
+			LookAt(player.Position);
+			Rotate(Mathf.Pi / 2);
+			healthBarControl.RectRotation = -(Rotation * (180/Mathf.Pi));
 		}
 	}
 

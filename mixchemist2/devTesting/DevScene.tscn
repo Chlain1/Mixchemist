@@ -14,6 +14,7 @@ script = ExtResource( 7 )
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
 
 [node name="Wall" parent="." instance=ExtResource( 5 )]
 position = Vector2( 288, 364 )
@@ -41,7 +42,7 @@ position = Vector2( 1377, 201 )
 position = Vector2( 543, -656 )
 
 [node name="FireEnemy8" parent="." instance=ExtResource( 2 )]
-position = Vector2( -261, -155 )
+position = Vector2( -493, -246 )
 
 [node name="FireEnemy9" parent="." instance=ExtResource( 2 )]
 position = Vector2( -464, 1365 )
