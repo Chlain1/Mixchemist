@@ -1,3 +1,5 @@
+using Godot;
+using System.Numerics;
 
 public partial class ClassesAndEnums
 {
@@ -21,5 +23,10 @@ public partial class ClassesAndEnums
         FIRE_WATER_AIR,
 
         SHADOW
+    }
+    public class SpawnPosition
+    {
+        public Godot.Vector2 Vector;
+        public bool Valid = false;
     }
 }

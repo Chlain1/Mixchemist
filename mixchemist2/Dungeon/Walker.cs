@@ -21,6 +21,11 @@ namespace Dungeon.Walker
         List<Godot.Vector2> stepHistory = new List<Godot.Vector2>();
         int steps_since_turn = 0;
 
+        public Walker() 
+        {
+
+        }
+
         public Walker(Godot.Vector2 startingPosition, Godot.Rect2 new_borders)
         {
             if (new_borders.HasPoint(startingPosition))
@@ -102,6 +107,7 @@ namespace Dungeon.Walker
                 list[n] = value;
             }
         }
+        
     }
 }
 

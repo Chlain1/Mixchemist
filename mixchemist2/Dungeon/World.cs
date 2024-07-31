@@ -10,6 +10,7 @@ namespace Dungeon.Generator
     {
         private TileMap tileMap;
         private Rect2 borders = new Rect2(-4096, -4096, 8192, 8192);
+        private bool doneStatus = false;
 
         public override void _Ready()
         {
@@ -27,6 +28,11 @@ namespace Dungeon.Generator
                 tileMap.SetCellv(location, -1);
             }
             tileMap.UpdateBitmaskRegion(borders.Position, borders.End);
+            doneStatus = true;
+        }
+        public bool GetStatus()
+        {
+            return doneStatus; 
         }
     }
 }
