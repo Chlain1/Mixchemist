@@ -7,14 +7,6 @@ public partial class MainMenu : Control
 {
 	
 	private int music_bus_index = AudioServer.GetBusIndex("Music"); // Index of the Music Audio Bus
-	
-	/**
-	 * Exits the game
-	 */
-	private void _OnExitButtonPressed()
-	{
-		GetTree().Quit();
-	}
 
 	/**
 	 * TODO: Changes scene to the first level (or level select)
@@ -22,16 +14,6 @@ public partial class MainMenu : Control
 	private void _OnStartButtonPressed()
 	{
 		GetTree().ChangeScene("res://Dungeon/World.tscn");
-        MusicManager.Instance.ChangeStream("res://music/default_music.mp3");
-
-    }
-
-	/**
-	 * TODO: Changes scene to the last unlocked level
-	 */
-	private void _OnContinueButtonPressed()
-	{
-		
 	}
 
 	/// <summary>
