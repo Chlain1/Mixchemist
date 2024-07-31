@@ -117,12 +117,17 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		{
 			this.player = player;
 			isPlayerDetected = true;
-		}
+            MusicManager.Instance.ChangeStream("res://music/mixchemist_battle.mp3");
+        }
 	}
 
 	private void _OnPlayerDetectionLost(Node2D player)
 	{
-		if(player.Name == "Player") isPlayerDetected = false;
+		if (player.Name == "Player")
+		{
+			isPlayerDetected = false;
+            MusicManager.Instance.ChangeStream("res://music/default_music.mp3");
+        }
 	}
 	
 	/// <summary>

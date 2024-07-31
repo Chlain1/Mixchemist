@@ -67,9 +67,13 @@ public class LevelConfiguration : Node2D
             GetValidSpawnPosition();
         }
 
-        if (frameCount%(target_fps * 10) == 0 && validSpawnPos.Valid && world.GetStatus() && !(frameCount < target_fps * 10))
+        if (frameCount % (target_fps * 10) == 0 && validSpawnPos.Valid && world.GetStatus() && !(frameCount < target_fps * 10))
         {
             SpawnEnemy();
+        }
+        else
+        {
+            GetEnemyCount();
         }
         frameCount++;
     }
