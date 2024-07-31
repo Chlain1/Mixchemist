@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Godot;
+using System.Text.Json;
 using static ClassesAndEnums;
 
 public partial class GameManager : Node
@@ -8,7 +10,25 @@ public partial class GameManager : Node
     public static GameManager Instance => _instance;
     
     private List<Element> allowedBasicElements = new List<Element>();
+    
+    // Score
+    private int score;
+    public override void _Ready()
+    {
+        score = 0;
+    }
 
+    public void SetScore(int score)
+    {
+        this.score = score;
+        Debug.WriteLine("New Score: " + score);
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+    
     public List<Element> AllowedBasicElements
     {
         get => allowedBasicElements;
