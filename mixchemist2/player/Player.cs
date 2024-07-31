@@ -81,6 +81,7 @@ public partial class Player : KinematicBody2D
 		{
 			currentHp = 0;
 			healthBar.UpdateHealthBar(currentHp);
+			GetTree().ChangeScene("res://UI/DeathMenu.tscn");
 			//QueueFree();
 			//Gamemanager.ActivateDeathScene
 		}
