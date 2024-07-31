@@ -19,6 +19,9 @@ public partial class MusicManager : AudioStreamPlayer
 		else if (GetTree().CurrentScene.Name == "MainMenu")
 		{
 			path = "res://music/main_menu_theme.mp3";
+		} else if (GetTree().CurrentScene.Name == "DeathMenu")
+		{
+			path = "res://music/You_Lost.mp3";
 		}
 		
 		Instance = this;

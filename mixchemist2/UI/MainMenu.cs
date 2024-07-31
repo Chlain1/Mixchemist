@@ -14,6 +14,7 @@ public partial class MainMenu : Control
 	private void _OnStartButtonPressed()
 	{
 		GetTree().ChangeScene("res://Dungeon/World.tscn");
+		MusicManager.Instance.ChangeStream("res://music/default_music.mp3");
 	}
 
 	/// <summary>

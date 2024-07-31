@@ -81,6 +81,7 @@ public partial class Player : KinematicBody2D
 		{
 			currentHp = 0;
 			healthBar.UpdateHealthBar(currentHp);
+			MusicManager.Instance.ChangeStream("res://music/You_Lost.mp3");
 			GetTree().ChangeScene("res://UI/DeathMenu.tscn");
 		}
 		sprite.SetPlayerTexture(currentHp, MAX_HP);
