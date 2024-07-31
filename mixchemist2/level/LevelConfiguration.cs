@@ -84,7 +84,7 @@ public class LevelConfiguration : Node2D
             AbstractEnemy enemy = (AbstractEnemy)enemyScene.Instance();
             worldNode.AddChild(enemy);
             enemy.Position = validSpawnPos.Vector;
-            Debug.WriteLine("spawned enemy");
+            Debug.WriteLine("spawned enemy" + enemyCount);
             GetEnemyCount();
         }
 
@@ -97,6 +97,8 @@ public class LevelConfiguration : Node2D
         var cell_type_id = tileMap.GetCellv(cell_coord);
         if (cell_type_id != -1)
         {
+            cell_coord.x = tileMap.MapToWorld(cell_coord).x + 128;
+            cell_coord.y = tileMap.MapToWorld(cell_coord).y - 128;
             validSpawnPos.Vector = cell_coord;
             validSpawnPos.Valid = true;
         }
@@ -117,7 +119,7 @@ public class LevelConfiguration : Node2D
                 }
             }
             enemyCount = count;
-        Debug.WriteLine("Enemies: " + enemyCount);
+        
         return enemyCount;
     }
 }
