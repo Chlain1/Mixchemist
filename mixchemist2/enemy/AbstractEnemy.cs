@@ -255,5 +255,9 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 			MoveAndCollide(knockback.Normalized() * 10);
 		}
 	}
+	public void SetElement(Element element)
+	{ 
+		enemyElement = element;
+	}
 
 }

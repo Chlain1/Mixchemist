@@ -79,11 +79,14 @@ public class LevelConfiguration : Node2D
     }
     private void SpawnEnemy()
     {
+        Random rndelement = new Random();
         if (validSpawnPos.Valid && enemyCount < maxEnemyCount) 
         {
             AbstractEnemy enemy = (AbstractEnemy)enemyScene.Instance();
             worldNode.AddChild(enemy);
             enemy.Position = validSpawnPos.Vector;
+            enemy.SetElement(allowedBasicElements[rndelement.Next(4)]);
+            enemy._Ready();
             Debug.WriteLine("spawned enemy" + enemyCount);
             GetEnemyCount();
         }
