@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using Godot;
 using static ClassesAndEnums;
@@ -161,51 +162,67 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	{
 
 		double realDamage = damage;
+		double received_score = 100;
 		switch (projectileElement) 
 		{
 			case Element.FIRE:
+				received_score = received_score * fireModifier;
 				realDamage = realDamage * fireModifier;
 				break;
 			case Element.WATER:
+				received_score = received_score * waterModifier;
 				realDamage = realDamage * waterModifier;
 				break;
 			case Element.EARTH:
+				received_score = received_score * earthModifier;
 				realDamage = realDamage * earthModifier;
 				break;
 			case Element.AIR:
+				received_score = received_score * airModifier;
 				realDamage = realDamage * airModifier;
 				break;
 			case Element.FIRE_WATER:
+				received_score = received_score * fireWaterModifier;
 				realDamage = realDamage * fireWaterModifier;
 				break;
 			case Element.FIRE_EARTH:
+				received_score = received_score * fireEarthModifier;
 				realDamage = realDamage * fireEarthModifier;
 				break;
 			case Element.FIRE_AIR:
+				received_score = received_score * fireAirModifier;
 				realDamage = realDamage * fireAirModifier;
 				break;
 			case Element.WATER_EARTH:
+				received_score = received_score * waterEarthModifier;
 				realDamage = realDamage * waterEarthModifier;
 				break;
 			case Element.WATER_AIR:
+				received_score = received_score * waterAirModifier;
 				realDamage = realDamage * waterAirModifier;
 				break;
 			case Element.EARTH_AIR:
+				received_score = received_score * earthAirModifier;
 				realDamage = realDamage * earthAirModifier;
 				break;
 			case Element.FIRE_WATER_AIR:
+				received_score = received_score * fireWaterAirModifier;
 				realDamage = realDamage * fireWaterAirModifier;
 				break;
 			case Element.FIRE_WATER_EARTH:
+				received_score = received_score * fireWaterEarthModifier;
 				realDamage = realDamage * fireWaterEarthModifier;
 				break;
 			case Element.WATER_EARTH_AIR:
+				received_score = received_score * waterEarthAirModifier;
 				realDamage = realDamage * waterEarthAirModifier;
 				break;
 			case Element.FIRE_EARTH_AIR:
+				received_score = received_score * fireEarthAirModifier;
 				realDamage = realDamage * fireEarthAirModifier;
 				break;
 			case Element.SHADOW:
+				received_score = received_score * shadowModifier;
 				realDamage = realDamage * shadowModifier;
 				break;
 			default:
@@ -218,12 +235,15 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		if (health <= 0)
 		{
 			healthBar.Value = 0;
+			received_score = received_score * 5;
+			GameManager.Instance.SetScore(GameManager.Instance.GetScore() + (int) received_score);
 			QueueFree();
 		}
 		else
 		{
 			
 			healthBar.Value = healthBar.Value - realDamage;
+			GameManager.Instance.SetScore(GameManager.Instance.GetScore() + (int) received_score);
 			
 			// Apply knockback
 			// You may want to adjust the multiplier to get the desired knockback effect
