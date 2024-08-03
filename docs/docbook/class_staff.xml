@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_staff" xml:lang="en-US">
+<title>Staff Class Reference</title>
+<indexterm><primary>Staff</primary></indexterm>
+<para>Inheritance diagram for Staff:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_staff.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_staff_1aaac8190f4e29e7da97bd833ac6e5cd5b"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_staff_1ae9c8bd422104fd8979c124722b258c8d">_Input</link> (InputEvent @event)</para>
+
+<para>Event based Input function for the player. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_staff_1a30da5b6eb25fd3fca9d9d2b9dc140220"/>override void <emphasis role="strong">_Process</emphasis> (float delta)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_staff_1ae9c8bd422104fd8979c124722b258c8d"/><section>
+    <title>_Input()</title>
+<indexterm><primary>_Input</primary><secondary>Staff</secondary></indexterm>
+<indexterm><primary>Staff</primary><secondary>_Input</secondary></indexterm>
+<para><computeroutput>override void Staff._Input (InputEvent @ event)</computeroutput></para><para>
+
+<para>Event based Input function for the player. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>event</entry><entry>
+<para>Input Event from the player</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+player/Staff.cs</section>
+</section>

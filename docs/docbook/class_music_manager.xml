@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_music_manager" xml:lang="en-US">
+<title>MusicManager Class Reference</title>
+<indexterm><primary>MusicManager</primary></indexterm>
+<para>Inheritance diagram for MusicManager:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_music_manager.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override void <link linkend="_class_music_manager_1a85fc73373aeb4519b4f46aaff5c018ad">_Ready</link> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_music_manager_1a3ac7b7c3914ce5e143880b5c883152f2"/>void <emphasis role="strong">SetVolume</emphasis> (float db)</para>
+
+<para>Changes Music Volume in decibels. Optimal range seems to be -80db to -10db. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_music_manager_1a01dca8099adaf5d615913fb4d1716e6e">ChangeStream</link> (string path)</para>
+
+<para>Plays the music at the given path. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_music_manager_1ac0568155a26e23e2624d19011baf2840"/>static <link linkend="_class_music_manager">MusicManager</link> <emphasis role="strong">Instance</emphasis><computeroutput> [get]</computeroutput>
+</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_music_manager_1a85fc73373aeb4519b4f46aaff5c018ad"/><section>
+    <title>_Ready()</title>
+<indexterm><primary>_Ready</primary><secondary>MusicManager</secondary></indexterm>
+<indexterm><primary>MusicManager</primary><secondary>_Ready</secondary></indexterm>
+<para><computeroutput>override void MusicManager._Ready ( )</computeroutput></para>
+<para>Creates Singleton Instance and Starts the <link linkend="_class_main_menu">MainMenu</link> song </para>
+</section>
+<anchor xml:id="_class_music_manager_1a01dca8099adaf5d615913fb4d1716e6e"/><section>
+    <title>ChangeStream()</title>
+<indexterm><primary>ChangeStream</primary><secondary>MusicManager</secondary></indexterm>
+<indexterm><primary>MusicManager</primary><secondary>ChangeStream</secondary></indexterm>
+<para><computeroutput>void MusicManager.ChangeStream (string path)</computeroutput></para><para>
+
+<para>Plays the music at the given path. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>path</entry><entry>
+<para>The path to the music file</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+manager/MusicManager.cs</section>
+</section>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_game_manager" xml:lang="en-US">
+<title>GameManager Class Reference</title>
+<indexterm><primary>GameManager</primary></indexterm>
+<para>Inheritance diagram for GameManager:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_game_manager.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_game_manager_1a414921095a1eb9b028809347455617fd"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_game_manager_1a136731efabe4738f0c683d1a5916a30b">SetScore</link> (int score)</para>
+
+<para>Set the score of the player. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_game_manager_1a8b64a2f8dbf823992e9bc1953d03b044">GetScore</link> ()</para>
+
+<para>Gets the current score of the player. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_game_manager_1af1432af6e70b97401c3e867f4bda62fa"/>override void <emphasis role="strong">_EnterTree</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_game_manager_1ad3e717f4fb0f378b969f4457de81f23e"/>static <link linkend="_class_game_manager">GameManager</link> <emphasis role="strong">Instance</emphasis><computeroutput> [get]</computeroutput>
+</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_game_manager_1af00fef8ece0c7b9560a53e9b491194d8"/>List&lt; Element &gt; <emphasis role="strong">AllowedBasicElements</emphasis><computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Getter and Setter for the allowed basic elements. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_game_manager_1a8b64a2f8dbf823992e9bc1953d03b044"/><section>
+    <title>GetScore()</title>
+<indexterm><primary>GetScore</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>GetScore</secondary></indexterm>
+<para><computeroutput>int GameManager.GetScore ( )</computeroutput></para><para>
+
+<para>Gets the current score of the player. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Integer that is the score of the player</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_game_manager_1a136731efabe4738f0c683d1a5916a30b"/><section>
+    <title>SetScore()</title>
+<indexterm><primary>SetScore</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>SetScore</secondary></indexterm>
+<para><computeroutput>void GameManager.SetScore (int score)</computeroutput></para><para>
+
+<para>Set the score of the player. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>score</entry><entry>
+<para>The score that should be set</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+manager/GameManager.cs</section>
+</section>

@@ -1,0 +1,108 @@
+\doxysection{Element\+Storage Class Reference}
+\hypertarget{class_element_storage}{}\label{class_element_storage}\index{ElementStorage@{ElementStorage}}
+Inheritance diagram for Element\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_element_storage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_element_storage_a8cdfff6f858835448ea468985f7d127e}\label{class_element_storage_a8cdfff6f858835448ea468985f7d127e} 
+override void {\bfseries \+\_\+\+Ready} ()
+\item 
+void \mbox{\hyperlink{class_element_storage_a27cc57668707bec9b05f769d8b0db225}{Toggle\+Element\+Panel\+Color}} (Classes\+And\+Enums.\+Element element, bool set\+Color)
+\begin{DoxyCompactList}\small\item\em Sets the colours of the element panels to the default colour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_element_storage_ae7c0b72c381bd17eb6f7b4e7cdbbbbe2}{Store\+Spell\+Color}} (Element chosen\+Element)
+\begin{DoxyCompactList}\small\item\em The function to store the color of the spell in the queue. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_element_storage_aa263f839975fd8ad37b9eb7b9deeba24}{\+\_\+\+Input}} (Input\+Event @event)
+\begin{DoxyCompactList}\small\item\em Event handler for when the rotate button is pressed. \end{DoxyCompactList}\item 
+Element \mbox{\hyperlink{class_element_storage_ae59fcf70f072ea28aaf07a6a58867971}{Get\+First\+Realm\+Element}} ()
+\begin{DoxyCompactList}\small\item\em Gets the first element in the queue. \end{DoxyCompactList}\item 
+Color\+Rect \mbox{\hyperlink{class_element_storage_acbde12d5b42200185b9d6301b952a5b1}{Cast\+First\+Element\+In\+Storage}} ()
+\begin{DoxyCompactList}\small\item\em Return to cast the first element in the queue. \end{DoxyCompactList}\item 
+\Hypertarget{class_element_storage_a76f42595b4a765e0ae17374776d10760}\label{class_element_storage_a76f42595b4a765e0ae17374776d10760} 
+override void {\bfseries \+\_\+\+Process} (float delta)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_element_storage_aa263f839975fd8ad37b9eb7b9deeba24}\index{ElementStorage@{ElementStorage}!\_Input@{\_Input}}
+\index{\_Input@{\_Input}!ElementStorage@{ElementStorage}}
+\doxysubsubsection{\texorpdfstring{\_Input()}{\_Input()}}
+{\footnotesize\ttfamily \label{class_element_storage_aa263f839975fd8ad37b9eb7b9deeba24} 
+override void Element\+Storage.\+\_\+\+Input (\begin{DoxyParamCaption}\item[{Input\+Event @}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Event handler for when the rotate button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event that needs to be handled\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_element_storage_acbde12d5b42200185b9d6301b952a5b1}\index{ElementStorage@{ElementStorage}!CastFirstElementInStorage@{CastFirstElementInStorage}}
+\index{CastFirstElementInStorage@{CastFirstElementInStorage}!ElementStorage@{ElementStorage}}
+\doxysubsubsection{\texorpdfstring{CastFirstElementInStorage()}{CastFirstElementInStorage()}}
+{\footnotesize\ttfamily \label{class_element_storage_acbde12d5b42200185b9d6301b952a5b1} 
+Color\+Rect Element\+Storage.\+Cast\+First\+Element\+In\+Storage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Return to cast the first element in the queue. 
+
+\begin{DoxyReturn}{Returns}
+Color\+Rext of the Element that got cast
+\end{DoxyReturn}
+\Hypertarget{class_element_storage_ae59fcf70f072ea28aaf07a6a58867971}\index{ElementStorage@{ElementStorage}!GetFirstRealmElement@{GetFirstRealmElement}}
+\index{GetFirstRealmElement@{GetFirstRealmElement}!ElementStorage@{ElementStorage}}
+\doxysubsubsection{\texorpdfstring{GetFirstRealmElement()}{GetFirstRealmElement()}}
+{\footnotesize\ttfamily \label{class_element_storage_ae59fcf70f072ea28aaf07a6a58867971} 
+Element Element\+Storage.\+Get\+First\+Realm\+Element (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the first element in the queue. 
+
+\begin{DoxyReturn}{Returns}
+Returns the first element of the queue
+\end{DoxyReturn}
+\Hypertarget{class_element_storage_ae7c0b72c381bd17eb6f7b4e7cdbbbbe2}\index{ElementStorage@{ElementStorage}!StoreSpellColor@{StoreSpellColor}}
+\index{StoreSpellColor@{StoreSpellColor}!ElementStorage@{ElementStorage}}
+\doxysubsubsection{\texorpdfstring{StoreSpellColor()}{StoreSpellColor()}}
+{\footnotesize\ttfamily \label{class_element_storage_ae7c0b72c381bd17eb6f7b4e7cdbbbbe2} 
+void Element\+Storage.\+Store\+Spell\+Color (\begin{DoxyParamCaption}\item[{Element}]{chosen\+Element}{}\end{DoxyParamCaption})}
+
+
+
+The function to store the color of the spell in the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chosen\+Element} & Element that should be set\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_element_storage_a27cc57668707bec9b05f769d8b0db225}\index{ElementStorage@{ElementStorage}!ToggleElementPanelColor@{ToggleElementPanelColor}}
+\index{ToggleElementPanelColor@{ToggleElementPanelColor}!ElementStorage@{ElementStorage}}
+\doxysubsubsection{\texorpdfstring{ToggleElementPanelColor()}{ToggleElementPanelColor()}}
+{\footnotesize\ttfamily \label{class_element_storage_a27cc57668707bec9b05f769d8b0db225} 
+void Element\+Storage.\+Toggle\+Element\+Panel\+Color (\begin{DoxyParamCaption}\item[{Classes\+And\+Enums.\+Element}]{element}{, }\item[{bool}]{set\+Color}{}\end{DoxyParamCaption})}
+
+
+
+Sets the colours of the element panels to the default colour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element that needs to be set\\
+\hline
+{\em set\+Color} & Bool if the color should be set\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+UI/Element\+Storage.\+cs\end{DoxyCompactItemize}

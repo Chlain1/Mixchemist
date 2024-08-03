@@ -1,0 +1,53 @@
+\doxysection{Music\+Manager Class Reference}
+\hypertarget{class_music_manager}{}\label{class_music_manager}\index{MusicManager@{MusicManager}}
+Inheritance diagram for Music\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_music_manager_a85fc73373aeb4519b4f46aaff5c018ad}{\+\_\+\+Ready}} ()
+\item 
+\Hypertarget{class_music_manager_a3ac7b7c3914ce5e143880b5c883152f2}\label{class_music_manager_a3ac7b7c3914ce5e143880b5c883152f2} 
+void {\bfseries Set\+Volume} (float db)
+\begin{DoxyCompactList}\small\item\em Changes Music Volume in decibels. Optimal range seems to be -\/80db to -\/10db. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_manager_a01dca8099adaf5d615913fb4d1716e6e}{Change\+Stream}} (string path)
+\begin{DoxyCompactList}\small\item\em Plays the music at the given path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_music_manager_ac0568155a26e23e2624d19011baf2840}\label{class_music_manager_ac0568155a26e23e2624d19011baf2840} 
+static \mbox{\hyperlink{class_music_manager}{Music\+Manager}} {\bfseries Instance}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_manager_a85fc73373aeb4519b4f46aaff5c018ad}\index{MusicManager@{MusicManager}!\_Ready@{\_Ready}}
+\index{\_Ready@{\_Ready}!MusicManager@{MusicManager}}
+\doxysubsubsection{\texorpdfstring{\_Ready()}{\_Ready()}}
+{\footnotesize\ttfamily \label{class_music_manager_a85fc73373aeb4519b4f46aaff5c018ad} 
+override void Music\+Manager.\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Creates Singleton Instance and Starts the \doxylink{class_main_menu}{Main\+Menu} song \Hypertarget{class_music_manager_a01dca8099adaf5d615913fb4d1716e6e}\index{MusicManager@{MusicManager}!ChangeStream@{ChangeStream}}
+\index{ChangeStream@{ChangeStream}!MusicManager@{MusicManager}}
+\doxysubsubsection{\texorpdfstring{ChangeStream()}{ChangeStream()}}
+{\footnotesize\ttfamily \label{class_music_manager_a01dca8099adaf5d615913fb4d1716e6e} 
+void Music\+Manager.\+Change\+Stream (\begin{DoxyParamCaption}\item[{string}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Plays the music at the given path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the music file\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+manager/Music\+Manager.\+cs\end{DoxyCompactItemize}

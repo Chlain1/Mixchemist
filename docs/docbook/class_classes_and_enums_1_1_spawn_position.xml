@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_classes_and_enums_1_1_spawn_position" xml:lang="en-US">
+<title>ClassesAndEnums.SpawnPosition Class Reference</title>
+<indexterm><primary>ClassesAndEnums.SpawnPosition</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_classes_and_enums_1_1_spawn_position_1a1080003b1c8cfa8c51779e3751a2f15a"/>Godot.Vector2 <emphasis role="strong">Vector</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_classes_and_enums_1_1_spawn_position_1ae76f5397ae6285d810fa486397b10909"/>bool <emphasis role="strong">Valid</emphasis> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+manager/ClassesAndEnums.cs</section>

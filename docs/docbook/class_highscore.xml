@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_highscore" xml:lang="en-US">
+<title>Highscore Class Reference</title>
+<indexterm><primary>Highscore</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_highscore_1a354c7a0c869278e96f8f9eff2f471db0"/><emphasis role="strong">Highscore</emphasis> (string name, int score)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_highscore_1ae3e55b3e1249b8a0f405b5d97893028a"/>string <emphasis role="strong">Name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_highscore_1aedba28dc1ced1323e3af8d8cf6707914"/>int <emphasis role="strong">Score</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+JsonClasses/Highscore.cs</section>

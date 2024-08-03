@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_player_input_field" xml:lang="en-US">
+<title>PlayerInputField Class Reference</title>
+<indexterm><primary>PlayerInputField</primary></indexterm>
+<para>Inheritance diagram for PlayerInputField:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_player_input_field.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_player_input_field_1afa7b3bee592c391aaf1e2d12c4c88d91"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_player_input_field_1ac6c818ba0976bdb691c5d3beee628bbe">AddTextToLabel</link> (string text)</para>
+
+<para>Adds text to the label. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_player_input_field_1a21850ae0caa7359a335fe49d7b6fc446"/>void <emphasis role="strong">ResetLabelText</emphasis> ()</para>
+
+<para>Resets the Label Text. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_player_input_field_1ac6c818ba0976bdb691c5d3beee628bbe"/><section>
+    <title>AddTextToLabel()</title>
+<indexterm><primary>AddTextToLabel</primary><secondary>PlayerInputField</secondary></indexterm>
+<indexterm><primary>PlayerInputField</primary><secondary>AddTextToLabel</secondary></indexterm>
+<para><computeroutput>void PlayerInputField.AddTextToLabel (string text)</computeroutput></para><para>
+
+<para>Adds text to the label. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>text</entry><entry>
+<para>The text that should be added to the label</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/PlayerInputField.cs</section>
+</section>

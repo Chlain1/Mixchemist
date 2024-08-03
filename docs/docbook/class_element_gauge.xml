@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_element_gauge" xml:lang="en-US">
+<title>ElementGauge Class Reference</title>
+<indexterm><primary>ElementGauge</primary></indexterm>
+<para>Inheritance diagram for ElementGauge:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_element_gauge.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_element_gauge_1a400dec8b7196d3c15f395ded31216aa0"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_element_gauge_1adbed795f3e9641766fc658aff69a4a36">UpdateGauge</link> (Element element, int value)</para>
+
+<para>Function to update the gauge of a specific element. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_element_gauge_1adbed795f3e9641766fc658aff69a4a36"/><section>
+    <title>UpdateGauge()</title>
+<indexterm><primary>UpdateGauge</primary><secondary>ElementGauge</secondary></indexterm>
+<indexterm><primary>ElementGauge</primary><secondary>UpdateGauge</secondary></indexterm>
+<para><computeroutput>void ElementGauge.UpdateGauge (Element element, int value)</computeroutput></para><para>
+
+<para>Function to update the gauge of a specific element. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>element</entry><entry>
+<para>The element that should be updated</para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>The new value it should have</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/ElementGauge.cs</section>
+</section>

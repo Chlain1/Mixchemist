@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_pause_menu" xml:lang="en-US">
+<title>PauseMenu Class Reference</title>
+<indexterm><primary>PauseMenu</primary></indexterm>
+<para>Inheritance diagram for PauseMenu:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_pause_menu.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_pause_menu_1a4cc5227b00082bc3ea16922842ed6295"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_pause_menu_1a5190e49febc66b55cb690e465bd637c4"/>override void <emphasis role="strong">_Input</emphasis> (InputEvent @event)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/PauseMenu.cs</section>

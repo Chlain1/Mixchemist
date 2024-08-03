@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_player" xml:lang="en-US">
+<title>Player Class Reference</title>
+<indexterm><primary>Player</primary></indexterm>
+<para>Inheritance diagram for Player:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_player.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_player_1ae192a478a80f0e93e01339d62cdd6f6d"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_player_1a211506b87a94685ebce9818ff9fb5150"/>override void <emphasis role="strong">_Process</emphasis> (float delta)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_player_1a78d1d367a7d4dded2644961bb81d4ff7">TakeDamage</link> (int dmgAmount, Vector2 damageVector)</para>
+
+<para>Function to take damage from the enemy. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_player_1a78d1d367a7d4dded2644961bb81d4ff7"/><section>
+    <title>TakeDamage()</title>
+<indexterm><primary>TakeDamage</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>TakeDamage</secondary></indexterm>
+<para><computeroutput>void Player.TakeDamage (int dmgAmount, Vector2 damageVector)</computeroutput></para><para>
+
+<para>Function to take damage from the enemy. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>dmgAmount</entry><entry>
+<para>Amount of damage that should be taken</para>
+</entry>
+                            </row>
+                            <row>
+<entry>damageVector</entry><entry>
+<para>The vector from where the damage is taken from for knockback</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+player/Player.cs</section>
+</section>

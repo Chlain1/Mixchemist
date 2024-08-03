@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_classes_and_enums" xml:lang="en-US">
+<title>ClassesAndEnums Class Reference</title>
+<indexterm><primary>ClassesAndEnums</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_classes_and_enums_1_1_spawn_position">SpawnPosition</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_classes_and_enums_1a8890fa1a55af4d400cc1aa1032232279"/>enum <emphasis role="strong">Element</emphasis> { <?linebreak?><emphasis role="strong">FIRE</emphasis>
+, <emphasis role="strong">WATER</emphasis>
+, <emphasis role="strong">EARTH</emphasis>
+, <emphasis role="strong">AIR</emphasis>
+, <?linebreak?><emphasis role="strong">FIRE_WATER</emphasis>
+, <emphasis role="strong">FIRE_EARTH</emphasis>
+, <emphasis role="strong">FIRE_AIR</emphasis>
+, <emphasis role="strong">WATER_EARTH</emphasis>
+, <?linebreak?><emphasis role="strong">WATER_AIR</emphasis>
+, <emphasis role="strong">EARTH_AIR</emphasis>
+, <emphasis role="strong">FIRE_WATER_EARTH</emphasis>
+, <emphasis role="strong">FIRE_EARTH_AIR</emphasis>
+, <?linebreak?><emphasis role="strong">WATER_EARTH_AIR</emphasis>
+, <emphasis role="strong">FIRE_WATER_AIR</emphasis>
+, <emphasis role="strong">SHADOW</emphasis>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+manager/ClassesAndEnums.cs</section>

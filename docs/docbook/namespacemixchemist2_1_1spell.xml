@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacemixchemist2_1_1spell" xml:lang="en-US">
+<title>mixchemist2.spell Namespace Reference</title>
+<indexterm><primary>mixchemist2.spell</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classmixchemist2_1_1spell_1_1_concrete_spell">ConcreteSpell</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

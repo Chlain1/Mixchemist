@@ -1,0 +1,104 @@
+\doxysection{Dungeon.\+Walker.\+Walker Class Reference}
+\hypertarget{class_dungeon_1_1_walker_1_1_walker}{}\label{class_dungeon_1_1_walker_1_1_walker}\index{Dungeon.Walker.Walker@{Dungeon.Walker.Walker}}
+Inheritance diagram for Dungeon.\+Walker.\+Walker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dungeon_1_1_walker_1_1_walker}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeon_1_1_walker_1_1_walker_a5e2e32dbda41116e69ca34a470cf6d3d}{Walker}} (Godot.\+Vector2 starting\+Position, Godot.\+Rect2 new\+\_\+borders)
+\begin{DoxyCompactList}\small\item\em A walker that walks in a 2D space. \end{DoxyCompactList}\item 
+List$<$ Godot.\+Vector2 $>$ \mbox{\hyperlink{class_dungeon_1_1_walker_1_1_walker_ae92003109113df36a408e6a790ac4acd}{walk}} (int steps)
+\begin{DoxyCompactList}\small\item\em A method that makes the walker walk in a 2D space. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dungeon_1_1_walker_1_1_walker_aad18096246dac42f19565e5d9b184e1c}{step}} ()
+\begin{DoxyCompactList}\small\item\em One step of the walker. \end{DoxyCompactList}\item 
+\Hypertarget{class_dungeon_1_1_walker_1_1_walker_aaaf230061a0d486295b6b12459c9c012}\label{class_dungeon_1_1_walker_1_1_walker_aaaf230061a0d486295b6b12459c9c012} 
+void {\bfseries change\+\_\+direction} ()
+\begin{DoxyCompactList}\small\item\em Changes the direction the walker walks to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_dungeon_1_1_walker_1_1_walker_a41fb076fff7c74dc17894447032fb11f}{Shuffle$<$ T $>$}} (List$<$ T $>$ list)
+\begin{DoxyCompactList}\small\item\em Helper Method to shuffle a list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dungeon_1_1_walker_1_1_walker_a5e2e32dbda41116e69ca34a470cf6d3d}\index{Dungeon.Walker.Walker@{Dungeon.Walker.Walker}!Walker@{Walker}}
+\index{Walker@{Walker}!Dungeon.Walker.Walker@{Dungeon.Walker.Walker}}
+\doxysubsubsection{\texorpdfstring{Walker()}{Walker()}}
+{\footnotesize\ttfamily \label{class_dungeon_1_1_walker_1_1_walker_a5e2e32dbda41116e69ca34a470cf6d3d} 
+Dungeon.\+Walker.\+Walker.\+Walker (\begin{DoxyParamCaption}\item[{Godot.\+Vector2}]{starting\+Position}{, }\item[{Godot.\+Rect2}]{new\+\_\+borders}{}\end{DoxyParamCaption})}
+
+
+
+A walker that walks in a 2D space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em starting\+Position} & The starting position of the \doxylink{class_dungeon_1_1_walker_1_1_walker}{Walker}\\
+\hline
+{\em new\+\_\+borders} & The border of the Map\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dungeon_1_1_walker_1_1_walker_a41fb076fff7c74dc17894447032fb11f}\index{Dungeon.Walker.Walker@{Dungeon.Walker.Walker}!Shuffle$<$ T $>$@{Shuffle$<$ T $>$}}
+\index{Shuffle$<$ T $>$@{Shuffle$<$ T $>$}!Dungeon.Walker.Walker@{Dungeon.Walker.Walker}}
+\doxysubsubsection{\texorpdfstring{Shuffle$<$ T $>$()}{Shuffle< T >()}}
+{\footnotesize\ttfamily \label{class_dungeon_1_1_walker_1_1_walker_a41fb076fff7c74dc17894447032fb11f} 
+static void Dungeon.\+Walker.\+Walker.\+Shuffle$<$ T $>$ (\begin{DoxyParamCaption}\item[{List$<$ T $>$}]{list}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper Method to shuffle a list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list that has to be shuffled\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_dungeon_1_1_walker_1_1_walker_aad18096246dac42f19565e5d9b184e1c}\index{Dungeon.Walker.Walker@{Dungeon.Walker.Walker}!step@{step}}
+\index{step@{step}!Dungeon.Walker.Walker@{Dungeon.Walker.Walker}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily \label{class_dungeon_1_1_walker_1_1_walker_aad18096246dac42f19565e5d9b184e1c} 
+bool Dungeon.\+Walker.\+Walker.\+step (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+One step of the walker. 
+
+\begin{DoxyReturn}{Returns}
+A boolean if the step was taken
+\end{DoxyReturn}
+\Hypertarget{class_dungeon_1_1_walker_1_1_walker_ae92003109113df36a408e6a790ac4acd}\index{Dungeon.Walker.Walker@{Dungeon.Walker.Walker}!walk@{walk}}
+\index{walk@{walk}!Dungeon.Walker.Walker@{Dungeon.Walker.Walker}}
+\doxysubsubsection{\texorpdfstring{walk()}{walk()}}
+{\footnotesize\ttfamily \label{class_dungeon_1_1_walker_1_1_walker_ae92003109113df36a408e6a790ac4acd} 
+List$<$ Godot.\+Vector2 $>$ Dungeon.\+Walker.\+Walker.\+walk (\begin{DoxyParamCaption}\item[{int}]{steps}{}\end{DoxyParamCaption})}
+
+
+
+A method that makes the walker walk in a 2D space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps} & The amount of steps the walker should take\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+step\+History is a list of Steps the walker has taken
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dungeon/Walker.\+cs\end{DoxyCompactItemize}

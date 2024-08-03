@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dungeon_1_1_generator_1_1_world" xml:lang="en-US">
+<title>Dungeon.Generator.World Class Reference</title>
+<indexterm><primary>Dungeon.Generator.World</primary></indexterm>
+<para>Inheritance diagram for Dungeon.Generator.World:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dungeon_1_1_generator_1_1_world.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_dungeon_1_1_generator_1_1_world_1a85fddaa0c5c2c1c9c8bf1ba572c0c14f"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_dungeon_1_1_generator_1_1_world_1a8741830297a890721ef641024c196757"/>void <emphasis role="strong">generate_level</emphasis> ()</para>
+
+<para>Lets the walker generate a level. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_dungeon_1_1_generator_1_1_world_1ab0acae0152c9044361b2ab4f574cb618">GetStatus</link> ()</para>
+
+<para>Getters for the status of the generation. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dungeon_1_1_generator_1_1_world_1ab0acae0152c9044361b2ab4f574cb618"/><section>
+    <title>GetStatus()</title>
+<indexterm><primary>GetStatus</primary><secondary>Dungeon.Generator.World</secondary></indexterm>
+<indexterm><primary>Dungeon.Generator.World</primary><secondary>GetStatus</secondary></indexterm>
+<para><computeroutput>bool Dungeon.Generator.World.GetStatus ( )</computeroutput></para><para>
+
+<para>Getters for the status of the generation. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>boolean if the generation is done</para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Dungeon/World.cs</section>
+</section>

@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dungeon_1_1_walker_1_1_walker" xml:lang="en-US">
+<title>Dungeon.Walker.Walker Class Reference</title>
+<indexterm><primary>Dungeon.Walker.Walker</primary></indexterm>
+<para>Inheritance diagram for Dungeon.Walker.Walker:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dungeon_1_1_walker_1_1_walker.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dungeon_1_1_walker_1_1_walker_1a5e2e32dbda41116e69ca34a470cf6d3d">Walker</link> (Godot.Vector2 startingPosition, Godot.Rect2 new_borders)</para>
+
+<para>A walker that walks in a 2D space. </para>
+</listitem>
+            <listitem><para>List&lt; Godot.Vector2 &gt; <link linkend="_class_dungeon_1_1_walker_1_1_walker_1ae92003109113df36a408e6a790ac4acd">walk</link> (int steps)</para>
+
+<para>A method that makes the walker walk in a 2D space. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_dungeon_1_1_walker_1_1_walker_1aad18096246dac42f19565e5d9b184e1c">step</link> ()</para>
+
+<para>One step of the walker. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_dungeon_1_1_walker_1_1_walker_1aaaf230061a0d486295b6b12459c9c012"/>void <emphasis role="strong">change_direction</emphasis> ()</para>
+
+<para>Changes the direction the walker walks to. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_dungeon_1_1_walker_1_1_walker_1a41fb076fff7c74dc17894447032fb11f">Shuffle&lt; T &gt;</link> (List&lt; T &gt; list)</para>
+
+<para>Helper Method to shuffle a list. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dungeon_1_1_walker_1_1_walker_1a5e2e32dbda41116e69ca34a470cf6d3d"/><section>
+    <title>Walker()</title>
+<indexterm><primary>Walker</primary><secondary>Dungeon.Walker.Walker</secondary></indexterm>
+<indexterm><primary>Dungeon.Walker.Walker</primary><secondary>Walker</secondary></indexterm>
+<para><computeroutput>Dungeon.Walker.Walker.Walker (Godot.Vector2 startingPosition, Godot.Rect2 new_borders)</computeroutput></para><para>
+
+<para>A walker that walks in a 2D space. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>startingPosition</entry><entry>
+<para>The starting position of the <link linkend="_class_dungeon_1_1_walker_1_1_walker">Walker</link></para>
+</entry>
+                            </row>
+                            <row>
+<entry>new_borders</entry><entry>
+<para>The border of the Map</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dungeon_1_1_walker_1_1_walker_1a41fb076fff7c74dc17894447032fb11f"/><section>
+    <title>Shuffle&lt; T &gt;()</title>
+<indexterm><primary>Shuffle&lt; T &gt;</primary><secondary>Dungeon.Walker.Walker</secondary></indexterm>
+<indexterm><primary>Dungeon.Walker.Walker</primary><secondary>Shuffle&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>static void Dungeon.Walker.Walker.Shuffle&lt; T &gt; (List&lt; T &gt; list)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Helper Method to shuffle a list. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>list</entry><entry>
+<para>the list that has to be shuffled</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_dungeon_1_1_walker_1_1_walker_1aad18096246dac42f19565e5d9b184e1c"/><section>
+    <title>step()</title>
+<indexterm><primary>step</primary><secondary>Dungeon.Walker.Walker</secondary></indexterm>
+<indexterm><primary>Dungeon.Walker.Walker</primary><secondary>step</secondary></indexterm>
+<para><computeroutput>bool Dungeon.Walker.Walker.step ( )</computeroutput></para><para>
+
+<para>One step of the walker. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean if the step was taken</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_dungeon_1_1_walker_1_1_walker_1ae92003109113df36a408e6a790ac4acd"/><section>
+    <title>walk()</title>
+<indexterm><primary>walk</primary><secondary>Dungeon.Walker.Walker</secondary></indexterm>
+<indexterm><primary>Dungeon.Walker.Walker</primary><secondary>walk</secondary></indexterm>
+<para><computeroutput>List&lt; Godot.Vector2 &gt; Dungeon.Walker.Walker.walk (int steps)</computeroutput></para><para>
+
+<para>A method that makes the walker walk in a 2D space. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>steps</entry><entry>
+<para>The amount of steps the walker should take</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>stepHistory is a list of Steps the walker has taken</para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Dungeon/Walker.cs</section>
+</section>

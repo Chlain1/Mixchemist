@@ -1,0 +1,84 @@
+\doxysection{Abstract\+Enemy Class Reference}
+\hypertarget{class_abstract_enemy}{}\label{class_abstract_enemy}\index{AbstractEnemy@{AbstractEnemy}}
+Inheritance diagram for Abstract\+Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_abstract_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_abstract_enemy_a78fef57862ec08bb1b99a30593149bc6}\label{class_abstract_enemy_a78fef57862ec08bb1b99a30593149bc6} 
+override void {\bfseries \+\_\+\+Ready} ()
+\item 
+\Hypertarget{class_abstract_enemy_a04f93255ef8b4f223b49ca0947cd3529}\label{class_abstract_enemy_a04f93255ef8b4f223b49ca0947cd3529} 
+override void {\bfseries \+\_\+\+Process} (float delta)
+\item 
+\Hypertarget{class_abstract_enemy_ac1f5fdf15a7aedf41c961a13ae201051}\label{class_abstract_enemy_ac1f5fdf15a7aedf41c961a13ae201051} 
+void {\bfseries Attack} ()
+\begin{DoxyCompactList}\small\item\em Function for the enemy to damage the player on collision. \end{DoxyCompactList}\item 
+\Hypertarget{class_abstract_enemy_a1ad6338c0b9f3f918be974f9adefd7a7}\label{class_abstract_enemy_a1ad6338c0b9f3f918be974f9adefd7a7} 
+void {\bfseries Target\+Player} ()
+\begin{DoxyCompactList}\small\item\em Function for the enemy to walk into the direction of the player if it is in range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_abstract_enemy_af6d2ae73081a4eb98b4b73815afc04d3}{\+\_\+\+On\+Bullet\+Hit}} (Node body)
+\begin{DoxyCompactList}\small\item\em Event for when the enemy is hit by a bullet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_abstract_enemy_a4be6bfaa102530eb6eccedf33bcfc9c8}{Take\+Damage}} (int damage, Element projectile\+Element, Vector2 knockback)
+\begin{DoxyCompactList}\small\item\em This method is called when the enemy takes damage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_abstract_enemy_a13bd6da650edd9ce5c0202c59cf0f20c}{Set\+Element}} (Element element)
+\begin{DoxyCompactList}\small\item\em Setter for the element of the enemy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_abstract_enemy_af6d2ae73081a4eb98b4b73815afc04d3}\index{AbstractEnemy@{AbstractEnemy}!\_OnBulletHit@{\_OnBulletHit}}
+\index{\_OnBulletHit@{\_OnBulletHit}!AbstractEnemy@{AbstractEnemy}}
+\doxysubsubsection{\texorpdfstring{\_OnBulletHit()}{\_OnBulletHit()}}
+{\footnotesize\ttfamily \label{class_abstract_enemy_af6d2ae73081a4eb98b4b73815afc04d3} 
+void Abstract\+Enemy.\+\_\+\+On\+Bullet\+Hit (\begin{DoxyParamCaption}\item[{Node}]{body}{}\end{DoxyParamCaption})}
+
+
+
+Event for when the enemy is hit by a bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & The body that hit the Enemy\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_abstract_enemy_a13bd6da650edd9ce5c0202c59cf0f20c}\index{AbstractEnemy@{AbstractEnemy}!SetElement@{SetElement}}
+\index{SetElement@{SetElement}!AbstractEnemy@{AbstractEnemy}}
+\doxysubsubsection{\texorpdfstring{SetElement()}{SetElement()}}
+{\footnotesize\ttfamily \label{class_abstract_enemy_a13bd6da650edd9ce5c0202c59cf0f20c} 
+void Abstract\+Enemy.\+Set\+Element (\begin{DoxyParamCaption}\item[{Element}]{element}{}\end{DoxyParamCaption})}
+
+
+
+Setter for the element of the enemy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element the Enemy should have\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_abstract_enemy_a4be6bfaa102530eb6eccedf33bcfc9c8}\index{AbstractEnemy@{AbstractEnemy}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!AbstractEnemy@{AbstractEnemy}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily \label{class_abstract_enemy_a4be6bfaa102530eb6eccedf33bcfc9c8} 
+void Abstract\+Enemy.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage}{, }\item[{Element}]{projectile\+Element}{, }\item[{Vector2}]{knockback}{}\end{DoxyParamCaption})}
+
+
+
+This method is called when the enemy takes damage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & The amount of Damage the Enemy should take\\
+\hline
+{\em knockback} & The desired direction the enemy should take knockback to\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+enemy/Abstract\+Enemy.\+cs\end{DoxyCompactItemize}

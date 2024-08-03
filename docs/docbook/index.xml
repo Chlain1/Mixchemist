@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>Mixchemist</title>
+    </info>
+<chapter>
+    <title>Namespace Documentation</title>
+<xi:include href="namespace_dungeon.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_dungeon_1_1_generator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_dungeon_1_1_walker.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacemixchemist2.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacemixchemist2_1_1spell.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_abstract_enemy.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_classes_and_enums.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classmixchemist2_1_1spell_1_1_concrete_spell.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_death_menu.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dev_scene.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_element_gauge.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_element_storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_enemy_texture.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_game_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_health_bar.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_health_bar_control.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_highscore.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_level_configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_main_menu.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_music_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_pause_menu.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_player.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_player_input_field.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_player_texture.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_classes_and_enums_1_1_spawn_position.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_staff.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dungeon_1_1_walker_1_1_walker.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_wall.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dungeon_1_1_generator_1_1_world.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

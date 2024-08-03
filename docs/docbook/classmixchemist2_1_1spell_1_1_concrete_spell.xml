@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell" xml:lang="en-US">
+<title>mixchemist2.spell.ConcreteSpell Class Reference</title>
+<indexterm><primary>mixchemist2.spell.ConcreteSpell</primary></indexterm>
+<para>Inheritance diagram for mixchemist2.spell.ConcreteSpell:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classmixchemist2_1_1spell_1_1_concrete_spell.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1ab87cde6c42db62e2d907feb27847e868"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a83e76f5c56b38d929eb9568ba236d92d"/>override void <emphasis role="strong">_Process</emphasis> (float delta)</para>
+</listitem>
+            <listitem><para>ClassesAndEnums.Element <link linkend="_classmixchemist2_1_1spell_1_1_concrete_spell_1a04be94de2e6b2379721766d92a94dd82">GetElement</link> ()</para>
+
+<para>Get the element of the spell. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classmixchemist2_1_1spell_1_1_concrete_spell_1a638cf14c183cad5b953d65d68445fc94">SetElement</link> (ClassesAndEnums.Element element)</para>
+
+<para>Set the element of the spell. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classmixchemist2_1_1spell_1_1_concrete_spell_1af74c9a89122c444d739ca4849a217216">GetDamage</link> ()</para>
+
+<para>Get the damage of the spell. </para>
+</listitem>
+            <listitem><para>Vector2 <link linkend="_classmixchemist2_1_1spell_1_1_concrete_spell_1a60547caea44c389f8f708bba3a137a96">GetPosition</link> ()</para>
+
+<para>Get the position of the spell. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a9077f3c755bf576f8f90b4320d94a873"/>int <emphasis role="strong">Damage</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1ad9b55ac7ea9b0857d64aa28d5870ca10"/>ClassesAndEnums.Element <emphasis role="strong">ElementType</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a704f189533d079002898badf0f935b74"/>Vector2 <emphasis role="strong">Direction</emphasis><computeroutput> [get, set]</computeroutput>
+</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1af74c9a89122c444d739ca4849a217216"/><section>
+    <title>GetDamage()</title>
+<indexterm><primary>GetDamage</primary><secondary>mixchemist2.spell.ConcreteSpell</secondary></indexterm>
+<indexterm><primary>mixchemist2.spell.ConcreteSpell</primary><secondary>GetDamage</secondary></indexterm>
+<para><computeroutput>int mixchemist2.spell.ConcreteSpell.GetDamage ( )</computeroutput></para><para>
+
+<para>Get the damage of the spell. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The amount of damage the spell does</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a04be94de2e6b2379721766d92a94dd82"/><section>
+    <title>GetElement()</title>
+<indexterm><primary>GetElement</primary><secondary>mixchemist2.spell.ConcreteSpell</secondary></indexterm>
+<indexterm><primary>mixchemist2.spell.ConcreteSpell</primary><secondary>GetElement</secondary></indexterm>
+<para><computeroutput>ClassesAndEnums.Element mixchemist2.spell.ConcreteSpell.GetElement ( )</computeroutput></para><para>
+
+<para>Get the element of the spell. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The element of the spell</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a60547caea44c389f8f708bba3a137a96"/><section>
+    <title>GetPosition()</title>
+<indexterm><primary>GetPosition</primary><secondary>mixchemist2.spell.ConcreteSpell</secondary></indexterm>
+<indexterm><primary>mixchemist2.spell.ConcreteSpell</primary><secondary>GetPosition</secondary></indexterm>
+<para><computeroutput>Vector2 mixchemist2.spell.ConcreteSpell.GetPosition ( )</computeroutput></para><para>
+
+<para>Get the position of the spell. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The position of the spell</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classmixchemist2_1_1spell_1_1_concrete_spell_1a638cf14c183cad5b953d65d68445fc94"/><section>
+    <title>SetElement()</title>
+<indexterm><primary>SetElement</primary><secondary>mixchemist2.spell.ConcreteSpell</secondary></indexterm>
+<indexterm><primary>mixchemist2.spell.ConcreteSpell</primary><secondary>SetElement</secondary></indexterm>
+<para><computeroutput>void mixchemist2.spell.ConcreteSpell.SetElement (ClassesAndEnums.Element element)</computeroutput></para><para>
+
+<para>Set the element of the spell. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>element</entry><entry>
+<para>The element the spell should have</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+spell/ConcreteSpell.cs</section>
+</section>

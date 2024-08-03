@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_element_storage" xml:lang="en-US">
+<title>ElementStorage Class Reference</title>
+<indexterm><primary>ElementStorage</primary></indexterm>
+<para>Inheritance diagram for ElementStorage:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_element_storage.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_element_storage_1a8cdfff6f858835448ea468985f7d127e"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_element_storage_1a27cc57668707bec9b05f769d8b0db225">ToggleElementPanelColor</link> (ClassesAndEnums.Element element, bool setColor)</para>
+
+<para>Sets the colours of the element panels to the default colour. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_element_storage_1ae7c0b72c381bd17eb6f7b4e7cdbbbbe2">StoreSpellColor</link> (Element chosenElement)</para>
+
+<para>The function to store the color of the spell in the queue. </para>
+</listitem>
+            <listitem><para>override void <link linkend="_class_element_storage_1aa263f839975fd8ad37b9eb7b9deeba24">_Input</link> (InputEvent @event)</para>
+
+<para>Event handler for when the rotate button is pressed. </para>
+</listitem>
+            <listitem><para>Element <link linkend="_class_element_storage_1ae59fcf70f072ea28aaf07a6a58867971">GetFirstRealmElement</link> ()</para>
+
+<para>Gets the first element in the queue. </para>
+</listitem>
+            <listitem><para>ColorRect <link linkend="_class_element_storage_1acbde12d5b42200185b9d6301b952a5b1">CastFirstElementInStorage</link> ()</para>
+
+<para>Return to cast the first element in the queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_element_storage_1a76f42595b4a765e0ae17374776d10760"/>override void <emphasis role="strong">_Process</emphasis> (float delta)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_element_storage_1aa263f839975fd8ad37b9eb7b9deeba24"/><section>
+    <title>_Input()</title>
+<indexterm><primary>_Input</primary><secondary>ElementStorage</secondary></indexterm>
+<indexterm><primary>ElementStorage</primary><secondary>_Input</secondary></indexterm>
+<para><computeroutput>override void ElementStorage._Input (InputEvent @ event)</computeroutput></para><para>
+
+<para>Event handler for when the rotate button is pressed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>event</entry><entry>
+<para>The event that needs to be handled</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_element_storage_1acbde12d5b42200185b9d6301b952a5b1"/><section>
+    <title>CastFirstElementInStorage()</title>
+<indexterm><primary>CastFirstElementInStorage</primary><secondary>ElementStorage</secondary></indexterm>
+<indexterm><primary>ElementStorage</primary><secondary>CastFirstElementInStorage</secondary></indexterm>
+<para><computeroutput>ColorRect ElementStorage.CastFirstElementInStorage ( )</computeroutput></para><para>
+
+<para>Return to cast the first element in the queue. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>ColorRext of the Element that got cast</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_element_storage_1ae59fcf70f072ea28aaf07a6a58867971"/><section>
+    <title>GetFirstRealmElement()</title>
+<indexterm><primary>GetFirstRealmElement</primary><secondary>ElementStorage</secondary></indexterm>
+<indexterm><primary>ElementStorage</primary><secondary>GetFirstRealmElement</secondary></indexterm>
+<para><computeroutput>Element ElementStorage.GetFirstRealmElement ( )</computeroutput></para><para>
+
+<para>Gets the first element in the queue. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Returns the first element of the queue</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_element_storage_1ae7c0b72c381bd17eb6f7b4e7cdbbbbe2"/><section>
+    <title>StoreSpellColor()</title>
+<indexterm><primary>StoreSpellColor</primary><secondary>ElementStorage</secondary></indexterm>
+<indexterm><primary>ElementStorage</primary><secondary>StoreSpellColor</secondary></indexterm>
+<para><computeroutput>void ElementStorage.StoreSpellColor (Element chosenElement)</computeroutput></para><para>
+
+<para>The function to store the color of the spell in the queue. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>chosenElement</entry><entry>
+<para>Element that should be set</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_element_storage_1a27cc57668707bec9b05f769d8b0db225"/><section>
+    <title>ToggleElementPanelColor()</title>
+<indexterm><primary>ToggleElementPanelColor</primary><secondary>ElementStorage</secondary></indexterm>
+<indexterm><primary>ElementStorage</primary><secondary>ToggleElementPanelColor</secondary></indexterm>
+<para><computeroutput>void ElementStorage.ToggleElementPanelColor (ClassesAndEnums.Element element, bool setColor)</computeroutput></para><para>
+
+<para>Sets the colours of the element panels to the default colour. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>element</entry><entry>
+<para>The element that needs to be set</para>
+</entry>
+                            </row>
+                            <row>
+<entry>setColor</entry><entry>
+<para>Bool if the color should be set</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/ElementStorage.cs</section>
+</section>

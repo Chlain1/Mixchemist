@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_player_texture" xml:lang="en-US">
+<title>PlayerTexture Class Reference</title>
+<indexterm><primary>PlayerTexture</primary></indexterm>
+<para>Inheritance diagram for PlayerTexture:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_player_texture.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_player_texture_1a9e4d4e4b73f4509be6b37d84ac5721a4"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_player_texture_1a51ae6e1c3e3692fbf3a9c4d63d18875a">SetPlayerTexture</link> (double hp, int maxHp)</para>
+
+<para>Sets the player texture based on the current health of the player. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_player_texture_1a51ae6e1c3e3692fbf3a9c4d63d18875a"/><section>
+    <title>SetPlayerTexture()</title>
+<indexterm><primary>SetPlayerTexture</primary><secondary>PlayerTexture</secondary></indexterm>
+<indexterm><primary>PlayerTexture</primary><secondary>SetPlayerTexture</secondary></indexterm>
+<para><computeroutput>void PlayerTexture.SetPlayerTexture (double hp, int maxHp)</computeroutput></para><para>
+
+<para>Sets the player texture based on the current health of the player. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>hp</entry><entry>
+<para>The health of the player</para>
+</entry>
+                            </row>
+                            <row>
+<entry>maxHp</entry><entry>
+<para>The maximum amount of health of the player</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+player/PlayerTexture.cs</section>
+</section>

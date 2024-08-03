@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_abstract_enemy" xml:lang="en-US">
+<title>AbstractEnemy Class Reference</title>
+<indexterm><primary>AbstractEnemy</primary></indexterm>
+<para>Inheritance diagram for AbstractEnemy:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_abstract_enemy.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_abstract_enemy_1a78fef57862ec08bb1b99a30593149bc6"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_abstract_enemy_1a04f93255ef8b4f223b49ca0947cd3529"/>override void <emphasis role="strong">_Process</emphasis> (float delta)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_abstract_enemy_1ac1f5fdf15a7aedf41c961a13ae201051"/>void <emphasis role="strong">Attack</emphasis> ()</para>
+
+<para>Function for the enemy to damage the player on collision. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_abstract_enemy_1a1ad6338c0b9f3f918be974f9adefd7a7"/>void <emphasis role="strong">TargetPlayer</emphasis> ()</para>
+
+<para>Function for the enemy to walk into the direction of the player if it is in range. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_abstract_enemy_1af6d2ae73081a4eb98b4b73815afc04d3">_OnBulletHit</link> (Node body)</para>
+
+<para>Event for when the enemy is hit by a bullet. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_abstract_enemy_1a4be6bfaa102530eb6eccedf33bcfc9c8">TakeDamage</link> (int damage, Element projectileElement, Vector2 knockback)</para>
+
+<para>This method is called when the enemy takes damage. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_abstract_enemy_1a13bd6da650edd9ce5c0202c59cf0f20c">SetElement</link> (Element element)</para>
+
+<para>Setter for the element of the enemy. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_abstract_enemy_1af6d2ae73081a4eb98b4b73815afc04d3"/><section>
+    <title>_OnBulletHit()</title>
+<indexterm><primary>_OnBulletHit</primary><secondary>AbstractEnemy</secondary></indexterm>
+<indexterm><primary>AbstractEnemy</primary><secondary>_OnBulletHit</secondary></indexterm>
+<para><computeroutput>void AbstractEnemy._OnBulletHit (Node body)</computeroutput></para><para>
+
+<para>Event for when the enemy is hit by a bullet. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>body</entry><entry>
+<para>The body that hit the Enemy</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_abstract_enemy_1a13bd6da650edd9ce5c0202c59cf0f20c"/><section>
+    <title>SetElement()</title>
+<indexterm><primary>SetElement</primary><secondary>AbstractEnemy</secondary></indexterm>
+<indexterm><primary>AbstractEnemy</primary><secondary>SetElement</secondary></indexterm>
+<para><computeroutput>void AbstractEnemy.SetElement (Element element)</computeroutput></para><para>
+
+<para>Setter for the element of the enemy. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>element</entry><entry>
+<para>The element the Enemy should have</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_abstract_enemy_1a4be6bfaa102530eb6eccedf33bcfc9c8"/><section>
+    <title>TakeDamage()</title>
+<indexterm><primary>TakeDamage</primary><secondary>AbstractEnemy</secondary></indexterm>
+<indexterm><primary>AbstractEnemy</primary><secondary>TakeDamage</secondary></indexterm>
+<para><computeroutput>void AbstractEnemy.TakeDamage (int damage, Element projectileElement, Vector2 knockback)</computeroutput></para><para>
+
+<para>This method is called when the enemy takes damage. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>damage</entry><entry>
+<para>The amount of Damage the Enemy should take</para>
+</entry>
+                            </row>
+                            <row>
+<entry>knockback</entry><entry>
+<para>The desired direction the enemy should take knockback to</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+enemy/AbstractEnemy.cs</section>
+</section>

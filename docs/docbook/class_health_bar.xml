@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_health_bar" xml:lang="en-US">
+<title>HealthBar Class Reference</title>
+<indexterm><primary>HealthBar</primary></indexterm>
+<para>Inheritance diagram for HealthBar:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_health_bar.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_health_bar_1a639f11c646a0a7de99cbcf4db7574d99"/>override void <emphasis role="strong">_Ready</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_health_bar_1af624ab3ef9abd66de6e6a1a681e526c8">UpdateHealthBar</link> (int currentHP)</para>
+
+<para>Updates the health bar with the current HP value. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_health_bar_1af624ab3ef9abd66de6e6a1a681e526c8"/><section>
+    <title>UpdateHealthBar()</title>
+<indexterm><primary>UpdateHealthBar</primary><secondary>HealthBar</secondary></indexterm>
+<indexterm><primary>HealthBar</primary><secondary>UpdateHealthBar</secondary></indexterm>
+<para><computeroutput>void HealthBar.UpdateHealthBar (int currentHP)</computeroutput></para><para>
+
+<para>Updates the health bar with the current HP value. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>currentHP</entry><entry>
+<para>The new health value of the player</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/HealthBar.cs</section>
+</section>

@@ -1,0 +1,82 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Package List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Namespace Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dungeon Namespace Reference}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Dungeon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generator Namespace Reference}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dungeon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Walker Namespace Reference}{7}{section.4.3}%
+\contentsline {section}{\numberline {4.4}mixchemist2 Namespace Reference}{7}{section.4.4}%
+\contentsline {section}{\numberline {4.5}mixchemist2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}spell Namespace Reference}{7}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Abstract\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enemy Class Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Member Function Documentation}{9}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}\_OnBulletHit()}{9}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}SetElement()}{10}{subsubsection.5.1.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.1.3}TakeDamage()}{10}{subsubsection.5.1.1.3}%
+\contentsline {section}{\numberline {5.2}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}And\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enums Class Reference}{10}{section.5.2}%
+\contentsline {section}{\numberline {5.3}mixchemist2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}spell.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Concrete\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Spell Class Reference}{11}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Member Function Documentation}{11}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}GetDamage()}{11}{subsubsection.5.3.1.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.2}GetElement()}{12}{subsubsection.5.3.1.2}%
+\contentsline {subsubsection}{\numberline {5.3.1.3}GetPosition()}{12}{subsubsection.5.3.1.3}%
+\contentsline {subsubsection}{\numberline {5.3.1.4}SetElement()}{12}{subsubsection.5.3.1.4}%
+\contentsline {section}{\numberline {5.4}Death\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu Class Reference}{12}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Dev\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Scene Class Reference}{13}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gauge Class Reference}{13}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Member Function Documentation}{13}{subsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.1.1}UpdateGauge()}{13}{subsubsection.5.6.1.1}%
+\contentsline {section}{\numberline {5.7}Element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Storage Class Reference}{14}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Member Function Documentation}{14}{subsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.1.1}\_Input()}{14}{subsubsection.5.7.1.1}%
+\contentsline {subsubsection}{\numberline {5.7.1.2}CastFirstElementInStorage()}{15}{subsubsection.5.7.1.2}%
+\contentsline {subsubsection}{\numberline {5.7.1.3}GetFirstRealmElement()}{15}{subsubsection.5.7.1.3}%
+\contentsline {subsubsection}{\numberline {5.7.1.4}StoreSpellColor()}{15}{subsubsection.5.7.1.4}%
+\contentsline {subsubsection}{\numberline {5.7.1.5}ToggleElementPanelColor()}{15}{subsubsection.5.7.1.5}%
+\contentsline {section}{\numberline {5.8}Enemy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Texture Class Reference}{16}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Member Function Documentation}{16}{subsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.1.1}SetEnemyTexture()}{16}{subsubsection.5.8.1.1}%
+\contentsline {section}{\numberline {5.9}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{16}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Member Function Documentation}{17}{subsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.1}GetScore()}{17}{subsubsection.5.9.1.1}%
+\contentsline {subsubsection}{\numberline {5.9.1.2}SetScore()}{17}{subsubsection.5.9.1.2}%
+\contentsline {section}{\numberline {5.10}Health\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bar Class Reference}{17}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Member Function Documentation}{18}{subsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.1.1}UpdateHealthBar()}{18}{subsubsection.5.10.1.1}%
+\contentsline {section}{\numberline {5.11}Health\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control Class Reference}{18}{section.5.11}%
+\contentsline {section}{\numberline {5.12}Highscore Class Reference}{18}{section.5.12}%
+\contentsline {section}{\numberline {5.13}Level\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Configuration Class Reference}{19}{section.5.13}%
+\contentsline {section}{\numberline {5.14}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu Class Reference}{19}{section.5.14}%
+\contentsline {section}{\numberline {5.15}Music\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{20}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Member Function Documentation}{20}{subsection.5.15.1}%
+\contentsline {subsubsection}{\numberline {5.15.1.1}\_Ready()}{20}{subsubsection.5.15.1.1}%
+\contentsline {subsubsection}{\numberline {5.15.1.2}ChangeStream()}{20}{subsubsection.5.15.1.2}%
+\contentsline {section}{\numberline {5.16}Pause\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Menu Class Reference}{21}{section.5.16}%
+\contentsline {section}{\numberline {5.17}Player Class Reference}{21}{section.5.17}%
+\contentsline {subsection}{\numberline {5.17.1}Member Function Documentation}{21}{subsection.5.17.1}%
+\contentsline {subsubsection}{\numberline {5.17.1.1}TakeDamage()}{21}{subsubsection.5.17.1.1}%
+\contentsline {section}{\numberline {5.18}Player\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Field Class Reference}{22}{section.5.18}%
+\contentsline {subsection}{\numberline {5.18.1}Member Function Documentation}{22}{subsection.5.18.1}%
+\contentsline {subsubsection}{\numberline {5.18.1.1}AddTextToLabel()}{22}{subsubsection.5.18.1.1}%
+\contentsline {section}{\numberline {5.19}Player\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Texture Class Reference}{23}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Member Function Documentation}{23}{subsection.5.19.1}%
+\contentsline {subsubsection}{\numberline {5.19.1.1}SetPlayerTexture()}{23}{subsubsection.5.19.1.1}%
+\contentsline {section}{\numberline {5.20}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}And\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Spawn\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Position Class Reference}{23}{section.5.20}%
+\contentsline {section}{\numberline {5.21}Staff Class Reference}{24}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Member Function Documentation}{24}{subsection.5.21.1}%
+\contentsline {subsubsection}{\numberline {5.21.1.1}\_Input()}{24}{subsubsection.5.21.1.1}%
+\contentsline {section}{\numberline {5.22}Dungeon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Walker.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Walker Class Reference}{24}{section.5.22}%
+\contentsline {subsection}{\numberline {5.22.1}Constructor \& Destructor Documentation}{25}{subsection.5.22.1}%
+\contentsline {subsubsection}{\numberline {5.22.1.1}Walker()}{25}{subsubsection.5.22.1.1}%
+\contentsline {subsection}{\numberline {5.22.2}Member Function Documentation}{25}{subsection.5.22.2}%
+\contentsline {subsubsection}{\numberline {5.22.2.1}Shuffle$<$ T $>$()}{25}{subsubsection.5.22.2.1}%
+\contentsline {subsubsection}{\numberline {5.22.2.2}step()}{26}{subsubsection.5.22.2.2}%
+\contentsline {subsubsection}{\numberline {5.22.2.3}walk()}{26}{subsubsection.5.22.2.3}%
+\contentsline {section}{\numberline {5.23}Wall Class Reference}{26}{section.5.23}%
+\contentsline {section}{\numberline {5.24}Dungeon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}World Class Reference}{27}{section.5.24}%
+\contentsline {subsection}{\numberline {5.24.1}Member Function Documentation}{27}{subsection.5.24.1}%
+\contentsline {subsubsection}{\numberline {5.24.1.1}GetStatus()}{27}{subsubsection.5.24.1.1}%
+\contentsline {chapter}{Index}{29}{section*.55}%
