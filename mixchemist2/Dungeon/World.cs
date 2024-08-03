@@ -18,6 +18,9 @@ namespace Dungeon.Generator
             generate_level();
         }
 
+        /// <summary>
+        /// Lets the walker generate a level
+        /// </summary>
         public void generate_level()
         {
             Walker.Walker walker = new Walker.Walker(new Godot.Vector2(0, 0), borders);
@@ -30,6 +33,11 @@ namespace Dungeon.Generator
             tileMap.UpdateBitmaskRegion(borders.Position, borders.End);
             doneStatus = true;
         }
+        
+        /// <summary>
+        /// Getters for the status of the generation
+        /// </summary>
+        /// <returns>boolean if the generation is done</returns>
         public bool GetStatus()
         {
             return doneStatus; 

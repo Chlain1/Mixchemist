@@ -12,6 +12,11 @@ public class PlayerTexture : Sprite
         
     }
 
+    /// <summary>
+    /// Sets the player texture based on the current health of the player.
+    /// </summary>
+    /// <param name="hp">The health of the player</param>
+    /// <param name="maxHp">The maximum amount of health of the player</param>
     public void SetPlayerTexture(double hp, int maxHp) 
     {
         if (hp <= maxHp)

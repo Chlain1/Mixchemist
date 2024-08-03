@@ -9,11 +9,18 @@ public class PlayerInputField : Panel
         label = GetChild<Label>(0);
     }
 
+    /// <summary>
+    /// Adds text to the label
+    /// </summary>
+    /// <param name="text">The text that should be added to the label</param>
     public void AddTextToLabel(string text)
     {
         label.Text += text;
     }
 
+    /// <summary>
+    /// Resets the Label Text
+    /// </summary>
     public void ResetLabelText()
     {
         label.Text = "";

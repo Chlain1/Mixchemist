@@ -28,6 +28,9 @@ public class DeathMenu : Control
         score_label.Text = "Score: " + GameManager.Instance.GetScore();
     }
 
+    /// <summary>
+    /// Event handler for when the name button is pressed
+    /// </summary>
     private void _OnNameButtonPressed()
     {
         Debug.WriteLine(name_input_field.Text);

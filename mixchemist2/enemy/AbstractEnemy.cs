@@ -89,6 +89,9 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		
 	}
 
+	/// <summary>
+	/// Function for the enemy to damage the player on collision
+	/// </summary>
     public void Attack()
 	{
         if (colObj != null && colObj.Collider.HasMethod("TakeDamage"))
@@ -99,6 +102,9 @@ public abstract partial class AbstractEnemy : KinematicBody2D
         }
     }
 
+	/// <summary>
+	/// Function for the enemy to walk into the direction of the player if it is in range
+	/// </summary>
 	public void TargetPlayer()
 	{
 		if (isPlayerDetected && player != null)
@@ -111,6 +117,10 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		}
 	}
 
+	/// <summary>
+	/// Event for when the player is detected
+	/// </summary>
+	/// <param name="player">The player on the map</param>
 	private void _OnPlayerDetected(Node2D player)
 	{
 		if (player.Name == "Player")
@@ -121,6 +131,10 @@ public abstract partial class AbstractEnemy : KinematicBody2D
         }
 	}
 
+	/// <summary>
+	/// Event for when the player is no longer detected
+	/// </summary>
+	/// <param name="player">The player on the map</param>
 	private void _OnPlayerDetectionLost(Node2D player)
 	{
 		if (player.Name == "Player")
@@ -130,10 +144,6 @@ public abstract partial class AbstractEnemy : KinematicBody2D
         }
 	}
 	
-	/// <summary>
-	/// Detects if the spell has collided with the enemy
-	/// </summary>
-	/// <param name="body">The body of spell</param>
 	/*private void OnBodyEntered(Node body)
 	{
 		
@@ -144,6 +154,10 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		
 	}*/
 
+	/// <summary>
+	/// Event for when the enemy is hit by a bullet
+	/// </summary>
+	/// <param name="body">The body that hit the Enemy</param>
 	public void _OnBulletHit(Node body)
 	{
 
@@ -255,6 +269,11 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 			MoveAndCollide(knockback.Normalized() * 10);
 		}
 	}
+	
+	/// <summary>
+	/// Setter for the element of the enemy
+	/// </summary>
+	/// <param name="element">The element the Enemy should have</param>
 	public void SetElement(Element element)
 	{ 
 		enemyElement = element;

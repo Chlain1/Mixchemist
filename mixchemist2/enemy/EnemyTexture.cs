@@ -13,6 +13,10 @@ public class EnemyTexture : Sprite
         
     }
 
+    /// <summary>
+    /// Setter for the Enemy Texture
+    /// </summary>
+    /// <param name="element">The element of the enemy</param>
     public void SetEnemyTexture(Element element)
     {
         switch (element)

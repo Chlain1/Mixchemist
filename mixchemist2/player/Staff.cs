@@ -44,6 +44,10 @@ public partial class Staff : Node2D
         ResetCastingArray(false);
     }
 
+    /// <summary>
+    /// Resets the casting array to false.
+    /// </summary>
+    /// <param name="toggleColors">Boolean if the element is toggled</param>
     private void ResetCastingArray(bool toggleColors)
     {
 
@@ -61,6 +65,10 @@ public partial class Staff : Node2D
         }
     }
 
+    /// <summary>
+    /// Event based Input function for the player.
+    /// </summary>
+    /// <param name="event">Input Event from the player</param>
     public override void _Input(InputEvent @event)
     {
         
@@ -160,6 +168,9 @@ public partial class Staff : Node2D
         }
     }
 
+    /// <summary>
+    /// DKNF of all the elements to determine the current element.
+    /// </summary>
     private void SaveAction()
     {
 

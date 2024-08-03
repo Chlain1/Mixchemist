@@ -77,6 +77,10 @@ public class LevelConfiguration : Node2D
         }
         frameCount++;
     }
+    
+    /// <summary>
+    /// Randomly spawns enemies in the world
+    /// </summary>
     private void SpawnEnemy()
     {
         Random rndelement = new Random();
@@ -92,6 +96,10 @@ public class LevelConfiguration : Node2D
         }
 
     }
+    
+    /// <summary>
+    /// Searches for a valid Spawn position in the map
+    /// </summary>
     private void GetValidSpawnPosition()
     {
         spawnArea.x = rnd.Next(-4096, 4096);
@@ -111,6 +119,11 @@ public class LevelConfiguration : Node2D
             GetValidSpawnPosition();
         }
     }
+    
+    /// <summary>
+    /// Counts the enemies in the world
+    /// </summary>
+    /// <returns>Integer with the number of enemies</returns>
     private int GetEnemyCount()
     {
         int count = 0;

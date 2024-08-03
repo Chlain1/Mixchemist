@@ -26,6 +26,11 @@ namespace Dungeon.Walker
 
         }
 
+        /// <summary>
+        /// A walker that walks in a 2D space
+        /// </summary>
+        /// <param name="startingPosition">The starting position of the Walker</param>
+        /// <param name="new_borders">The border of the Map</param>
         public Walker(Godot.Vector2 startingPosition, Godot.Rect2 new_borders)
         {
             if (new_borders.HasPoint(startingPosition))
@@ -36,6 +41,11 @@ namespace Dungeon.Walker
             }
         }
 
+        /// <summary>
+        /// A method that makes the walker walk in a 2D space
+        /// </summary>
+        /// <param name="steps">The amount of steps the walker should take</param>
+        /// <returns>stepHistory is a list of Steps the walker has taken</returns>
         public List<Godot.Vector2> walk(int steps)
         {
             for (int i = 0; i < steps; i++)
@@ -59,6 +69,10 @@ namespace Dungeon.Walker
             return stepHistory;
         }
 
+        /// <summary>
+        /// One step of the walker
+        /// </summary>
+        /// <returns>A boolean if the step was taken</returns>
         public bool step()
         {
             Godot.Vector2 target_position = position + direction;
@@ -74,6 +88,9 @@ namespace Dungeon.Walker
             }
         }
 
+        /// <summary>
+        /// Changes the direction the walker walks to 
+        /// </summary>
         public void change_direction()
         {
             steps_since_turn = 0;

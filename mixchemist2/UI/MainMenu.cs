@@ -11,6 +11,9 @@ public partial class MainMenu : Control
 	/**
 	 * TODO: Changes scene to the first level (or level select)
 	 */
+	/// <summary>
+	/// Event Handler for when the Start Button is Pressed that changes the scene to the World Scene
+	/// </summary>
 	private void _OnStartButtonPressed()
 	{
 		GetTree().ChangeScene("res://Dungeon/World.tscn");

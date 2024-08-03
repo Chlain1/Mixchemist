@@ -26,26 +26,45 @@ namespace mixchemist2.spell
     	{
     	}
 
+	    /// <summary>
+	    /// Get the element of the spell
+	    /// </summary>
+	    /// <returns>The element of the spell</returns>
 	    public ClassesAndEnums.Element GetElement()
 	    {
 		    return ElementType;
 	    }
 
+	    /// <summary>
+	    /// Set the element of the spell
+	    /// </summary>
+	    /// <param name="element">The element the spell should have</param>
 	    public void SetElement(ClassesAndEnums.Element element)
 	    {
 		    ElementType = element;
 	    }
 
+	    /// <summary>
+	    /// Get the damage of the spell
+	    /// </summary>
+	    /// <returns>The amount of damage the spell does</returns>
 	    public int GetDamage()
 	    {
 		    return Damage;
 	    }
 
+	    /// <summary>
+	    /// Get the position of the spell
+	    /// </summary>
+	    /// <returns>The position of the spell</returns>
 	    public Vector2 GetPosition()
 	    {
 		    return Position;
 	    }
 		
+	    /// <summary>
+	    /// Event handler for the timeout event that frees the spell
+	    /// </summary>
     	private void _OnTimeout()
     	{
     		QueueFree();

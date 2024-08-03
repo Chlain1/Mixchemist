@@ -31,18 +31,19 @@ public partial class MusicManager : AudioStreamPlayer
         this.Play();
 	}
 	
-	/**
-	 * Changes Music Volume in decibels.
-	 * Optimal range seems to be -80db to -10db
-	 */
+	/// <summary>
+	/// Changes Music Volume in decibels.
+	/// Optimal range seems to be -80db to -10db
+	/// </summary>
 	public void SetVolume(float db)
 	{
 		this.VolumeDb = db;
 	}
 
-	/**
-	 * Plays the music file located at path
-	 */
+	/// <summary>
+	/// Plays the music at the given path
+	/// </summary>
+	/// <param name="path">The path to the music file</param>
 	public void ChangeStream(string path)
 	{
 		this.Stream = GD.Load<AudioStream>(path);

@@ -18,17 +18,28 @@ public partial class GameManager : Node
         score = 0;
     }
 
+    /// <summary>
+    /// Set the score of the player
+    /// </summary>
+    /// <param name="score">The score that should be set</param>
     public void SetScore(int score)
     {
         this.score = score;
         Debug.WriteLine("New Score: " + score);
     }
 
+    /// <summary>
+    /// Gets the current score of the player
+    /// </summary>
+    /// <returns>Integer that is the score of the player</returns>
     public int GetScore()
     {
         return score;
     }
     
+    /// <summary>
+    /// Getter and Setter for the allowed basic elements
+    /// </summary>
     public List<Element> AllowedBasicElements
     {
         get => allowedBasicElements;

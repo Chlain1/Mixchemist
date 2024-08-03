@@ -36,6 +36,11 @@ public class ElementGauge : HBoxContainer
         
     }
 
+    /// <summary>
+    /// Function to update the gauge of a specific element
+    /// </summary>
+    /// <param name="element">The element that should be updated</param>
+    /// <param name="value">The new value it should have</param>
     public void UpdateGauge(Element element, int value)
     {
         switch (element)

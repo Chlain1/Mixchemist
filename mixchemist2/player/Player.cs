@@ -31,6 +31,9 @@ public partial class Player : KinematicBody2D
 		RotateWithCursor();
 	}
 
+	/// <summary>
+	/// Function to move the player based on the input from the player.
+	/// </summary>
     private void MovePlayer()
 	{
 		Vector2 velocity = Vector2.Zero;
@@ -59,12 +62,20 @@ public partial class Player : KinematicBody2D
 		MoveAndCollide(velocity);
 	}
 
+	/// <summary>
+	/// Function to rotate the player based on the cursor position.
+	/// </summary>
 	private void RotateWithCursor()
 	{
 		Vector2 CursorPos = GetLocalMousePosition();
 		Rotation += CursorPos.Angle() + startRot;
 	}
 
+	/// <summary>
+	/// Function to take damage from the enemy.
+	/// </summary>
+	/// <param name="dmgAmount">Amount of damage that should be taken</param>
+	/// <param name="damageVector">The vector from where the damage is taken from for knockback</param>
 	public void TakeDamage(int dmgAmount, Vector2 damageVector)
 	{
 		Vector2 velocity = Vector2.Zero;

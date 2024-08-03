@@ -48,6 +48,11 @@ public class ElementStorage : Control
 
     }
 
+    /// <summary>
+    /// Sets the colours of the element panels to the default colour
+    /// </summary>
+    /// <param name="element">The element that needs to be set</param>
+    /// <param name="setColor">Bool if the color should be set</param>
     public void ToggleElementPanelColor(ClassesAndEnums.Element element, bool setColor) 
     {
 
@@ -101,6 +106,10 @@ public class ElementStorage : Control
 
     }
 
+    /// <summary>
+    /// The function to store the color of the spell in the queue
+    /// </summary>
+    /// <param name="chosenElement">Element that should be set</param>
     public void StoreSpellColor(Element chosenElement)
     {
         ColorRect spellColorRect = new ColorRect();
@@ -157,6 +166,11 @@ public class ElementStorage : Control
         NewElementInLastElementOut(spellColorRect, chosenElement);
     }
     
+    /// <summary>
+    /// Adds a new element to the queue and removes the last element
+    /// </summary>
+    /// <param name="spellColorRect">Color of the new element</param>
+    /// <param name="element">The new elemnt that should be inserted</param>
     private void NewElementInLastElementOut(ColorRect spellColorRect, Element element)
     {
         if (colorRects.Count == 3)
@@ -178,6 +192,9 @@ public class ElementStorage : Control
         }
     }
     
+    /// <summary>
+    /// Function to shift the elements in the queue
+    /// </summary>
     private void ShiftElements()
     {
         if (colorRects.Count == 0) return;
@@ -195,6 +212,11 @@ public class ElementStorage : Control
             j--;
         }
     }
+    
+    /// <summary>
+    /// Event handler for when the rotate button is pressed
+    /// </summary>
+    /// <param name="event">The event that needs to be handled</param>
     public override void _Input(InputEvent @event)
     {
         if (@event.IsActionPressed("rotateElements"))
@@ -203,6 +225,9 @@ public class ElementStorage : Control
         }
     }
     
+    /// <summary>
+    /// Removes the elements from the queue
+    /// </summary>
     private void RemoveElements()
     {
         for (int i = 0; i < panels.Length; i++) {
@@ -210,6 +235,10 @@ public class ElementStorage : Control
         }
     }
 
+    /// <summary>
+    /// Gets the first element in the queue
+    /// </summary>
+    /// <returns>Returns the first element of the queue</returns>
     public Element GetFirstRealmElement()
     {
         if (elemQueue.Count() > 0)
@@ -219,6 +248,11 @@ public class ElementStorage : Control
 
         return Element.FIRE;
     }
+    
+    /// <summary>
+    /// Return to cast the first element in the queue
+    /// </summary>
+    /// <returns>ColorRext of the Element that got cast</returns>
     public ColorRect CastFirstElementInStorage()
     {
         ColorRect colorRect = null;

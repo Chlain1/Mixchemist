@@ -14,6 +14,10 @@ public class HealthBar : HBoxContainer
         hpTextureProgress = GetNode<TextureProgress>("TextureProgress");
     }
 
+    /// <summary>
+    /// Updates the health bar with the current HP value
+    /// </summary>
+    /// <param name="currentHP">The new health value of the player</param>
     public void UpdateHealthBar(int currentHP) 
     { 
         hpTextureProgress.Value = currentHP;
