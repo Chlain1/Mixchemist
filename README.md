@@ -25,3 +25,7 @@ This Game is developed as a entry into the [GameJam from Pirate Software on itch
 - No Pornographic Content or Nudity.
 - No Illicit Drug References.
 - You can only use assets you have the commercial license for.
+
+## itch.io
+Mixchemist is playable and downloadable through [itch.io](itch.io)
+[Mixchemist](https://github.com/Chlain1/Mixchemist.git)
