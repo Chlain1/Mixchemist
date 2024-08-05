@@ -7,6 +7,7 @@ using static ClassesAndEnums;
 
 public class ElementStorage : Control
 {
+    private record Person(int i); 
     private static Panel panel1;
     private static Panel panel2;
     private static Panel panel3;
