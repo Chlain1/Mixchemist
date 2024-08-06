@@ -7,210 +7,108 @@ using static ClassesAndEnums;
 
 public class ElementStorage : Control
 {
-    private record Person(int i); 
-    private static Panel panel1;
-    private static Panel panel2;
-    private static Panel panel3;
-
-    private static ColorRect firePanel;
-    private static ColorRect waterPanel;
-    private static ColorRect earthPanel;
-    private static ColorRect airPanel;
     private static GridContainer gridCont;
     
-    private static Queue<ColorRect> colorRects = new Queue<ColorRect>();
-    private static Panel[] panels = new Panel[3];
-    private static Queue<Element> elemQueue = new Queue<Element>();
+    //TODO change ColorRect to texture which should be shown on Panel
+    private static Dictionary<Element, ColorRect> textureOfElement = new ();
+    private static List<Panel> castablePanels = new List<Panel>();
 
     private Vector2 gridPos = new Vector2(20, -10);
     
-
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
-        base._Ready();
-
         gridCont = GetNode<GridContainer>("Input");
-        gridCont.RectRotation = 45f;
-        gridCont.SetPosition(gridCont.RectPosition + gridPos);
+        gridCont.SetPosition(gridCont.RectPosition + gridPos);      
+
+        var nodes = GetNode("Queue").GetChildren();
+        Enumerable.Range(0, nodes.Count).ToList().ForEach(x => castablePanels.Add((Panel)nodes[x]));
+        castablePanels.Reverse();
         
-        panel1 = GetNode<Panel>("Queue/Element1");
-        panel2 = GetNode<Panel>("Queue/Element2");
-        panel3 = GetNode<Panel>("Queue/Element3");
-        panels[0] = panel1;
-        panels[1] = panel2;
-        panels[2] = panel3;
-
-        firePanel = GetNode<ColorRect>("Input/FireHolding");
-        waterPanel = GetNode<ColorRect>("Input/WaterHolding");
-        earthPanel = GetNode<ColorRect>("Input/EarthHolding");
-        airPanel = GetNode<ColorRect>("Input/AirHolding");
-
+        //TODO: add texture instead of ColorRect to panel
+        castablePanels.ForEach(x => 
+        {
+            var colorRect = new ColorRect
+            {
+                Color = ElementTextureMap[Element.NULL],
+                RectMinSize = new Vector2(castablePanels[0].RectSize.x, castablePanels[0].RectSize.y)
+            };
+            x.AddChild(colorRect);
+        });
+        textureOfElement.Add(Element.FIRE, GetNode<ColorRect>("Input/FireHolding"));
+        textureOfElement.Add(Element.WATER,GetNode<ColorRect>("Input/WaterHolding"));
+        textureOfElement.Add(Element.EARTH, GetNode<ColorRect>("Input/EarthHolding"));
+        textureOfElement.Add(Element.AIR, GetNode<ColorRect>("Input/AirHolding"));
     }
 
     /// <summary>
-    /// Sets the colours of the element panels to the default colour
+    /// shift all textures to the right by cycling through all NON-NULL textures 
+    /// </summary>
+    private void RotateTextures()
+    {
+        //retrieves all non-null textures in storage
+        List<Color> colorsWithElement = castablePanels
+            .Where(panel => !panel.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]))
+            .Select(panel => panel.GetChild<ColorRect>(0).Color)
+            .ToList();
+        
+        //don't shift if only 1 texture
+        if (colorsWithElement.Count <= 1) return;
+        
+        //shift textures in list
+        Color firstColor = colorsWithElement.First();
+        for (int i = 0; i < colorsWithElement.Count - 1; i++)
+        {
+            colorsWithElement[i] = colorsWithElement[i + 1];
+        }
+        colorsWithElement[colorsWithElement.Count - 1] = firstColor;
+        
+        //change textures in panels according to the texture list
+        for (int i = 0; i < colorsWithElement.Count; i++)
+        {
+            castablePanels[i].GetChild<ColorRect>(0).Color = colorsWithElement[i];
+        }
+        
+        //all other panels get NULL textures
+        for (int i = colorsWithElement.Count; i < castablePanels.Count; i++)
+        {
+            castablePanels[i].GetChild<ColorRect>(0).Color = ElementTextureMap[Element.NULL];
+        }
+    }
+    
+    /// <summary>
+    /// Sets the textures of the element castablePanels to the default color
     /// </summary>
     /// <param name="element">The element that needs to be set</param>
-    /// <param name="setColor">Bool if the color should be set</param>
-    public void ToggleElementPanelColor(ClassesAndEnums.Element element, bool setColor) 
+    /// <param name="setTexture">Bool if the color should be set</param>
+    public void ToggleElementPanelColor(Element element, bool setTexture) 
     {
-
-        switch (element)
+        textureOfElement[element].Color = element switch
         {
-            case Element.FIRE:
-                if (setColor)
-                {
-                    firePanel.Color = Colors.Red;
-                }
-                else
-                {
-                    firePanel.Color = Colors.Black;
-                }
-                break;
-            case Element.WATER:
-                if (setColor)
-                {
-                    waterPanel.Color = Colors.Blue;
-                }
-                else
-                {
-                    waterPanel.Color = Colors.Black;
-                }
-                break;
-            case Element.EARTH:
-                if (setColor)
-                {
-                    earthPanel.Color = Colors.SandyBrown;
-                }
-                else
-                {
-                    earthPanel.Color = Colors.Black;
-                }
-                break;
-            case Element.AIR:
-                if (setColor)
-                {
-                    airPanel.Color = Colors.White;
-                }
-                else
-                {
-                    airPanel.Color = Colors.Black;
-                }
-                break;
-            default:
-                Debug.WriteLine("Nee mann falsches element");
-                break;
-
-        }
-
-    }
-
-    /// <summary>
-    /// The function to store the color of the spell in the queue
-    /// </summary>
-    /// <param name="chosenElement">Element that should be set</param>
-    public void StoreSpellColor(Element chosenElement)
-    {
-        ColorRect spellColorRect = new ColorRect();
-        spellColorRect.RectMinSize = new Vector2(panel1.RectSize.x, panel1.RectSize.y);
-        switch (chosenElement)
-        {
-            // BTW: Nicht fragen was diese Farben sollen. Ich war extrem unter Drogen xoxo Eric
-            case Element.FIRE:
-                spellColorRect.Color = Colors.Red;
-                break;
-            case Element.EARTH:
-                spellColorRect.Color = Colors.SandyBrown;
-                break;
-            case Element.WATER:
-                spellColorRect.Color = Colors.Blue;
-                break;
-            case Element.AIR:
-                spellColorRect.Color = Colors.White;
-                break;
-            case Element.FIRE_AIR:
-                spellColorRect.Color = Colors.Aquamarine;
-                break;
-            case Element.FIRE_WATER:
-                spellColorRect.Color = Colors.Azure;
-                break;
-            case Element.FIRE_EARTH:
-                spellColorRect.Color = Colors.RosyBrown;
-                break;
-            case Element.WATER_AIR:
-                spellColorRect.Color = Colors.Cyan;
-                break;
-            case Element.WATER_EARTH:
-                spellColorRect.Color = Colors.Cornflower;
-                break;
-            case Element.EARTH_AIR:
-                spellColorRect.Color = Colors.Gainsboro;
-                break;
-            case Element.FIRE_EARTH_AIR:
-                spellColorRect.Color = Colors.Firebrick;
-                break;
-            case Element.FIRE_WATER_AIR:
-                spellColorRect.Color = Colors.Olive;
-                break;
-            case Element.FIRE_WATER_EARTH:
-                spellColorRect.Color = Colors.Lavender;
-                break;
-            case Element.WATER_EARTH_AIR:
-                spellColorRect.Color = Colors.Chocolate;
-                break;
-            case Element.SHADOW:
-                spellColorRect.Color = Colors.Black;
-                break;
-        }
-        NewElementInLastElementOut(spellColorRect, chosenElement);
+            Element.FIRE => setTexture ? ElementTextureMap[Element.FIRE] : ElementTextureMap[Element.NULL],
+            Element.WATER => setTexture ? ElementTextureMap[Element.WATER] : ElementTextureMap[Element.NULL],
+            Element.EARTH => setTexture ? ElementTextureMap[Element.EARTH] : ElementTextureMap[Element.NULL],
+            Element.AIR => setTexture ? ElementTextureMap[Element.AIR] : ElementTextureMap[Element.NULL],
+            _ => throw new ArgumentException("Nee mann falsches element")
+        };
     }
     
     /// <summary>
-    /// Adds a new element to the queue and removes the last element
+    /// Adds a new element to the storage by removing the first element and adding the last element
     /// </summary>
-    /// <param name="spellColorRect">Color of the new element</param>
-    /// <param name="element">The new elemnt that should be inserted</param>
-    private void NewElementInLastElementOut(ColorRect spellColorRect, Element element)
+    /// <param name="newElement">The new elemnt that should be inserted</param>
+    public void LifoElement(Element newElement)
     {
-        if (colorRects.Count == 3)
+        //case where there is no storage left so the last element needs to be removed while the other elements get shifted to the right
+        if (castablePanels.All(x => !x.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL])))
         {
-            ColorRect oldRect = colorRects.Dequeue();
-            oldRect.QueueFree(); // Ensure the old ColorRect is removed from the scene tree
-            Element oldElem = elemQueue.Dequeue();
+            RotateTextures();
+            castablePanels[castablePanels.Count-1].GetChild<ColorRect>(0).Color = ElementTextureMap[newElement];
         }
-        
-        colorRects.Enqueue(spellColorRect);
-        elemQueue.Enqueue(element);
-        List<ColorRect> tempList = new List<ColorRect>(colorRects);
-        RemoveElements();
-        int j = panels.Length - 1;
-        foreach (var tempColor in tempList)
-        {
-            panels[j].AddChild(tempColor);
-            j--;
-        }
-    }
-    
-    /// <summary>
-    /// Function to shift the elements in the queue
-    /// </summary>
-    private void ShiftElements()
-    {
-        if (colorRects.Count == 0) return;
-        
-        RemoveElements();
-        ColorRect lastElement = colorRects.Dequeue();
-        colorRects.Enqueue(lastElement);
-        Element lastElem = elemQueue.Dequeue();
-        elemQueue.Enqueue(lastElem);
-        
-        int j = panels.Length - 1;
-        foreach (var colorRect in colorRects)
-        {
-            panels[j].AddChild(colorRect);
-            j--;
+        //case where there is still room for an element so we just add the new element to the first found NULL element 
+        else
+        { 
+            var panel = castablePanels.First(x => x.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]));
+            panel.GetChild<ColorRect>(0).Color = ElementTextureMap[newElement];
         }
     }
     
@@ -222,63 +120,31 @@ public class ElementStorage : Control
     {
         if (@event.IsActionPressed("rotateElements"))
         {
-            ShiftElements();
+            RotateTextures();
         }
     }
     
     /// <summary>
-    /// Removes the elements from the queue
+    /// Return to cast the first element in storage
     /// </summary>
-    private void RemoveElements()
+    /// <returns>texture of the cast element</returns>
+    public Color CastFirstElementInStorage()
     {
-        for (int i = 0; i < panels.Length; i++) {
-            if (panels[i].GetChildCount() > 0) panels[i].RemoveChild(panels[i].GetChild(0));
-        }
+        //retrives the texture of the first element
+        Color spellColor = castablePanels[0].GetChild<ColorRect>(0).Color;
+        //rotate elements
+        RotateTextures();
+        //remove casted element if texture exists which can be found on the last index of the array after rotating the textures
+        int lastIndex = castablePanels.FindLastIndex(panel => !panel.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]));
+        if (lastIndex != -1)
+            castablePanels[lastIndex].GetChild<ColorRect>(0).Color = ElementTextureMap[Element.NULL]; 
+        return spellColor;
     }
 
     /// <summary>
-    /// Gets the first element in the queue
+    /// best soluschon in existenz
     /// </summary>
-    /// <returns>Returns the first element of the queue</returns>
-    public Element GetFirstRealmElement()
-    {
-        if (elemQueue.Count() > 0)
-        {
-            return elemQueue.Peek();
-        }
-
-        return Element.FIRE;
-    }
-    
-    /// <summary>
-    /// Return to cast the first element in the queue
-    /// </summary>
-    /// <returns>ColorRext of the Element that got cast</returns>
-    public ColorRect CastFirstElementInStorage()
-    {
-        ColorRect colorRect = null;
-        for (int i = panels.Length-1; i >= 0; i--)
-        {
-            if (panels[i].GetChildCount() > 0)
-            {
-                colorRect = colorRects.Dequeue();
-                elemQueue.Dequeue();
-                panels[i].RemoveChild(colorRect);
-                colorRect.QueueFree();
-                List<ColorRect> tempList = new List<ColorRect>(colorRects);
-                RemoveElements();
-                int j = panels.Length - 1;
-                foreach (var tempColor in tempList)
-                {
-                    panels[j].AddChild(tempColor);
-                    j--;
-                }
-                break;
-            }
-        }
-        return colorRect;
-    }
-
+    /// <param name="delta"></param>
     public override void _Process(float delta)
     {
         gridCont.RectRotation = 45f;
