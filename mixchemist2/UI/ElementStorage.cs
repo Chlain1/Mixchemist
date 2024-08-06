@@ -25,14 +25,11 @@ public class ElementStorage : Control
         castablePanels.Reverse();
         
         //TODO: add texture instead of ColorRect to panel
-        castablePanels.ForEach(x => 
+        castablePanels.ForEach(x =>
         {
-            var colorRect = new ColorRect
-            {
-                Color = ElementTextureMap[Element.NULL],
-                RectMinSize = new Vector2(castablePanels[0].RectSize.x, castablePanels[0].RectSize.y)
-            };
-            x.AddChild(colorRect);
+            Sprite sprite = x.GetChild<Sprite>(0);
+            sprite.Texture = ElementTextureMap[Element.NULL].Item2;
+            sprite.Scale *= 0.3f;
         });
         textureOfElement.Add(Element.FIRE, GetNode<ColorRect>("Input/FireHolding"));
         textureOfElement.Add(Element.WATER,GetNode<ColorRect>("Input/WaterHolding"));
@@ -46,32 +43,32 @@ public class ElementStorage : Control
     private void RotateTextures()
     {
         //retrieves all non-null textures in storage
-        List<Color> colorsWithElement = castablePanels
-            .Where(panel => !panel.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]))
-            .Select(panel => panel.GetChild<ColorRect>(0).Color)
+        List<Texture> texturesWithinElement = castablePanels
+            .Where(panel => !panel.GetChild<Sprite>(0).Texture.Equals(ElementTextureMap[Element.NULL].Item2))
+            .Select(panel => panel.GetChild<Sprite>(0).Texture)
             .ToList();
         
         //don't shift if only 1 texture
-        if (colorsWithElement.Count <= 1) return;
+        if (texturesWithinElement.Count <= 1) return;
         
         //shift textures in list
-        Color firstColor = colorsWithElement.First();
-        for (int i = 0; i < colorsWithElement.Count - 1; i++)
+        Texture firstColor = texturesWithinElement.First();
+        for (int i = 0; i < texturesWithinElement.Count - 1; i++)
         {
-            colorsWithElement[i] = colorsWithElement[i + 1];
+            texturesWithinElement[i] = texturesWithinElement[i + 1];
         }
-        colorsWithElement[colorsWithElement.Count - 1] = firstColor;
+        texturesWithinElement[texturesWithinElement.Count - 1] = firstColor;
         
         //change textures in panels according to the texture list
-        for (int i = 0; i < colorsWithElement.Count; i++)
+        for (int i = 0; i < texturesWithinElement.Count; i++)
         {
-            castablePanels[i].GetChild<ColorRect>(0).Color = colorsWithElement[i];
+            castablePanels[i].GetChild<Sprite>(0).Texture = texturesWithinElement[i];
         }
         
         //all other panels get NULL textures
-        for (int i = colorsWithElement.Count; i < castablePanels.Count; i++)
+        for (int i = texturesWithinElement.Count; i < castablePanels.Count; i++)
         {
-            castablePanels[i].GetChild<ColorRect>(0).Color = ElementTextureMap[Element.NULL];
+            castablePanels[i].GetChild<Sprite>(0).Texture = ElementTextureMap[Element.NULL].Item2;
         }
     }
     
@@ -84,10 +81,10 @@ public class ElementStorage : Control
     {
         textureOfElement[element].Color = element switch
         {
-            Element.FIRE => setTexture ? ElementTextureMap[Element.FIRE] : ElementTextureMap[Element.NULL],
-            Element.WATER => setTexture ? ElementTextureMap[Element.WATER] : ElementTextureMap[Element.NULL],
-            Element.EARTH => setTexture ? ElementTextureMap[Element.EARTH] : ElementTextureMap[Element.NULL],
-            Element.AIR => setTexture ? ElementTextureMap[Element.AIR] : ElementTextureMap[Element.NULL],
+            Element.FIRE => setTexture ? ElementTextureMap[Element.FIRE].Item1 : ElementTextureMap[Element.NULL].Item1,
+            Element.WATER => setTexture ? ElementTextureMap[Element.WATER].Item1 : ElementTextureMap[Element.NULL].Item1,
+            Element.EARTH => setTexture ? ElementTextureMap[Element.EARTH].Item1 : ElementTextureMap[Element.NULL].Item1,
+            Element.AIR => setTexture ? ElementTextureMap[Element.AIR].Item1 : ElementTextureMap[Element.NULL].Item1,
             _ => throw new ArgumentException("Nee mann falsches element")
         };
     }
@@ -99,16 +96,16 @@ public class ElementStorage : Control
     public void LifoElement(Element newElement)
     {
         //case where there is no storage left so the last element needs to be removed while the other elements get shifted to the right
-        if (castablePanels.All(x => !x.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL])))
+        if (castablePanels.All(x => !x.GetChild<Sprite>(0).Texture.Equals(ElementTextureMap[Element.NULL].Item2)))
         {
             RotateTextures();
-            castablePanels[castablePanels.Count-1].GetChild<ColorRect>(0).Color = ElementTextureMap[newElement];
+            castablePanels[castablePanels.Count-1].GetChild<Sprite>(0).Texture = ElementTextureMap[newElement].Item2;
         }
         //case where there is still room for an element so we just add the new element to the first found NULL element 
         else
         { 
-            var panel = castablePanels.First(x => x.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]));
-            panel.GetChild<ColorRect>(0).Color = ElementTextureMap[newElement];
+            var panel = castablePanels.First(x => x.GetChild<Sprite>(0).Texture.Equals(ElementTextureMap[Element.NULL].Item2));
+            panel.GetChild<Sprite>(0).Texture = ElementTextureMap[newElement].Item2;
         }
     }
     
@@ -128,16 +125,16 @@ public class ElementStorage : Control
     /// Return to cast the first element in storage
     /// </summary>
     /// <returns>texture of the cast element</returns>
-    public Color CastFirstElementInStorage()
+    public Texture CastFirstElementInStorage()
     {
         //retrives the texture of the first element
-        Color spellColor = castablePanels[0].GetChild<ColorRect>(0).Color;
+        Texture spellColor = castablePanels[0].GetChild<Sprite>(0).Texture;
         //rotate elements
         RotateTextures();
         //remove casted element if texture exists which can be found on the last index of the array after rotating the textures
-        int lastIndex = castablePanels.FindLastIndex(panel => !panel.GetChild<ColorRect>(0).Color.Equals(ElementTextureMap[Element.NULL]));
+        int lastIndex = castablePanels.FindLastIndex(panel => !panel.GetChild<Sprite>(0).Texture.Equals(ElementTextureMap[Element.NULL].Item2));
         if (lastIndex != -1)
-            castablePanels[lastIndex].GetChild<ColorRect>(0).Color = ElementTextureMap[Element.NULL]; 
+            castablePanels[lastIndex].GetChild<Sprite>(0).Texture = ElementTextureMap[Element.NULL].Item2; 
         return spellColor;
     }
 

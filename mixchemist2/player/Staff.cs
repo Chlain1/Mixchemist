@@ -152,11 +152,14 @@ public partial class Staff : Node2D
         
         if (@event.IsActionPressed("shootElement"))
         {
-            Color spellInStorage = elementStorage.CastFirstElementInStorage();
-            if(!spellInStorage.Equals(ElementTextureMap[Element.NULL]))
+            Texture spellInStorage = elementStorage.CastFirstElementInStorage();
+            if(!spellInStorage.Equals(ElementTextureMap[Element.NULL].Item2))
             {
                 RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
-                spell.Modulate = spellInStorage;
+                var sprite = spell.GetChild<Sprite>(0);
+                sprite.Texture = spellInStorage;
+                //sprite.Scale = new Vector2(spell.Scale.x / sprite.Texture.GetWidth(), spell.Scale.y / sprite.Texture.GetHeight());
+                
                 spell.Rotation = GlobalRotation;
                 spell.GlobalPosition = GlobalPosition;
                 spell.LinearVelocity = spell.Transform.x * bulletSpeed;
