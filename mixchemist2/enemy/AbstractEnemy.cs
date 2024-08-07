@@ -35,6 +35,8 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		Rotation = startRot;
 		
 		//playerDetectionArea.Connect("body_entered", this, nameof(OnBodyEntered));
+		
+		
 		switch (enemyElement)
 		{
 			case Element.FIRE:
@@ -176,7 +178,7 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 		if (health <= 0)
 		{
 			healthBar.Value = 0;
-			received_score = received_score * 5;
+			received_score *=  5;
 			GameManager.Instance.SetScore(GameManager.Instance.GetScore() + (int) received_score);
 			QueueFree();
 		}
