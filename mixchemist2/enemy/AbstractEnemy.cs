@@ -11,23 +11,6 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 	[Export] private double damage = 3.0f;
 	[Export] private float movementSpeed = 2.5f;
 	
-	// Damage Modifiers
-	[Export] private double fireModifier = 1f;
-	[Export] private double waterModifier = 1f;
-	[Export] private double earthModifier = 1f;
-	[Export] private double airModifier = 1f;
-	[Export] private double fireWaterModifier = 1f;
-	[Export] private double fireEarthModifier = 1f;
-	[Export] private double fireAirModifier = 1f;
-	[Export] private double waterEarthModifier = 1f;
-	[Export] private double waterAirModifier = 1f;
-	[Export] private double earthAirModifier = 1f;
-	[Export] private double fireWaterEarthModifier = 1f;
-	[Export] private double fireWaterAirModifier = 1f;
-	[Export] private double fireEarthAirModifier = 1f;
-	[Export] private double waterEarthAirModifier = 1f;
-	[Export] private double shadowModifier = 1f;
-	
 	private Area2D spellCollisionArea;
 	private KinematicCollision2D colObj;
 	private TextureProgress healthBar;
@@ -182,72 +165,11 @@ public abstract partial class AbstractEnemy : KinematicBody2D
 
 		double realDamage = damage;
 		double received_score = 100;
-		switch (projectileElement) 
-		{
-			case Element.FIRE:
-				received_score = received_score * fireModifier;
-				realDamage = realDamage * fireModifier;
-				break;
-			case Element.WATER:
-				received_score = received_score * waterModifier;
-				realDamage = realDamage * waterModifier;
-				break;
-			case Element.EARTH:
-				received_score = received_score * earthModifier;
-				realDamage = realDamage * earthModifier;
-				break;
-			case Element.AIR:
-				received_score = received_score * airModifier;
-				realDamage = realDamage * airModifier;
-				break;
-			case Element.FIRE_WATER:
-				received_score = received_score * fireWaterModifier;
-				realDamage = realDamage * fireWaterModifier;
-				break;
-			case Element.FIRE_EARTH:
-				received_score = received_score * fireEarthModifier;
-				realDamage = realDamage * fireEarthModifier;
-				break;
-			case Element.FIRE_AIR:
-				received_score = received_score * fireAirModifier;
-				realDamage = realDamage * fireAirModifier;
-				break;
-			case Element.WATER_EARTH:
-				received_score = received_score * waterEarthModifier;
-				realDamage = realDamage * waterEarthModifier;
-				break;
-			case Element.WATER_AIR:
-				received_score = received_score * waterAirModifier;
-				realDamage = realDamage * waterAirModifier;
-				break;
-			case Element.EARTH_AIR:
-				received_score = received_score * earthAirModifier;
-				realDamage = realDamage * earthAirModifier;
-				break;
-			case Element.FIRE_WATER_AIR:
-				received_score = received_score * fireWaterAirModifier;
-				realDamage = realDamage * fireWaterAirModifier;
-				break;
-			case Element.FIRE_WATER_EARTH:
-				received_score = received_score * fireWaterEarthModifier;
-				realDamage = realDamage * fireWaterEarthModifier;
-				break;
-			case Element.WATER_EARTH_AIR:
-				received_score = received_score * waterEarthAirModifier;
-				realDamage = realDamage * waterEarthAirModifier;
-				break;
-			case Element.FIRE_EARTH_AIR:
-				received_score = received_score * fireEarthAirModifier;
-				realDamage = realDamage * fireEarthAirModifier;
-				break;
-			case Element.SHADOW:
-				received_score = received_score * shadowModifier;
-				realDamage = realDamage * shadowModifier;
-				break;
-			default:
-				Debug.WriteLine("Element does not exist");
-				break;
-		}
+
+		received_score *= ModifierStrongVsEnemy[enemyElement][projectileElement];
+		Debug.WriteLine("received score:" + received_score);
+		realDamage *= ModifierStrongVsEnemy[enemyElement][projectileElement];
+		Debug.WriteLine("received dmg:" + realDamage);
 		
 		health -= realDamage;
 		

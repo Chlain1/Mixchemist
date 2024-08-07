@@ -12,6 +12,7 @@ public class ElementStorage : Control
     //TODO change ColorRect to texture which should be shown on Panel
     private static Dictionary<Element, ColorRect> textureOfElement = new ();
     private static List<Panel> castablePanels = new List<Panel>();
+    private Element nextToCast = Element.NULL;
 
     private Vector2 gridPos = new Vector2(20, -10);
     

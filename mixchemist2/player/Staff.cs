@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Godot;
+using mixchemist2.spell;
 using static ClassesAndEnums;
 
 public partial class Staff : Node2D
@@ -155,7 +157,8 @@ public partial class Staff : Node2D
             Texture spellInStorage = elementStorage.CastFirstElementInStorage();
             if(!spellInStorage.Equals(ElementTextureMap[Element.NULL].Item2))
             {
-                RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
+                ConcreteSpell spell = bulletScene.Instance<ConcreteSpell>();
+                spell.SetElement(ElementTextureMap.Keys.First(x => ElementTextureMap[x].Item2.Equals(spellInStorage)));
                 var sprite = spell.GetChild<Sprite>(0);
                 sprite.Texture = spellInStorage;
                 //sprite.Scale = new Vector2(spell.Scale.x / sprite.Texture.GetWidth(), spell.Scale.y / sprite.Texture.GetHeight());

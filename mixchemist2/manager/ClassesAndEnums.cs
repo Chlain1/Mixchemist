@@ -27,6 +27,98 @@ public partial class ClassesAndEnums
         { Element.SHADOW, (Colors.Black, (Texture)GD.Load("res://player/Assets/shadow.png")) },
         { Element.NULL, (Colors.Gray, (Texture)GD.Load("res://player/Assets/null.png")) }
     };
+
+    public static readonly Dictionary<Element, Dictionary<Element, double>> ModifierStrongVsEnemy = new()
+{
+    {
+        //WATER > FIRE > AIR > EARTH
+        //Ranking: 1. Water, 2. Earth, 3. Fire, 4. Air
+        Element.FIRE, new Dictionary<Element, double>()
+        {
+            { Element.FIRE, 0.5 },
+            { Element.WATER, 2.0 },
+            { Element.EARTH, 1.0 },
+            { Element.AIR, 0.25 },
+            { Element.FIRE_WATER, 2.0 },
+            { Element.FIRE_EARTH, 1.0 },
+            { Element.FIRE_AIR, 1.0 },
+            { Element.WATER_EARTH, 2.0 },
+            { Element.WATER_AIR, 2.0 },
+            { Element.EARTH_AIR, 1.0 },
+            { Element.FIRE_WATER_EARTH, 4.0 },
+            { Element.FIRE_WATER_AIR, 2.0 },
+            { Element.FIRE_EARTH_AIR, 2.0 },
+            { Element.WATER_EARTH_AIR, 2.0 },
+            { Element.SHADOW, 6.0 }
+        }
+    },
+    {
+        //WATER > FIRE > AIR > EARTH
+        //Ranking: 1. Earth, 2. Air, 3. Water, 4. Fire
+        Element.WATER, new Dictionary<Element, double>()
+        {
+            { Element.FIRE, 0.25 },
+            { Element.WATER, 0.5 },
+            { Element.EARTH, 2.0 },
+            { Element.AIR, 1.0 },
+            { Element.FIRE_WATER, 1.0 },
+            { Element.FIRE_EARTH, 2.0 },
+            { Element.FIRE_AIR, 1.0 },
+            { Element.WATER_EARTH, 2.0 },
+            { Element.WATER_AIR, 1.0 },
+            { Element.EARTH_AIR, 2.0 },
+            { Element.FIRE_WATER_EARTH, 2.0 },
+            { Element.FIRE_WATER_AIR, 2.0 },
+            { Element.FIRE_EARTH_AIR, 4.0 },
+            { Element.WATER_EARTH_AIR, 2.0 },
+            { Element.SHADOW, 6.0 }
+        }
+    },
+    {
+        //WATER > FIRE > AIR > EARTH
+        //Ranking: 1. Air, 2. Fire, 3. Earth, 4. Water
+        Element.EARTH, new Dictionary<Element, double>()
+        {
+            { Element.FIRE, 1.0 },
+            { Element.WATER, 0.25 },
+            { Element.EARTH, 0.5 },
+            { Element.AIR, 2.0 },
+            { Element.FIRE_WATER, 1.0 },
+            { Element.FIRE_EARTH, 1.0 },
+            { Element.FIRE_AIR, 2.0 },
+            { Element.WATER_EARTH, 1.0 },
+            { Element.WATER_AIR, 2.0 },
+            { Element.EARTH_AIR, 2.0 },
+            { Element.FIRE_WATER_EARTH, 2.0 },
+            { Element.FIRE_WATER_AIR, 2.0 },
+            { Element.FIRE_EARTH_AIR, 4.0 },
+            { Element.WATER_EARTH_AIR, 2.0 },
+            { Element.SHADOW, 6.0 }
+        }
+    },
+    {
+        //WATER > FIRE > AIR > EARTH
+        //Ranking: 1. Fire, 2. Water, 3. AIR, 4. EARTH
+        Element.AIR, new Dictionary<Element, double>()
+        {
+            { Element.FIRE, 2.0 },
+            { Element.WATER, 1.0 },
+            { Element.EARTH, 0.25 },
+            { Element.AIR, 0.5 },
+            { Element.FIRE_WATER, 2.0 },
+            { Element.FIRE_EARTH, 2.0 },
+            { Element.FIRE_AIR, 2.0 },
+            { Element.WATER_EARTH, 1.0 },
+            { Element.WATER_AIR, 1.0 },
+            { Element.EARTH_AIR, 1.0 },
+            { Element.FIRE_WATER_EARTH, 2.0 },
+            { Element.FIRE_WATER_AIR, 4.0 },
+            { Element.FIRE_EARTH_AIR, 2.0 },
+            { Element.WATER_EARTH_AIR, 2.0 },
+            { Element.SHADOW, 6.0 }
+        }
+    }
+};
     public enum Element
     {
         FIRE,
