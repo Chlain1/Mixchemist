@@ -48,10 +48,10 @@ namespace Dungeon.Walker
         /// <returns>stepHistory is a list of Steps the walker has taken</returns>
         public List<Godot.Vector2> walk(int steps)
         {
+            create_room(position);
             for (int i = 0; i < steps; i++)
             {
-                double randomNumber = new Random().NextDouble();
-                if (randomNumber <= 0.25 || steps_since_turn >= 4)
+                if (steps_since_turn >= 10)
                 {
                     change_direction();
                 }
@@ -93,6 +93,7 @@ namespace Dungeon.Walker
         /// </summary>
         public void change_direction()
         {
+            create_room(position);
             steps_since_turn = 0;
             List<Godot.Vector2> directions = new List<Godot.Vector2>(DIRECTION);
             directions.Remove(direction);
@@ -104,8 +105,32 @@ namespace Dungeon.Walker
                 direction = directions[0];
                 directions.RemoveAt(0);
             }
-        }
+        } 
         
+        /// <summary>
+        /// Creates a room at a given position
+        /// </summary>
+        /// <param name="position">Position of the room that should be created</param>
+        public void create_room(Godot.Vector2 position)
+        {
+            Random random = new Random();
+            Godot.Vector2 size = new Godot.Vector2(random.Next(5, 10), random.Next(5, 10));
+
+            Godot.Vector2 topLeftCorner = (position - size / 2).Ceil();
+
+            for(int y=0; y < size.y; y++)
+            {
+                for(int x=0; x < size.x; x++)
+                {
+                    var new_step = topLeftCorner + new Godot.Vector2(x, y);
+                    if (borders.HasPoint(new_step))
+                    {
+                        stepHistory.Add(new_step);
+                    }
+                }
+            }
+        }
+         
         /// <summary>
         /// Helper Method to shuffle a list
         /// </summary>

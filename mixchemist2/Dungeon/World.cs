@@ -24,11 +24,21 @@ namespace Dungeon.Generator
         public void generate_level()
         {
             Walker.Walker walker = new Walker.Walker(new Godot.Vector2(0, 0), borders);
-            List<Godot.Vector2> map = walker.walk(500);
+            List<Godot.Vector2> map = walker.walk(200);
             walker.QueueFree();
-            foreach (Godot.Vector2 location in map)
+            
+            HashSet<Godot.Vector2> mapSet = new HashSet<Godot.Vector2>(map);
+
+            for (int x = (int)borders.Position.x; x < (int)borders.End.x; x++)
             {
-                tileMap.SetCellv(location, -1);
+                for (int y = (int)borders.Position.y; y < (int)borders.End.y; y++)
+                {
+                    Godot.Vector2 location = new Godot.Vector2(x, y);
+                    if (!mapSet.Contains(location))
+                    {
+                        tileMap.SetCellv(location, -1);
+                    }
+                }
             }
             tileMap.UpdateBitmaskRegion(borders.Position, borders.End);
             doneStatus = true;
