@@ -48,10 +48,11 @@ namespace Dungeon.Walker
         /// <returns>stepHistory is a list of Steps the walker has taken</returns>
         public List<Godot.Vector2> walk(int steps)
         {
+            Random random = new Random();
             create_room(position);
             for (int i = 0; i < steps; i++)
             {
-                if (steps_since_turn >= 10)
+                if (random.NextDouble() < 0.25 && steps_since_turn >= 10)
                 {
                     change_direction();
                 }
