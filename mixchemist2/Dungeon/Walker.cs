@@ -52,7 +52,7 @@ namespace Dungeon.Walker
             create_room(position);
             for (int i = 0; i < steps; i++)
             {
-                if (random.NextDouble() < 0.25 && steps_since_turn >= 10)
+                if (steps_since_turn >= 10) //Add here an and with random.Next(0, 3) == 0 to make dungeon have rooms that are more random and longer corridors
                 {
                     change_direction();
                 }
