@@ -11,6 +11,20 @@ namespace Dungeon.Generator
         private TileMap tileMap;
         private Rect2 borders = new Rect2(-4096, -4096, 8192, 8192);
         private bool doneStatus = false;
+        
+        /// <summary>
+        /// Shows a loading screen if the map is currently loading
+        /// </summary>
+        public void loadScreen(){
+            if (!doneStatus)
+            {
+                //TODO Show "Loading..."
+            }
+            else
+            {
+                //TODO dont show it
+            }
+        }
 
         public override void _Ready()
         {
@@ -23,6 +37,7 @@ namespace Dungeon.Generator
         /// </summary>
         public void generate_level()
         {
+            loadScreen();
             Walker.Walker walker = new Walker.Walker(new Godot.Vector2(0, 0), borders);
             List<Godot.Vector2> map = walker.walk(200);
             walker.QueueFree();
@@ -42,6 +57,7 @@ namespace Dungeon.Generator
             }
             tileMap.UpdateBitmaskRegion(borders.Position, borders.End);
             doneStatus = true;
+            loadScreen();
         }
         
         /// <summary>
