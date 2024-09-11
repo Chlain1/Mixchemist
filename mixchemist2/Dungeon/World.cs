@@ -43,7 +43,8 @@ namespace Dungeon.Generator
 			walker.QueueFree();
 			
 			HashSet<Godot.Vector2> mapSet = new HashSet<Godot.Vector2>(map);
-
+			
+			/*
 			for (int x = (int)borders.Position.x; x < (int)borders.End.x; x++)
 			{
 				for (int y = (int)borders.Position.y; y < (int)borders.End.y; y++)
@@ -55,6 +56,13 @@ namespace Dungeon.Generator
 					}
 				}
 			}
+			*/
+
+			foreach (Godot.Vector2 location in mapSet)
+			{
+				tileMap.SetCellv(location, 1);
+			}
+			
 			tileMap.UpdateBitmaskRegion(borders.Position, borders.End);
 			doneStatus = true;
 			loadScreen();
