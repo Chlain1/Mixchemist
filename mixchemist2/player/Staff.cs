@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Godot;
+using mixchemist2.spell;
 using static ClassesAndEnums;
 
 public partial class Staff : Node2D
@@ -152,19 +154,20 @@ public partial class Staff : Node2D
         
         if (@event.IsActionPressed("shootElement"))
         {
-            ColorRect colorRect = null;
-            Element spellElem = elementStorage.GetFirstRealmElement();
-            
-            if((colorRect=elementStorage.CastFirstElementInStorage())!=null)
+            Texture spellInStorage = elementStorage.CastFirstElementInStorage();
+            if(!spellInStorage.Equals(ElementTextureMap[Element.NULL].Item2))
             {
-                RigidBody2D spell = bulletScene.Instance<RigidBody2D>();
-                spell.Modulate = colorRect.Color;
+                ConcreteSpell spell = bulletScene.Instance<ConcreteSpell>();
+                spell.SetElement(ElementTextureMap.Keys.First(x => ElementTextureMap[x].Item2.Equals(spellInStorage)));
+                var sprite = spell.GetChild<Sprite>(0);
+                sprite.Texture = spellInStorage;
+                //sprite.Scale = new Vector2(spell.Scale.x / sprite.Texture.GetWidth(), spell.Scale.y / sprite.Texture.GetHeight());
+                
                 spell.Rotation = GlobalRotation;
                 spell.GlobalPosition = GlobalPosition;
                 spell.LinearVelocity = spell.Transform.x * bulletSpeed;
                 GetTree().Root.AddChild(spell);
-                spell.Call("SetElement", spellElem);
-            };
+            }
         }
     }
 
@@ -302,7 +305,7 @@ public partial class Staff : Node2D
         {
             timeUntilFire = 0;
             spellReadyToCast = false;
-            elementStorage.StoreSpellColor(currentElement);
+            elementStorage.LifoElement(currentElement);
         }
     }
 }

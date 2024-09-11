@@ -1,2 +1,2 @@
-﻿64090
-C:/Users/kranz/Downloads/Godot_v3.5.3-stable_mono_win64/Godot_v3.5.3-stable_mono_win64.exe
+﻿57348
+C:/Program Files/Godot_v3.5.3-stable_mono_win64/Godot_v3.5.3-stable_mono_win64.exe
