@@ -28,5 +28,5 @@ public partial class MainMenu : Control
 	{
 		MusicManager.Instance.SetVolume(10*Mathf.Log(value) - 56);
 	}
-    
+	
 }
