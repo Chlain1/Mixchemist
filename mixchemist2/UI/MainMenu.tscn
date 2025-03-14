@@ -24,10 +24,8 @@ margin_bottom = 3.0
 script = ExtResource( 18 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -2.0
-margin_top = -8.0
-margin_right = 1027.0
-margin_bottom = 616.0
+margin_right = 1029.0
+margin_bottom = 624.0
 color = Color( 0.12549, 0.12549, 0.12549, 1 )
 
 [node name="Title" type="Label" parent="."]

@@ -9,7 +9,7 @@ namespace mixchemist2.spell
 
 		[Export] public int Damage;
     	public Vector2 Direction {get; set;}
-	    public ClassesAndEnums.Element ElementType;
+	    private ClassesAndEnums.Element ElementType = ClassesAndEnums.Element.NULL;
     	
     	// Called when the node enters the scene tree for the first time.
     	public override void _Ready()
